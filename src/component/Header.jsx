@@ -9,11 +9,11 @@ function Header() {
   const [showBurger, setShowBurger] = useState(false);
 
   return (
-    <div className="header">
+    <>
 
       <div className="nav">
         <div className="leftMenu">
-          <i class="fa-solid fa-bars burgerIcon" onClick={()=>{
+          <i className="fa-solid fa-bars burgerIcon" onClick={()=>{
             setShowBurger(!showBurger);
           }}></i>
         </div>
@@ -26,6 +26,8 @@ function Header() {
           <p className="reserve-small">예약</p>
         </div>
       </div>
+
+      {/* pc 사이즈용 네비게이션바 */}
       <div className="subNav">
         <ul className='subNavList'>
           <li>Hotel Miren</li>
@@ -37,18 +39,23 @@ function Header() {
 
       </div>
 
-      {/* 클릭하면 show 추가되는 거 적용하기 */}
-      <div className="burgerMenu">
-        <ul className='burgerMenuList'>
-          <li>Hotel Miren</li>
-          <li>이벤트</li>
-          <li>객실</li>
-          <li>다이닝</li>
-          <li>예약 조회</li>
-        </ul>
+      {/* 모바일 사이즈용 햄버거 버튼 */}
+      <div className={`burgerMenu  ${showBurger ? 'show' : ''}`} onClick={()=>{
+        setShowBurger(!showBurger);
+      }}>
       </div>
+      <ul className={`burgerMenuList  ${showBurger ? 'show' : ''}`}>
+        <div>
+          <h3>로그인</h3>
+        </div>
+        <li>Hotel Miren</li>
+        <li>이벤트</li>
+        <li>객실</li>
+        <li>다이닝</li>
+        <li>예약 조회</li>
+      </ul>
 
-    </div>
+    </>
   )
 }
 
