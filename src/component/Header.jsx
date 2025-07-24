@@ -1,11 +1,10 @@
-import { use, useState } from 'react';
+import { useState } from 'react';
 import './Header.css'
 import { useNavigate } from 'react-router-dom';
 
 function Header() {
   const navigate = useNavigate();
   
-  const [showSubNav, setShowSubNav] = useState(true);
   const [showBurger, setShowBurger] = useState(false);
 
   return (
@@ -21,7 +20,7 @@ function Header() {
           <h1>HOTEL MIREN</h1>
         </div>
         <div className="rightMenu">
-          <p className='logIn'>로그인</p>
+          <p className='nav-logIn'>로그인</p>
           <p className='reserve'>예약하기</p>
           <p className="reserve-small">예약</p>
         </div>
@@ -45,7 +44,7 @@ function Header() {
       }}>
       </div>
       <ul className={`burgerMenuList  ${showBurger ? 'show' : ''}`}>
-        <div>
+        <div className='burger-logIn'>
           <h3>로그인</h3>
         </div>
         <li>Hotel Miren</li>

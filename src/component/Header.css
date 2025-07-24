@@ -52,9 +52,10 @@
   .burgerIcon {
     font-size: 28px;
     visibility: visible;
+    cursor: pointer;
   }
 
-  .logIn, .reserve {
+  .nav-logIn, .reserve {
     display: none;
   }
   
@@ -90,7 +91,6 @@
     margin-top: 60px;
     top: 0;
     left: 0;
-    padding: 30px 20px;
     position: absolute;
     z-index: 1000;
     
@@ -101,8 +101,16 @@
     background: #F7F5F2;
   }
 
+  .burger-logIn {
+    width: 280px;
+    padding: 30px;
+    margin-bottom: 10px;
+    color: #C7925D;
+    border-bottom: 1.5px solid #C7925D;
+  }
+
   .burgerMenuList > li {
-    padding: 20px;
+    padding: 25px 40px;
   }
 }
 
