@@ -8,7 +8,7 @@ function Header() {
   const [showBurger, setShowBurger] = useState(false);
 
   return (
-    <>
+    <div className='header'>
 
       <div className="nav">
         <div className="leftMenu">
@@ -54,7 +54,7 @@ function Header() {
         <li>예약 조회</li>
       </ul>
 
-    </>
+    </div>
   )
 }
 
