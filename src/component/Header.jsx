@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Header.css'
 import { useNavigate } from 'react-router-dom';
 
@@ -6,6 +6,10 @@ function Header() {
   const navigate = useNavigate();
   
   const [showBurger, setShowBurger] = useState(false);
+
+  useEffect(()=>{
+    document.body.style.overflow = showBurger ? 'hidden' : 'auto';
+  }, [showBurger])
 
   return (
     <div className='header'>
@@ -39,7 +43,7 @@ function Header() {
       </div>
 
       {/* 모바일 사이즈용 햄버거 버튼 */}
-      <div className={`burgerMenu  ${showBurger ? 'show' : ''}`} onClick={()=>{
+      <div className={`${showBurger ? 'burgerMenu show' : ''}`} onClick={()=>{
         setShowBurger(!showBurger);
       }}>
       </div>

@@ -1,8 +1,117 @@
-.intro {
-  background: pink;
+@font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* pc 사이즈 */
+@media screen and (min-width:768px) {
+  .hotelImage {
+    height: 800px;
+  }
+
+  /* 호텔 소개 */
+  .intro {
+    display: flex;
+  }
+
+  .introImg {
+    width: 600px;
+    height: 700px;
+  }
+
+  .introBox {
+    width: 400px;
+    padding-top: 250px;
+  }
+
+  .introBox .moreInfo {
+    margin: 20px 30px;
+  }
+}
+
+/* 모바일 사이즈 */
+@media screen and (max-width:767px) {
+  .hotelImage {
+    height: 500px;
+  }
+
+  /* 호텔 소개 */
+  .introImg {
+    width: 600px;
+    height: 600px;
+    margin: auto;
+  }
+
+  .introBox {
+    width: 600px;
+    height: 250px;
+    margin: auto;
+    padding-top: 30px;
+  }
+
+  .introBox .moreInfo {
+    margin: 20px 30px;
+  }
+}
+
+/* 사이즈 공통 */
+body, .mainPage {
+  overflow-x: hidden;
 }
 
 .hotelImage {
+  background-position: center center;
   background-image: url('../images/test02.png');
   background-size: cover;
+}
+
+/* 호텔 소개 */
+.intro {
+  justify-content: center;
+  padding: 30px 0;
+}
+
+.introImg {
+  background-image: url('../images/mainPage2.png');
+  background-position: center center;
+  background-size: cover;
+}
+
+.introText > p {
+  font-family: 'GowunDodum-Regular';
+  font-weight: bold;
+  padding: 10px 30px;
+  font-size: large;
+}
+
+.moreInfo {
+  font-family: 'GowunDodum-Regular';
+  padding: 10px;
+  display: inline-block;
+  
+  background: #F7F5F2;
+  border: 1px solid black;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.moreInfo:hover {
+  background: #C7925D;
+  border: 1px solid #C7925D;
+  color: #F7F5F2;
+}
+
+/* 객실, 다이닝 샘플 */
+
+
+/* 삭제 */
+.roomInfo {
+  background: pink;
+}
+
+.roomIntro {
+  background: skyblue;
 }
