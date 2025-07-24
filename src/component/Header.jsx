@@ -29,10 +29,11 @@ function Header() {
         </div>
         <div className="logo" onClick={() => navigate('/')} style={{cursor: 'pointer'}}>
           <h1>HOTEL MIREN</h1>
+          <p>Stillness by the Waters</p>
         </div>
         <div className="rightMenu">
-          <p className='nav-logIn'>로그인</p>
-          <p className='reserve'>예약하기</p>
+          <p className='rightMenuItem'>로그인</p>
+          <p className='rightMenuItem'>예약하기</p>
           <p className="reserve-small">예약</p>
         </div>
       </div>

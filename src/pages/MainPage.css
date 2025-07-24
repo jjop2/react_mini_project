@@ -82,6 +82,27 @@ body, .mainPage {
   background-size: cover;
 }
 
+/* 이벤트 정보 */
+.wrapper {
+  width: 1000px;
+  height: 500px;
+  overflow: hidden;
+
+  background: pink;
+}
+
+.eventCarousel {
+  display: flex;
+  transition: all 1s ease;
+}
+
+.eventImg {
+  width: 1000px;
+  height: 500px;
+}
+
+
+
 /* 호텔 소개 */
 .intro {
   justify-content: center;

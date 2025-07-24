@@ -1,17 +1,22 @@
+@font-face {
+    font-family: 'Arita-buri-SemiBold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Arita-buri-SemiBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* pc 사이즈 : 네비게이션 바 % 로그인 및 예약하기 */
 @media screen and (min-width:768px) {
   .subNav {
     width: 100%;
     height: 40px;
-    top: 60px;
+    top: 70px;
     left: 0;
     
     position: fixed;
     z-index: 99;
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    padding: 0 30px;
     border-top: 1px solid white;
 
     background: #2A4D5F;
@@ -21,13 +26,17 @@
   .subNavList {
     display: flex;
     list-style-type: none;
-    justify-content: space-evenly;
+    justify-content: center;
     width: 100%;
-    padding: 0 70px;
   }
 
-  .subNavList li {
-    padding: 5px;
+  .subNavList > li {
+    padding: 5px 50px;
+    cursor: pointer;
+  }
+
+  .subNavList > li:hover {
+    color: #C7925D;
   }
 
   .burgerIcon {
@@ -38,8 +47,9 @@
     display: none;
   }
 
-  .nav-logIn, .reserve {
+  .rightMenuItem {
     font-size: 14px;
+    cursor: pointer;
   }
 
   .burgerMenu, .burgerMenuList {
@@ -59,17 +69,24 @@
     cursor: pointer;
   }
 
-  .nav-logIn, .reserve {
+  .rightMenuItem {
     display: none;
   }
   
   .rightMenu .reserve-small {
     display: inline-block;
     padding: 7px 15px;
-    border-radius: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid #F7F5F2;
+    color: #F7F5F2;
+    font-size: 17px;
+    font-weight: 500;
+  }
+
+  .rightMenu .reserve-small:hover {
     background: #F7F5F2;
     color: #2A4D5F;
-    font-size: large;
   }
 
   .burgerMenu.show {
@@ -108,14 +125,27 @@
   .burger-logIn {
     width: 280px;
     padding: 30px;
-    margin-bottom: 10px;
+    cursor: pointer;
     color: #C7925D;
     border-bottom: 1.5px solid #C7925D;
   }
 
+  .burger-logIn:hover {
+    color: #F7F5F2;
+    background: #C7925D;
+  }
+
   .burgerMenuList > li {
     padding: 25px 40px;
+    cursor: pointer;
   }
+
+  .burgerMenuList > li:hover {
+    font-weight: 500;
+    color: #2A4D5F;
+    background: #DAD2C9;
+  }
+
 }
 
 /* 사이즈 공통 */
@@ -124,7 +154,7 @@
   color: #F7F5F2;
   
   width: 100%;
-  height: 60px;
+  height: 70px;
   left: 0;
   position: fixed;
   z-index: 99;
@@ -134,8 +164,13 @@
   padding: 5px 20px;
 }
 
-.logo > h1 {
-  font-family: 'Playfair Display', serif;
+.logo {
+  font-family: 'Arita-buri-SemiBold';
+  text-align: center;
+}
+
+.logo > p {
+  font-size: small;
 }
 
 .leftMenu {

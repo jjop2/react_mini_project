@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './MainPage.css'
 
 // 객실, 다이닝 샘플 이미지
@@ -7,15 +7,54 @@ import diningLIV from '../images/LIV.png'
 
 
 function MainPage() {
-  const [colorChange, setColorChange] = useState(false);
-  
+  const [currenIndex, setCurrentIndex] = useState(0);
+
+  function preIndex() {
+    if(currenIndex > 0)
+      setCurrentIndex(currenIndex - 1);
+    else
+      setCurrentIndex(2);
+  }
+
+  function nextIndex() {
+    if(currenIndex < 2)
+      setCurrentIndex(currenIndex + 1);
+    else
+      setCurrentIndex(0);
+  }
+
+  // 여기 조정 좀...
+  // setInterval(nextIndex, 2000);
 
   return (
     <div className="mainPage">
       <div className="hotelImage"></div>
 
-      <div className="eventInfo"></div>
+      {/* 프로모션 정보 */}
+      <div className="wrapper">
+        <div className="eventCarousel" style={{transform: `translateX(-${currenIndex}000px)`}}>
+          <div className="eventInfo">
+            <div style={{backgroundImage: `url(https://placehold.co/1000x500)`}} className='eventImg'></div>
+          </div>
+          <div className="eventInfo">
+            <div style={{backgroundImage: `url(https://placehold.co/1000x500/000000/FFF)`}} className='eventImg'></div>
+          </div>
+          <div className="eventInfo">
+            <div style={{backgroundImage: `url(https://placehold.co/1000x500/3D0080/FFF)`}} className='eventImg'></div>
+          </div>
+        </div>
+      </div>
 
+      <div className="carouselBtn">
+        <div className="pre" onClick={preIndex}>
+          <i className="fa-solid fa-angle-left"></i>
+        </div>
+        <div className="next" onClick={nextIndex}>
+          <i className="fa-solid fa-angle-right"></i>
+        </div>
+      </div>
+  
+      {/* 호텔 소개 */}
       <div className="intro">
         <div className="introImg"></div>
         <div className="introBox">
@@ -28,7 +67,7 @@ function MainPage() {
         </div>
       </div>
 
-      
+      {/* 객실, 다이닝 짧은 소개 */}
       <div className="hotelInfo">
         <div className="hotelInfoCard">
           <div style={{backgroundImage: `url(https://placehold.co/300x300)`}} className='sampleImg'></div>
