@@ -7,9 +7,16 @@ function Header() {
   
   const [showBurger, setShowBurger] = useState(false);
 
+  // 햄버거 메뉴 오픈 시 스크롤 금지
   useEffect(()=>{
     document.body.style.overflow = showBurger ? 'hidden' : 'auto';
   }, [showBurger])
+
+  // pc 사이즈로 변경 시 햄버거 자동 닫힘
+  window.addEventListener("resize", () => {
+    if(window.innerWidth>=768)
+      setShowBurger(false);
+  })
 
   return (
     <div className='header'>

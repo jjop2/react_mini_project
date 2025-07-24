@@ -29,6 +29,7 @@
   .introBox .moreInfo {
     margin: 20px 30px;
   }
+
 }
 
 /* 모바일 사이즈 */
@@ -54,6 +55,20 @@
   .introBox .moreInfo {
     margin: 20px 30px;
   }
+
+  /* 객실, 다이닝 샘플 */
+  .hotelInfo {
+    flex-wrap: wrap;
+  }
+
+  .hotelInfoCard {
+    display: flex;
+    align-items: center;
+  }
+
+  .hotelInfoDetail .moreInfo {
+    margin-top: auto;
+  }
 }
 
 /* 사이즈 공통 */
@@ -63,7 +78,7 @@ body, .mainPage {
 
 .hotelImage {
   background-position: center center;
-  background-image: url('../images/test02.png');
+  background-image: url('../images/mainPage.png');
   background-size: cover;
 }
 
@@ -105,13 +120,30 @@ body, .mainPage {
 }
 
 /* 객실, 다이닝 샘플 */
-
-
-/* 삭제 */
-.roomInfo {
-  background: pink;
+.hotelInfo {
+  display: flex;
+  justify-content: center;
+  background: #DAD2C9;
 }
 
-.roomIntro {
-  background: skyblue;
+.hotelInfoCard {
+  padding: 50px 50px;
+  margin: 25px 25px;
+  text-align: center;
+  background: #F7F5F2;
+}
+
+.hotelInfoDetail {
+  margin-top: 30px;
+  width: 320px;
+}
+
+.hotelInfoDetail .moreInfo {
+  margin-top: 20px;
+}
+
+.sampleImg {
+  width: 300px;
+  height: 300px;
+  background-size: cover;
 }
