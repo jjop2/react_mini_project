@@ -31,7 +31,7 @@
   }
 
   .subNavList > li {
-    padding: 5px 50px;
+    padding: 5px 45px;
     cursor: pointer;
   }
 
@@ -96,7 +96,7 @@
   .burgerMenu {
     display: block;
     position: fixed;
-    margin-top: 60px;
+    margin-top: 70px;
     width: 100%;
     height: 100vh;
     z-index: 100;
@@ -109,7 +109,7 @@
   .burgerMenuList {
     width: 280px;
     height: 100%;
-    margin-top: 60px;
+    margin-top: 70px;
     top: 0;
     left: 0;
     position: fixed;

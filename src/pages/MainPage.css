@@ -5,7 +5,7 @@
     font-style: normal;
 }
 
-/* pc 사이즈 */
+/* == pc 사이즈 == */
 @media screen and (min-width:768px) {
   .hotelImage {
     height: 800px;
@@ -30,9 +30,21 @@
     margin: 20px 30px;
   }
 
+  .hotelInfoCard {
+    margin: 25px 0;
+  }
+
+  .hotelInfoCard-left {
+    margin-right: 20px;
+  }
+
+  .hotelInfoCard-right {
+    margin-left: 20px;
+  }
+
 }
 
-/* 모바일 사이즈 */
+/* == 모바일 사이즈 == */
 @media screen and (max-width:767px) {
   .hotelImage {
     height: 500px;
@@ -66,12 +78,20 @@
     align-items: center;
   }
 
+  .hotelInfoCard-left {
+    margin: 30px 0 10px;
+  }
+
+  .hotelInfoCard-right {
+    margin: 10px 0 30px;
+  }
+
   .hotelInfoDetail .moreInfo {
     margin-top: auto;
   }
 }
 
-/* 사이즈 공통 */
+/* == 사이즈 공통 == */
 body, .mainPage {
   overflow-x: hidden;
 }
@@ -107,6 +127,7 @@ body, .mainPage {
 .intro {
   justify-content: center;
   padding: 30px 0;
+  background: #F7F5F2;
 }
 
 .introImg {
@@ -126,7 +147,7 @@ body, .mainPage {
   font-family: 'GowunDodum-Regular';
   padding: 10px;
   display: inline-block;
-  
+
   background: #F7F5F2;
   border: 1px solid black;
   border-radius: 3px;
@@ -149,7 +170,6 @@ body, .mainPage {
 
 .hotelInfoCard {
   padding: 50px 50px;
-  margin: 25px 25px;
   text-align: center;
   background: #F7F5F2;
 }
@@ -164,6 +184,7 @@ body, .mainPage {
 }
 
 .sampleImg {
+  display: inline-block;
   width: 300px;
   height: 300px;
   background-size: cover;

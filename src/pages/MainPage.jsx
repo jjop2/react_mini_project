@@ -69,7 +69,7 @@ function MainPage() {
 
       {/* 객실, 다이닝 짧은 소개 */}
       <div className="hotelInfo">
-        <div className="hotelInfoCard">
+        <div className="hotelInfoCard hotelInfoCard-left">
           <div style={{backgroundImage: `url(https://placehold.co/300x300)`}} className='sampleImg'></div>
           <div className="hotelInfoDetail">
             <p>호수 너머로 펼쳐지는 정적</p>
@@ -77,7 +77,7 @@ function MainPage() {
             <div className='moreInfo'>Room &nbsp;&gt;</div>
           </div>
         </div>
-        <div className="hotelInfoCard">
+        <div className="hotelInfoCard hotelInfoCard-right">
           <div style={{backgroundImage: `url(https://placehold.co/300x300)`}} className='sampleImg'></div>
           <div className="hotelInfoDetail">
             <p>산과 호수에서 온 재료, 정성스러운 조리</p>
