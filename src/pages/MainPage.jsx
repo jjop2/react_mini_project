@@ -42,11 +42,10 @@ function MainPage() {
     <div className="mainPage">
       <div className="hotelImage"></div>
 
-      {/* 프로모션 정보 */}
-
+      {/* 이벤트 정보 */}
       <div className="eventBox">
         <div className="eventCarousel">
-          <div className="eventWidth" style={{transform: `translateX(-${currenIndex * 12}00px)`}}>
+          <div className="eventWidth" style={{transform: `translateX(-${currenIndex * 100}%)`}}>
             <div className="eventInfo">
               <div style={{backgroundImage: `url(https://placehold.co/1200x500/3D0080/FFF?text=CENTER+TEST)`}} className='eventImg'></div>
             </div>
@@ -67,17 +66,17 @@ function MainPage() {
             <p className='carouselIndexBtn-0' onClick={()=>{
               toIndexNum(0)
             }}>
-              <i class="fa-solid fa-circle-dot"></i>
+              <i className="fa-solid fa-circle-dot"></i>
             </p>
             <p className='carouselIndexBtn-1' onClick={()=>{
               toIndexNum(1)
             }}>
-              <i class="fa-solid fa-circle-dot"></i>
+              <i className="fa-solid fa-circle-dot"></i>
             </p>
             <p className='carouselIndexBtn-2' onClick={()=>{
               toIndexNum(2)
             }}>
-              <i class="fa-solid fa-circle-dot"></i>
+              <i className="fa-solid fa-circle-dot"></i>
             </p>
           </div>
           <div className="carouselBtn-next" onClick={nextIndex}>
