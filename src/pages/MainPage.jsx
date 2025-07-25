@@ -23,36 +23,69 @@ function MainPage() {
       setCurrentIndex(0);
   }
 
-  // 여기 조정 좀...
-  // setInterval(nextIndex, 2000);
+  function toIndexNum(indexNum) {
+    setCurrentIndex(indexNum);
+  }
+
+  useEffect(()=>{
+    const autoIndex = setInterval(()=>{
+      nextIndex();
+    }, 5000);
+
+    return()=>{
+      clearInterval(autoIndex);
+    }
+    
+  }, [currenIndex])
 
   return (
     <div className="mainPage">
       <div className="hotelImage"></div>
 
       {/* 프로모션 정보 */}
-      <div className="wrapper">
-        <div className="eventCarousel" style={{transform: `translateX(-${currenIndex}000px)`}}>
-          <div className="eventInfo">
-            <div style={{backgroundImage: `url(https://placehold.co/1000x500)`}} className='eventImg'></div>
-          </div>
-          <div className="eventInfo">
-            <div style={{backgroundImage: `url(https://placehold.co/1000x500/000000/FFF)`}} className='eventImg'></div>
-          </div>
-          <div className="eventInfo">
-            <div style={{backgroundImage: `url(https://placehold.co/1000x500/3D0080/FFF)`}} className='eventImg'></div>
-          </div>
-        </div>
-      </div>
 
-      <div className="carouselBtn">
-        <div className="pre" onClick={preIndex}>
-          <i className="fa-solid fa-angle-left"></i>
+      <div className="eventBox">
+        <div className="eventCarousel">
+          <div className="eventWidth" style={{transform: `translateX(-${currenIndex * 12}00px)`}}>
+            <div className="eventInfo">
+              <div style={{backgroundImage: `url(https://placehold.co/1200x500/3D0080/FFF?text=CENTER+TEST)`}} className='eventImg'></div>
+            </div>
+            <div className="eventInfo">
+              <div style={{backgroundImage: `url(https://placehold.co/1200x500/000000/FFF)`}} className='eventImg'></div>
+            </div>
+            <div className="eventInfo">
+              <div style={{backgroundImage: `url(https://placehold.co/1200x500/3D0080/FFF)`}} className='eventImg'></div>
+            </div>
+          </div>
         </div>
-        <div className="next" onClick={nextIndex}>
-          <i className="fa-solid fa-angle-right"></i>
+
+        <div className="carouselBtn">
+          <div className="carouselBtn-pre" onClick={preIndex}>
+            <i className="fa-solid fa-angle-left"></i>
+          </div>
+          <div className='carouselIndexBtn'>
+            <p className='carouselIndexBtn-0' onClick={()=>{
+              toIndexNum(0)
+            }}>
+              <i class="fa-solid fa-circle-dot"></i>
+            </p>
+            <p className='carouselIndexBtn-1' onClick={()=>{
+              toIndexNum(1)
+            }}>
+              <i class="fa-solid fa-circle-dot"></i>
+            </p>
+            <p className='carouselIndexBtn-2' onClick={()=>{
+              toIndexNum(2)
+            }}>
+              <i class="fa-solid fa-circle-dot"></i>
+            </p>
+          </div>
+          <div className="carouselBtn-next" onClick={nextIndex}>
+            <i className="fa-solid fa-angle-right"></i>
+          </div>
         </div>
       </div>
+     
   
       {/* 호텔 소개 */}
       <div className="intro">
