@@ -1,6 +1,6 @@
-import './ReservationForm.css'
+import './Reservation.css'
 
-function ReservationForm() {
+function Reservation() {
 
   return (
     <>
@@ -11,4 +11,4 @@ function ReservationForm() {
   )
 }
 
-export default ReservationForm
+export default Reservation
