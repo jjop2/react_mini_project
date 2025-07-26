@@ -1,0 +1,283 @@
+@font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* == pc 사이즈 == */
+@media screen and (min-width:768px) {
+  .hotelImage {
+    height: 40vw;
+  }
+
+  /* 이벤트 정보 */
+  .carouselBtn {
+    top: 65vw;
+  }
+
+  .carouselBtn-pre, .carouselBtn-next {
+    padding: 0 3vw;
+    font-size: 3vw;
+  }
+
+  .carouselIndexBtn > p {
+    padding: 0 2vw;
+    font-size: 1vw;
+  }
+
+  .eventCarousel {
+    height: 30vw;
+  }
+
+  .eventInfo {
+    height: 30vw;
+  }
+
+  /* 호텔 소개 */
+  .intro {
+    display: flex;
+  }
+
+  .introImg {
+    width: 50vw;
+    height: 50vw;
+    margin-left: 10vw;
+  }
+
+  .introBox {
+    width: 55vw;
+    padding-top: 15vw;
+  }
+
+  .introBox .moreInfo {
+    margin: 20px 30px;
+  }
+
+  .introText {
+    font-size: 1.2em;
+  }
+
+  /* 객실, 다이닝 샘플 */
+  .hotelInfoCard {
+    margin: 25px 0;
+    padding: 50px 50px;
+  }
+  
+  .hotelInfoCard-left {
+    margin-right: 1vw;
+  }
+  
+  .hotelInfoCard-right {
+    margin-left: 1vw;
+  }
+  
+  .hotelInfoDetail {
+    width: 320px;
+    margin-top: 30px;
+  }
+
+  .hotelInfoDetail .moreInfo {
+    margin-top: 20px;
+  }
+
+}
+
+/* == 모바일 사이즈 == */
+@media screen and (max-width:767px) {
+  .hotelImage {
+    height: 50vw;
+  }
+
+  /* 이벤트 정보 */
+  .carouselBtn {
+    top: 95vw;
+  }
+
+  .carouselBtn-pre, .carouselBtn-next {
+    padding: 0 5vw;
+    font-size: 4vw;
+  }
+
+  .carouselIndexBtn > p {
+    padding: 0 2.5vw;
+    font-size: 1.5vw;
+  }
+
+  .eventCarousel {
+    height: 50vw;
+  }
+
+  .eventInfo {
+    height: 50vw;
+  }
+
+  /* 호텔 소개 */
+  .introImg {
+    width: 70vw;
+    height: 70vw;
+    margin: auto;
+  }
+  
+  .introBox {
+    width: 80vw;
+    height: 30w;
+    margin: auto;
+    padding-top: 3vw;
+    text-align: center;
+  }
+
+  .introBox .moreInfo {
+    margin: 15px 30px;
+  }
+
+  .introText {
+    font-size: 1em;
+  }
+
+  /* 객실, 다이닝 샘플 */
+  .hotelInfo {
+    flex-wrap: wrap;
+    padding: 15px;
+  }
+
+  .hotelInfoCard {
+    display: flex;
+    align-items: end;
+    padding: 30px 30px;
+  }
+  
+  .hotelInfoCard-left {
+    margin: 30px 0 10px;
+  }
+  
+  .hotelInfoCard-right {
+    margin: 10px 0 30px;
+  }
+  
+  .hotelInfoDetail {
+    position: absolute;
+    text-align: left;
+    width: 300px;
+    padding: 10px;
+    background: #f7f5f25d;
+    font-size: 15px;
+  }
+
+  .hotelInfoDetail .moreInfo {
+    margin-top: 10px;
+    padding: 5px;
+  }
+}
+
+/* == 사이즈 공통 == */
+body, .mainPage {
+  overflow-x: hidden;
+}
+
+.hotelImage {
+  background-position: center center;
+  background-image: url('../images/mainPage.png');
+  background-size: cover;
+}
+
+/* 이벤트 정보 */
+.eventBox {
+  display: flex;
+  padding-top: 3vw;
+  justify-content: center;
+  background: #F7F5F2;
+}
+
+.carouselBtn {
+  position: absolute;
+  display: flex;
+  color: #f7f5f293;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.carouselIndexBtn {
+  display: flex;
+  align-items: center;
+}
+
+.eventCarousel {
+  position: relative;
+  width: 90vw;
+  overflow: hidden;
+}
+
+.eventWidth {
+  display: flex;
+  transition: all 1s ease;
+}
+
+.eventInfo {
+  min-width: 100%;
+}
+
+.eventImg {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-size: cover;
+}
+
+/* 호텔 소개 */
+.intro {
+  justify-content: center;
+  padding: 3vw 0;
+  background: #F7F5F2;
+}
+
+.introImg {
+  background-image: url('../images/mainPage2.png');
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.introText > p {
+  font-family: 'GowunDodum-Regular';
+  font-weight: bold;
+  padding: 10px 30px;
+}
+
+.moreInfo {
+  font-family: 'GowunDodum-Regular';
+  display: inline-block;
+  padding: 10px;
+
+  background: #F7F5F2;
+  border: 1px solid black;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.moreInfo:hover {
+  background: #C7925D;
+  border: 1px solid #C7925D;
+  color: #F7F5F2;
+}
+
+/* 객실, 다이닝 샘플 */
+.hotelInfo {
+  display: flex;
+  justify-content: center;
+  background: #DAD2C9;
+}
+
+.hotelInfoCard {
+  text-align: center;
+  background: #F7F5F2;
+}
+
+.sampleImg {
+  display: inline-block;
+  width: 300px;
+  height: 300px;
+  background-size: cover;
+}
