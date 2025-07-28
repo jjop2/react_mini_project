@@ -1,0 +1,33 @@
+/* pc 사이즈 : 네비게이션 바 */
+@media screen and (min-width:768px) {
+  .reservation {
+    padding-top: 110px;
+  }
+
+}
+
+/* 모바일 사이즈 : 햄버거 버튼 */
+@media screen and (max-width:767px) {
+  .reservation {
+    padding-top: 70px;
+  }
+}
+
+.reservation {
+  justify-items: center;
+}
+
+.reservationTitle {
+  justify-items: center;
+  text-align: center;
+}
+
+.reservationTitle > h3 {
+  padding: 60px 0 20px;
+  width: 200px;
+  border-bottom: 2px solid #DAD2C9;
+}
+
+.reservationTitle > h2 {
+  padding: 20px;
+}
