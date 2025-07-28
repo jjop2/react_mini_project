@@ -33,6 +33,7 @@
 }
 
 .checkInOutDate {
+  height: 40px;
   padding: 5px;
   border: 1px solid black;
 }

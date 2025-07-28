@@ -7,7 +7,7 @@ import { registerLocale } from 'react-datepicker';
 import { useNavigate } from 'react-router-dom';
 registerLocale('ko', ko);
 
-function Reservation({rsvnInfo, setRsvnInfo, dayList, totalGuestCount}) {
+function Reservation({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate}) {
   // rsvnInfo 구조분해
   const {startDate, endDate, adultCount, childCount} = rsvnInfo;
 
@@ -46,19 +46,15 @@ function Reservation({rsvnInfo, setRsvnInfo, dayList, totalGuestCount}) {
           />
         <div className="checkInOut">
           <p>체크인</p>
-          {startDate && (
           <div className="checkInOutDate">
-            {`${startDate.getFullYear()}년 ${startDate.getMonth()+1}월 ${startDate.getDate()}일 (${dayList[startDate.getDay()]})`}
+            {checkInDate}
           </div>
-          )}
         </div>
         <div className="checkInOut">
           <p>체크아웃</p>
-          {endDate ? (
-            <div className="checkInOutDate">
-              {`${endDate.getFullYear()}년 ${endDate.getMonth()+1}월 ${endDate.getDate()}일 (${dayList[endDate.getDay()]})`}
-            </div>
-          ) : <div className='checkInOutDate'>&nbsp;</div>}
+          <div className="checkInOutDate">
+            {checkOutDate}
+          </div>
         </div>
       </div>
 
@@ -99,7 +95,15 @@ function Reservation({rsvnInfo, setRsvnInfo, dayList, totalGuestCount}) {
         </div>
       </div>
 
-      <div className="nextBtn" onClick={()=>navigate('/reservation/room')}>
+      <div className="nextBtn" onClick={()=>{
+        if(checkOutDate == '') {
+          alert('체크아웃 날짜를 선택하세요');
+        } else if(checkOutDate == checkInDate) {
+          alert('최소 1박 이상으로 선택하세요')
+        } else {
+          navigate('/reservation/room');
+        }
+      }}>
         다음
       </div>
       

@@ -17,6 +17,11 @@ function App() {
     
     // 요일 표시용 배열
     const dayList = ["일", "월", "화", "수", "목", "금", "토"];
+    // 예약 날짜 출력용
+    const checkInDate = rsvnInfo.startDate && `${rsvnInfo.startDate.getFullYear()}년 ${rsvnInfo.startDate.getMonth()+1}월 ${rsvnInfo.startDate.getDate()}일 (${dayList[rsvnInfo.startDate.getDay()]})`;
+    const checkOutDate = rsvnInfo.endDate
+      ? `${rsvnInfo.endDate.getFullYear()}년 ${rsvnInfo.endDate.getMonth()+1}월 ${rsvnInfo.endDate.getDate()}일 (${dayList[rsvnInfo.endDate.getDay()]})`
+      : '';
 
     // 성인, 어린이, 총 인원
     const [totalGuestCount, setTotalGuestCount] = useState(1);
@@ -34,13 +39,13 @@ function App() {
         <Route path='/reservation' element={<Reservation
           rsvnInfo={rsvnInfo}
           setRsvnInfo={setRsvnInfo}
-          dayList={dayList}
-          totalGuestCount={totalGuestCount}
+          checkInDate={checkInDate}
+          checkOutDate={checkOutDate}
         />} />
         <Route path='/reservation/room' element={<ReservationRoom
           rsvnInfo={rsvnInfo}
-          dayList={dayList}
-          totalGuestCount={totalGuestCount}
+          checkInDate={checkInDate}
+          checkOutDate={checkOutDate}
         />} />
       </Routes>
     </>
