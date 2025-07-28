@@ -12,3 +12,20 @@
     padding-top: 70px;
   }
 }
+
+
+/* 사이즈 공통 */
+.tabBtn {
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.tabBtnSelected { 
+  background: pink;
+}
+
+.hide {
+  display: none;
+}

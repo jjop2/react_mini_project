@@ -5,6 +5,7 @@ import MainPage from './pages/MainPage'
 import Reservation from './pages/ReservationPage/Reservation'
 import ReservationRoom from './pages/ReservationPage/ReservationRoom'
 import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 function App() {
   // 예약 정보 오브젝트
@@ -29,6 +30,19 @@ function App() {
     useEffect(()=>{
       setTotalGuestCount(rsvnInfo.adultCount+rsvnInfo.childCount);
     }, [rsvnInfo.adultCount, rsvnInfo.childCount])
+
+    // 객실 데이터
+    const [room, setRoom] = useState([]);
+    useEffect(()=>{
+      axios.get('https://raw.githubusercontent.com/jjop2/react_mini_project_data/main/room.json')
+        .then((response)=>{
+          setRoom([...response.data])
+          console.log(response)
+        })
+        .error((error)=>{
+          console.log(error)
+        })
+    }, [])
   
   return (
     <>
