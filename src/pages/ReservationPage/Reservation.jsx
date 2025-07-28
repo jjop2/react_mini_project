@@ -67,26 +67,8 @@ function Reservation() {
         </div>
       </div>
 
-      {/* 객실 수, 투숙인원 선택 */}
+      {/* 투숙 인원 선택 */}
       <div className="selectBox">
-
-        <div className="countSelect">
-          <p>객실</p>
-          <div className="countSelectBtn">
-            <button onClick={()=>{
-              if(roomCount>1) {
-                setRoomCount(roomCount-1);
-              }
-            }}>-</button>
-            <p>{roomCount}</p>
-            <button onClick={()=>{
-              if(roomCount<2) {
-                setRoomCount(roomCount+1);
-              }
-            }}>+</button>
-          </div>
-        </div>
-
         <div className="countSelect">
           <p>어른</p>
           <div className="countSelectBtn">
@@ -97,7 +79,7 @@ function Reservation() {
             }}>-</button>
             <p>{adultCount}</p>
             <button onClick={()=>{
-              if(adultCount<2) {
+              if(totalGuestCount<3 && adultCount<3) {
                 setAdultCount(adultCount+1);
               }
             }}>+</button>
@@ -114,13 +96,12 @@ function Reservation() {
             }}>-</button>
             <p>{childCount}</p>
             <button onClick={()=>{
-              if(childCount<1) {
+              if(totalGuestCount<3 && childCount<2) {
                 setChildCount(childCount+1);
               }
             }}>+</button>
           </div>
         </div>
-        
       </div>
       
     </div>
