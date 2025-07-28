@@ -78,7 +78,7 @@ function Reservation({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGue
         </div>
 
         <div className="countSelect">
-          <p>어린이(36개월 미만)</p>
+          <p>어린이(0~6세)</p>
           <div className="countSelectBtn">
             <button onClick={()=>{
               if(childCount>0) {
