@@ -4,29 +4,24 @@ import { useEffect, useState } from 'react';
 import "react-datepicker/dist/react-datepicker.css";
 import { ko } from 'date-fns/locale';
 import { registerLocale } from 'react-datepicker';
+import { useNavigate } from 'react-router-dom';
 registerLocale('ko', ko);
 
-function Reservation() {
-  // 체크인, 체크아웃 날짜
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
+function Reservation({rsvnInfo, setRsvnInfo, dayList, totalGuestCount}) {
+  // rsvnInfo 구조분해
+  const {startDate, endDate, adultCount, childCount} = rsvnInfo;
+
+  // 예약 정보 등록용 함수
+  function updateInfo(key, value) {
+    setRsvnInfo(obj => ({...obj, [key]: value}));
+  };
+
+  const navigate = useNavigate();
   const onChange = (dates) => {
     const [start, end] = dates;
-    setStartDate(start);
-    setEndDate(end);
+    updateInfo('startDate', start);
+    updateInfo('endDate', end);
   };
-  // 요일 표시용 배열
-  const dayList = ["일", "월", "화", "수", "목", "금", "토"];
-  // 객실 수
-  const [roomCount, setRoomCount] = useState(1);
-  // 성인, 어린이, 총 인원
-  const [adultCount, setAdultCount] = useState(1);
-  const [childCount, setChildCount] = useState(0);
-  const [totalGuestCount, setTotalGuestCount] = useState(1);
-
-  useEffect(()=>{
-    setTotalGuestCount(adultCount+childCount);
-  }, [adultCount, childCount])
 
   return (
     <div className="reservation">
@@ -74,13 +69,13 @@ function Reservation() {
           <div className="countSelectBtn">
             <button onClick={()=>{
               if(adultCount>1) {
-                setAdultCount(adultCount-1);
+                updateInfo('adultCount', adultCount-1);
               }
             }}>-</button>
             <p>{adultCount}</p>
             <button onClick={()=>{
               if(totalGuestCount<3 && adultCount<3) {
-                setAdultCount(adultCount+1);
+                updateInfo('adultCount', adultCount+1);
               }
             }}>+</button>
           </div>
@@ -91,17 +86,21 @@ function Reservation() {
           <div className="countSelectBtn">
             <button onClick={()=>{
               if(childCount>0) {
-                setChildCount(childCount-1);
+                updateInfo('childCount', childCount-1);
               }
             }}>-</button>
             <p>{childCount}</p>
             <button onClick={()=>{
               if(totalGuestCount<3 && childCount<2) {
-                setChildCount(childCount+1);
+                updateInfo('childCount', childCount+1);
               }
             }}>+</button>
           </div>
         </div>
+      </div>
+
+      <div className="nextBtn" onClick={()=>navigate('/reservation/room')}>
+        다음
       </div>
       
     </div>
