@@ -7,7 +7,7 @@ import { registerLocale } from 'react-datepicker';
 import { useNavigate } from 'react-router-dom';
 registerLocale('ko', ko);
 
-function Reservation({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate}) {
+function Reservation({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGuestCount}) {
   // rsvnInfo 구조분해
   const {startDate, endDate, adultCount, childCount} = rsvnInfo;
 
@@ -78,7 +78,7 @@ function Reservation({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate}) {
         </div>
 
         <div className="countSelect">
-          <p>어린이(0~5세)</p>
+          <p>어린이(36개월 미만)</p>
           <div className="countSelectBtn">
             <button onClick={()=>{
               if(childCount>0) {

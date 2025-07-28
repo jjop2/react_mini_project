@@ -13,7 +13,8 @@ function App() {
       startDate: new Date(),
       endDate: new Date(),
       adultCount: 1,
-      childCount: 0
+      childCount: 0,
+      roomOrPackage: ''
     });
     
     // 요일 표시용 배열
@@ -32,17 +33,29 @@ function App() {
     }, [rsvnInfo.adultCount, rsvnInfo.childCount])
 
     // 객실 데이터
-    const [room, setRoom] = useState([]);
+    const [roomData, setRoomData] = useState([]);
     useEffect(()=>{
       axios.get('https://raw.githubusercontent.com/jjop2/react_mini_project_data/main/room.json')
         .then((response)=>{
-          setRoom([...response.data])
-          console.log(response)
+          setRoomData([...response.data]);
         })
-        .error((error)=>{
-          console.log(error)
+        .catch((error)=>{
+          console.log(error);
         })
     }, [])
+
+    // 이벤트 데이터
+    const [eventData, setEventata] = useState([]);
+    useEffect(()=>{
+      axios.get('https://raw.githubusercontent.com/jjop2/react_mini_project_data/main/event.json')
+        .then((response)=>{
+          setEventata([...response.data]);
+        })
+        .catch((error)=>{
+          console.log(error);
+        })
+    }, [])
+
   
   return (
     <>
@@ -55,11 +68,15 @@ function App() {
           setRsvnInfo={setRsvnInfo}
           checkInDate={checkInDate}
           checkOutDate={checkOutDate}
+          totalGuestCount={totalGuestCount}
         />} />
         <Route path='/reservation/room' element={<ReservationRoom
           rsvnInfo={rsvnInfo}
           checkInDate={checkInDate}
           checkOutDate={checkOutDate}
+          totalGuestCount={totalGuestCount}
+          roomData={roomData}
+          eventData={eventData}
         />} />
       </Routes>
     </>
