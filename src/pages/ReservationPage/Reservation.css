@@ -31,3 +31,20 @@
 .reservationTitle > h2 {
   padding: 20px;
 }
+
+.checkInOutDate {
+  padding: 5px;
+  border: 1px solid black;
+}
+
+.selectBox {
+  display: flex;
+}
+
+.countSelect {
+  padding: 0 50px;
+}
+
+.countSelectBtn {
+  display: flex;
+}
