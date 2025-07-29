@@ -30,7 +30,7 @@
   display: none;
 }
 
-.roomCard > img {
+img {
   width: 500px;
 }
 
@@ -39,4 +39,8 @@
   padding: 10px;
   border: 1px solid black;
   cursor: pointer;
+}
+
+.selectBtn:hover {
+  background: skyblue;
 }

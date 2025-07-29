@@ -6,6 +6,7 @@ import Reservation from './pages/ReservationPage/Reservation'
 import ReservationRoom from './pages/ReservationPage/ReservationRoom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import ReservationOption from './pages/ReservationPage/ReservationOption'
 
 function App() {
   // 예약 정보 오브젝트
@@ -14,7 +15,7 @@ function App() {
       endDate: new Date(),
       adultCount: 1,
       childCount: 0,
-      roomOrPackage: ''
+      selectedProduct: {}
     });
     
     // 요일 표시용 배열
@@ -44,12 +45,12 @@ function App() {
         })
     }, [])
 
-    // 이벤트 데이터
-    const [eventData, setEventata] = useState([]);
+    // 패키지 데이터
+    const [packData, setPackData] = useState([]);
     useEffect(()=>{
-      axios.get('https://raw.githubusercontent.com/jjop2/react_mini_project_data/main/event.json')
+      axios.get('https://raw.githubusercontent.com/jjop2/react_mini_project_data/main/pack.json')
         .then((response)=>{
-          setEventata([...response.data]);
+          setPackData([...response.data]);
         })
         .catch((error)=>{
           console.log(error);
@@ -72,11 +73,19 @@ function App() {
         />} />
         <Route path='/reservation/room' element={<ReservationRoom
           rsvnInfo={rsvnInfo}
+          setRsvnInfo={setRsvnInfo}
           checkInDate={checkInDate}
           checkOutDate={checkOutDate}
           totalGuestCount={totalGuestCount}
           roomData={roomData}
-          eventData={eventData}
+          packData={packData}
+        />} />
+        <Route path='/reservation/option' element={<ReservationOption 
+          rsvnInfo={rsvnInfo}
+          setRsvnInfo={setRsvnInfo}
+          checkInDate={checkInDate}
+          checkOutDate={checkOutDate}
+          totalGuestCount={totalGuestCount}
         />} />
       </Routes>
     </>
