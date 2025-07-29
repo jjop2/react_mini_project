@@ -1,11 +1,23 @@
 import { useState } from 'react';
 import './RsvnRoom.css'
 import { useNavigate } from 'react-router-dom';
+import NowInfoDefault from '../../component/NowInfo/NowInfoDefault';
 
 function ReservationRoom({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGuestCount, roomData, packData}) {
   const navigate = useNavigate();
   // 패키지/객실 탭
   const [isRoom, setIsRoom] = useState(false);
+
+  // 예약 정보 업데이트용 함수
+  function updateInfo(key, value) {
+    setRsvnInfo(obj => ({...obj, [key]: value}));
+  }
+
+  // 가격 세자리마다 콤마 함수
+  function formatPrice(num) {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
+  
   
   // 패키지 목록 틀
   function packCard(pack) {
@@ -24,16 +36,15 @@ function ReservationRoom({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, tota
               )
             })
           }
-          <h3>{pack.price}</h3>
+          <h3>{`${formatPrice(pack.price)}원`}</h3>
         </div>
         <div className="selectBtn" onClick={()=>{
-          setRsvnInfo(obj => ({
-            ...obj,
-            selectedProduct: {
-              type: 'package',
-              name: pack.title
-            }
-          }));
+          updateInfo('selectedProduct', {
+            type: 'package',
+            name: pack.title,
+            max: pack.max,
+            price: pack.price
+          });
           navigate('/reservation/option');
         }}>선택하기 &gt;</div>
       </div>
@@ -48,16 +59,15 @@ function ReservationRoom({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, tota
         <div className="roomInfo">
           <h2>{room.name}</h2>
           <p>{`${room.bed} | ${room.size}`}</p>
-          <h3>{room.price}</h3>
+          <h3>{`${formatPrice(room.price)}원`}</h3>
         </div>
         <div className="selectBtn" onClick={()=>{
-          setRsvnInfo(obj => ({
-            ...obj,
-            selectedProduct: {
-              type: 'room',
-              name: room.name
-            }
-          }));
+          updateInfo('selectedProduct', {
+            type: 'room',
+            name: room.name,
+            max: room.max,
+            price:room.price
+          });
           navigate('/reservation/option');
         }}>선택하기 &gt;</div>
       </div>
@@ -65,19 +75,14 @@ function ReservationRoom({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, tota
   }
 
   return (
-    <div className="reservationRoom">
+    <div className="rsvnRoom">
 
       {/* 예약 선택 현황 */}
-      <div className="rsvnInfoNow">
-        <div>
-          <p>날짜</p>
-          <p>{`${checkInDate} ~ ${checkOutDate}`}</p>
-        </div>
-        <div>
-          <p>인원</p>
-          <p>{`성인 ${rsvnInfo.adultCount}, 어린이 ${rsvnInfo.childCount}`}</p>
-        </div>
-      </div>
+      <NowInfoDefault
+        rsvnInfo={rsvnInfo}
+        checkInDate={checkInDate}
+        checkOutDate={checkOutDate}
+      />
 
       {/* 패키지/객실 탭 메뉴 */}
       <div className="tab">
@@ -113,7 +118,6 @@ function ReservationRoom({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, tota
       
       {/* 이동 버튼 */}
         <div className="preBtn" onClick={()=>navigate('/reservation')}>이전 &gt;</div>
-        <div className="nextBtn" onClick={()=>navigate('/reservation/option')}>다음 &gt;</div>
 
     </div>
   )

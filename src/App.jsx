@@ -18,13 +18,26 @@ function App() {
       // 투숙 인원
       adultCount: 1,
       childCount: 0,
-      // 선택한 패키지/객실 + 침대 타입
+      // 선택한 패키지/객실, 가격, 최대 인원 + 침대 타입
       selectedProduct: {},
-      bedType: '',
-      // 조식 인원
+      bedType: '더블',
+      // 조식 인원, 추가 인원
       bktAdult: 0,
-      bktChild: 0
+      bktChild: 0,
+      bkfAdultAdd: 0,
+      bkfChildAdd: 0
     });
+
+    useEffect(() => {
+      setRsvnInfo(obj => ({
+        ...obj,
+        bedType: '더블',
+        bktAdult: 0,
+        bktChild: 0,
+        bkfAdultAdd: 0,
+        bkfChildAdd: 0
+      }));
+    }, [rsvnInfo.selectedProduct]);
 
     // 요일 표시용 배열
     const dayList = ["일", "월", "화", "수", "목", "금", "토"];
@@ -33,7 +46,7 @@ function App() {
     const checkOutDate = rsvnInfo.endDate
       ? `${rsvnInfo.endDate.getFullYear()}년 ${rsvnInfo.endDate.getMonth()+1}월 ${rsvnInfo.endDate.getDate()}일 (${dayList[rsvnInfo.endDate.getDay()]})`
       : '';
-
+    
     // 투숙 총 인원
     const [totalGuestCount, setTotalGuestCount] = useState(1);
   
@@ -95,7 +108,13 @@ function App() {
           checkOutDate={checkOutDate}
           totalGuestCount={totalGuestCount}
         />} />
-        <Route path='/reservation/payment' element={<RsvnPay />} />
+        <Route path='/reservation/payment' element={<RsvnPay 
+          rsvnInfo={rsvnInfo}
+          setRsvnInfo={setRsvnInfo}
+          checkInDate={checkInDate}
+          checkOutDate={checkOutDate}
+          totalGuestCount={totalGuestCount}
+        />} />
       </Routes>
     </>
   )
