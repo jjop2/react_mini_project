@@ -61,7 +61,7 @@ function Reservation({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGue
       {/* 투숙 인원 선택 */}
       <div className="selectBox">
         <div className="countSelect">
-          <p>어른</p>
+          <p>성인</p>
           <div className="countSelectBtn">
             <button onClick={()=>{
               if(adultCount>1) {

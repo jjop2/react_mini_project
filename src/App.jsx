@@ -11,13 +11,22 @@ import ReservationOption from './pages/ReservationPage/ReservationOption'
 function App() {
   // 예약 정보 오브젝트
     const [rsvnInfo, setRsvnInfo] = useState({
+      // 체크인아웃
       startDate: new Date(),
       endDate: new Date(),
+      // 투숙 인원
       adultCount: 1,
       childCount: 0,
-      selectedProduct: {}
+      // 선택한 패키지/객실 + 침대 타입
+      selectedProduct: {},
+      bedType: '',
+      // 조식 인원
+      bktAdult: 0,
+      bktChild: 0
     });
-    
+
+    console.log(rsvnInfo)
+
     // 요일 표시용 배열
     const dayList = ["일", "월", "화", "수", "목", "금", "토"];
     // 예약 날짜 출력용
@@ -26,7 +35,7 @@ function App() {
       ? `${rsvnInfo.endDate.getFullYear()}년 ${rsvnInfo.endDate.getMonth()+1}월 ${rsvnInfo.endDate.getDate()}일 (${dayList[rsvnInfo.endDate.getDay()]})`
       : '';
 
-    // 성인, 어린이, 총 인원
+    // 투숙 총 인원
     const [totalGuestCount, setTotalGuestCount] = useState(1);
   
     useEffect(()=>{
