@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './ReservationRoom.css'
+import './RsvnRoom.css'
 import { useNavigate } from 'react-router-dom';
 
 function ReservationRoom({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGuestCount, roomData, packData}) {
@@ -110,6 +110,10 @@ function ReservationRoom({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, tota
           })
         }
       </div>
+      
+      {/* 이동 버튼 */}
+        <div className="preBtn" onClick={()=>navigate('/reservation')}>이전 &gt;</div>
+        <div className="nextBtn" onClick={()=>navigate('/reservation/option')}>다음 &gt;</div>
 
     </div>
   )

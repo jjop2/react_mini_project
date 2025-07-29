@@ -104,7 +104,7 @@ function Reservation({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGue
           navigate('/reservation/room');
         }
       }}>
-        다음
+        다음 &gt;
       </div>
       
     </div>

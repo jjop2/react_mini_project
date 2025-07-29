@@ -1,7 +1,9 @@
 import { useState } from 'react'
-import './ReservationOption.css'
+import './RsvnOption.css'
+import { useNavigate } from 'react-router-dom';
 
 function ReservationOption({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGuestCount}) {
+  const navigate = useNavigate();
   // 예약 정보 업데이트용 함수
   function updateInfo(key, value) {
     setRsvnInfo(obj => ({...obj, [key]: value}));
@@ -52,6 +54,7 @@ function ReservationOption({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, to
           {/* 조식 여부 */}
           <div className={`${rsvnInfo.selectedProduct.type==='package' ? 'btnDisabled' : ''}`}>
             <div className='breakfastChoice'>
+              <h4>조식</h4>
               <p>성인</p>
               <p>28,000</p>
               <button onClick={()=>{
@@ -88,6 +91,7 @@ function ReservationOption({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, to
             <p>*조식 포함 패키지를 선택하셨습니다.</p>
             <p>*패키지 혜택은 2인 기준으로 제공됩니다. 3인 예약 시, 1인 추가에 대한 식사 또는 서비스는 아래의 별도 옵션에서 선택해 주세요.</p>
             <div className="breakfastAddChoice">
+              <h4>조식 인원 추가</h4>
               <p>성인 추가</p>
               <p>28,000</p>
               <button onClick={()=>{
@@ -126,6 +130,10 @@ function ReservationOption({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, to
             </div>
           </div>
         </div>
+
+        {/* 이동 버튼 */}
+        <div className="preBtn" onClick={()=>navigate('/reservation/room')}>이전 &gt;</div>
+        <div className="nextBtn" onClick={()=>navigate('/reservation/payment')}>다음 &gt;</div>
 
       </div>
     </div>

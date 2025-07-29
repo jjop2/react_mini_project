@@ -3,10 +3,11 @@ import './App.css'
 import Header from './component/Header'
 import MainPage from './pages/MainPage'
 import Reservation from './pages/ReservationPage/Reservation'
-import ReservationRoom from './pages/ReservationPage/ReservationRoom'
+import RsvnRoom from './pages/ReservationPage/RsvnRoom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import ReservationOption from './pages/ReservationPage/ReservationOption'
+import RsvnOption from './pages/ReservationPage/RsvnOption'
+import RsvnPay from './pages/ReservationPage/RsvnPay'
 
 function App() {
   // 예약 정보 오브젝트
@@ -24,8 +25,6 @@ function App() {
       bktAdult: 0,
       bktChild: 0
     });
-
-    console.log(rsvnInfo)
 
     // 요일 표시용 배열
     const dayList = ["일", "월", "화", "수", "목", "금", "토"];
@@ -80,7 +79,7 @@ function App() {
           checkOutDate={checkOutDate}
           totalGuestCount={totalGuestCount}
         />} />
-        <Route path='/reservation/room' element={<ReservationRoom
+        <Route path='/reservation/room' element={<RsvnRoom
           rsvnInfo={rsvnInfo}
           setRsvnInfo={setRsvnInfo}
           checkInDate={checkInDate}
@@ -89,13 +88,14 @@ function App() {
           roomData={roomData}
           packData={packData}
         />} />
-        <Route path='/reservation/option' element={<ReservationOption 
+        <Route path='/reservation/option' element={<RsvnOption 
           rsvnInfo={rsvnInfo}
           setRsvnInfo={setRsvnInfo}
           checkInDate={checkInDate}
           checkOutDate={checkOutDate}
           totalGuestCount={totalGuestCount}
         />} />
+        <Route path='/reservation/payment' element={<RsvnPay />} />
       </Routes>
     </>
   )
