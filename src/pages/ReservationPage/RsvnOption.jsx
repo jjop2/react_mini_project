@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './RsvnOption.css'
 import { useNavigate } from 'react-router-dom';
-import NowInfoDefault from '../../component/NowInfo/NowInfoDefault';
+import NowInfoDefault from '../../component/RsvnNowInfo/NowInfoDefault';
 
 function ReservationOption({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGuestCount}) {
   const navigate = useNavigate();

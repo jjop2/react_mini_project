@@ -1,0 +1,35 @@
+/* pc 사이즈 : 네비게이션 바 */
+@media screen and (min-width:768px) {
+  :root {
+    font-size: 16px;
+  }
+}
+
+/* 모바일 사이즈 : 햄버거 버튼 */
+@media screen and (max-width:767px) {
+  :root {
+    font-size: 10px;
+  }
+}
+
+.rsvnInfoWrap {
+  width: 100%;
+  padding: 1.5rem 2rem 0 2rem;
+  /* position: fixed; */
+  right: 0;
+  z-index: 97;
+  background: white;
+
+  border: 1px solid #DAD2C9;
+}
+
+.infoItem {
+  padding-bottom: 1.5rem;
+}
+
+.infoItem > p:first-child {
+  font-weight: bold;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
+  border-bottom: 1px solid #DAD2C9;
+}

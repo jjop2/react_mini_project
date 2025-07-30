@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import './RsvnPay.css'
 import { useEffect, useState } from 'react';
-import NowInfoPay from '../../component/nowInfo/nowInfoPay';
+import NowInfoPay from '../../component/RsvnNowInfo/NowInfoPay';
 
-function ReservationPay({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGuestCount}) {
+function ReservationPay({rsvnInfo, checkInDate, checkOutDate, totalGuestCount}) {
   const navigate = useNavigate();
 
   // 유효성 검사 시작용

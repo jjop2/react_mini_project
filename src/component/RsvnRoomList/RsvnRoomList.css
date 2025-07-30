@@ -3,11 +3,6 @@
   :root {
     font-size: 16px;
   }
-
-  .rsvnRoom {
-    padding-top: 110px;
-  }
-  
 }
 
 /* 모바일 사이즈 : 햄버거 버튼 */
@@ -15,33 +10,24 @@
   :root {
     font-size: 10px;
   }
-  .rsvnRoom {
-    padding-top: 70px;
-  }
 }
-
 
 /* 사이즈 공통 */
-.rsvnWrap2 {
-  position: relative;
-  /* max-width: 50rem; */
-  margin: 0 auto 100px;
-  overflow: hidden;
-  
-  background: pink;
+.hide {
+  display: none;
 }
 
-.tabBtn {
+img {
+  width: 500px;
+}
+
+.selectBtn {
   display: inline-block;
   padding: 10px;
   border: 1px solid black;
   cursor: pointer;
 }
 
-.tabBtnSelected { 
-  background: pink;
-}
-
-.roomLayout {
-  display: flex;
+.selectBtn:hover {
+  background: skyblue;
 }

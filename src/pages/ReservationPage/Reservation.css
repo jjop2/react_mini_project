@@ -1,61 +1,158 @@
 /* pc 사이즈 : 네비게이션 바 */
 @media screen and (min-width:768px) {
+  :root {
+    font-size: 16px;
+  }
+
   .reservation {
     padding-top: 110px;
   }
-
+  
 }
 
 /* 모바일 사이즈 : 햄버거 버튼 */
 @media screen and (max-width:767px) {
+  :root {
+    font-size: 10px;
+  }
   .reservation {
     padding-top: 70px;
   }
 }
 
-.reservation {
-  justify-items: center;
+.rsvnWrap1 {
+  position: relative;
+  max-width: 50rem;
+  margin: 0 auto 100px;
+  overflow: hidden;
 }
 
-.reservationTitle {
+.rsvnTitle {
   justify-items: center;
   text-align: center;
 }
 
-.reservationTitle > h3 {
-  padding: 60px 0 20px;
-  width: 200px;
+.rsvnTitle > h3 {
+  padding: 3rem 0 2rem;
+  width: 20rem;
   border-bottom: 2px solid #DAD2C9;
 }
 
-.reservationTitle > h2 {
-  padding: 20px;
+.rsvnTitle > h2 {
+  padding: 2rem;
 }
 
-.checkInOutDate {
-  height: 40px;
-  padding: 5px;
-  border: 1px solid black;
+
+.dateSelector {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calendarBox {
+  padding: 1rem 0;
 }
 
 .selectBox {
   display: flex;
 }
 
+.selectItem {
+  margin-bottom: 1rem;
+}
+
+.selectItem > p {
+  padding: 0 0 1rem 1rem;
+  font-weight: bold;
+}
+
+.selectContent {
+  display: flex;
+}
+
+.checkInOutDate, .countSelect {
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  width: 23rem;
+  padding: 0 2rem;
+  margin: 0 1rem;
+  background: #DAD2C9;
+  border-radius: 1rem;
+}
+
 .countSelect {
-  padding: 0 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.countSelect > p {
+  font-weight: bold;
 }
 
 .countSelectBtn {
   display: flex;
+  align-items: center;
+}
+
+.countSelectBtn button {
+  margin: 0 1rem;
+  cursor: pointer;
+  font-size: small;
+  height: 3rem;
+  width: 2rem;
+  background: #F7F5F2;
+  border: 1px solid #F7F5F2;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+
+.nextBtn {
+  text-align: center;
+  margin: 50px 1rem;
+  padding: 1.5rem 2.5rem;
+  cursor: pointer;
+  background: #2B4F60;
+  color: #F7F5F2;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
 
 
-.preBtn, .nextBtn {
-  margin: 10px;
-  padding: 10px;
-  cursor: pointer;
-  border: 1px solid black;
-  background: pink;
+/* Datepicker 커스텀 */
+/* 선택 불가능한 날짜 회색 처리 */
+.react-datepicker__day--disabled {
+  color: #D6D8E1 !important;
+}
+/* 해당 달을 제외한 날짜 회색 처리 */
+.react-datepicker__day--outside-month {
+  color: #D6D8E1 !important;
+}
+
+/* 주말 요일, 날짜 색 변경 */
+.react-datepicker__day:nth-child(1){ 
+  color: #FF5555;
+}
+.react-datepicker__day:nth-child(7){
+  color:#8685FF;
+}
+
+.react-datepicker__day-name:nth-child(1){
+  color: #FF5555;
+}
+.react-datepicker__day-name:nth-child(7){
+  color:#8685FF;
+}
+
+/* 날짜 범위 선택 커스텀 */
+.react-datepicker__day--selected, .react-datepicker__day--in-range {
+  color: white !important;
+  background-color: #C7925D !important;
+}
+.react-datepicker__day--in-selecting-range {
+  color: white !important;
+  background-color: #C7925D71 !important;
 }
