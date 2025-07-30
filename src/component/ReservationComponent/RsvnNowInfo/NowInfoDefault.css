@@ -12,15 +12,21 @@
   }
 }
 
-.rsvnInfoWrap {
-  width: 100%;
-  padding: 1.5rem 2rem 0 2rem;
-  /* position: fixed; */
-  right: 0;
-  z-index: 97;
-  background: white;
+.rsvnInfoNow {
+  height: 100%;
+}
 
+.rsvnInfoWrap {
+  position: sticky;
+  top: 10em;
+  z-index: 97;
+}
+
+.infoBox {
+  padding: 1.5rem 2rem 0 2rem;
+  background: white;
   border: 1px solid #DAD2C9;
+  border-radius: 5px;
 }
 
 .infoItem {
@@ -32,4 +38,8 @@
   padding-bottom: 0.5rem;
   margin-bottom: 0.3rem;
   border-bottom: 1px solid #DAD2C9;
+}
+
+.btnBox {
+  margin-top: 0.5rem;
 }

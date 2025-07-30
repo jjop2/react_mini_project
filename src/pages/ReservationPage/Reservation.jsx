@@ -112,7 +112,7 @@ function Reservation({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGue
           </div>
         </div>
 
-        <div className="nextBtn" onClick={()=>{
+        <div className="nextBtnOnly" onClick={()=>{
           if(checkOutDate == '') {
             alert('체크아웃 날짜를 선택하세요');
           } else if(checkOutDate == checkInDate) {

@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import './RsvnPay.css'
 import { useEffect, useState } from 'react';
-import NowInfoPay from '../../component/RsvnNowInfo/NowInfoPay';
+import NowInfoPay from '../../component/ReservationComponent/RsvnNowInfo/NowInfoPay';
 
 function ReservationPay({rsvnInfo, checkInDate, checkOutDate, totalGuestCount}) {
   const navigate = useNavigate();

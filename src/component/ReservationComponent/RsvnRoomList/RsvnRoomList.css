@@ -17,8 +17,30 @@
   display: none;
 }
 
+.tabBtn {
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.tabBtnSelected { 
+  background: pink;
+}
+
+
+.cardBox {
+  display: flex;
+  padding: 1rem;
+  background: white;
+  border-bottom: 1px solid #DAD2C9;
+}
+
+
+
+
 img {
-  width: 500px;
+  width: 18rem;
 }
 
 .selectBtn {

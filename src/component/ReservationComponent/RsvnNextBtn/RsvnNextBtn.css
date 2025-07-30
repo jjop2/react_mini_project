@@ -1,0 +1,30 @@
+.rsvnNextBtn {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.preBtn, .nextBtn {
+  padding: 1rem;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.preBtn {
+  width: 25%;
+  color: rgba(0, 0, 0, 0.4);
+  background: #eee;
+  border: 1px solid #DAD2C9;
+}
+
+.nextBtn {
+  width: 73%;
+  font-weight: bold;
+  color: #F7F5F2;
+  background: #2B4F60;
+}
+
+.hide {
+  display: none;
+}

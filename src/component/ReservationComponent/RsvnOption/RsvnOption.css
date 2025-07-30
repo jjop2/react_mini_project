@@ -3,11 +3,6 @@
   :root {
     font-size: 16px;
   }
-
-  .rsvnOption {
-    padding-top: 110px;
-  }
-  
 }
 
 /* 모바일 사이즈 : 햄버거 버튼 */
@@ -15,7 +10,15 @@
   :root {
     font-size: 10px;
   }
-  .rsvnOption {
-    padding-top: 70px;
-  }
+}
+
+
+/* 사이즈 공통 */
+.hide {
+  display: none;
+}
+
+.btnDisabled {
+  background: gray;
+  pointer-events: none;
 }

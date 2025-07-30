@@ -1,45 +1,38 @@
 import { useState } from 'react';
 import './RsvnRoom.css'
 import { useNavigate } from 'react-router-dom';
-import NowInfoDefault from '../../component/rsvnNowInfo/NowInfoDefault';
-import RsvnRoomList from '../../component/RsvnRoomList/RsvnRoomList';
+import NowInfoDefault from '../../component/ReservationComponent/RsvnNowInfo/NowInfoDefault';
+import RsvnRoomList from '../../component/ReservationComponent/RsvnRoomList/RsvnRoomList';
 
 function ReservationRoom({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGuestCount, roomData, packData}) {
-  const navigate = useNavigate();
-
-  // 패키지/객실 탭
-  const [isRoom, setIsRoom] = useState(false);
+  const preURL = '/reservation';
+  const nextURL = '/reservation/option';
+  
 
   return (
     <div className="rsvnRoom">
       <div className="rsvnWrap2">
 
-        {/* 예약 선택 현황 */}
-        <NowInfoDefault
-          rsvnInfo={rsvnInfo}
-          checkInDate={checkInDate}
-          checkOutDate={checkOutDate}
-        />
-
-        <div className="roomLayout">
-          {/* 패키지/객실 탭 메뉴 */}
-          <div className="tab">
-            <div className={`tabBtn ${isRoom ? '' : 'tabBtnSelected'}`} id='package' onClick={()=>setIsRoom(false)}>패키지</div>
-            <div className={`tabBtn ${isRoom ? 'tabBtnSelected' : ''}`} id='room' onClick={()=>{setIsRoom(true)}}>일반 객실</div>
-          </div>
-
+        <div className="roomLayout-left">
           {/* 패키지, 객실 목록 */}
           <RsvnRoomList
             setRsvnInfo={setRsvnInfo}
             totalGuestCount={totalGuestCount}
             roomData={roomData}
             packData={packData}
-            isRoom={isRoom}
           />
         </div>
-        
-        {/* 이동 버튼 */}
-          <div className="preBtn" onClick={()=>navigate('/reservation')}>이전 &gt;</div>
+
+        <div className="roomLayout-right">
+          {/* 예약 선택 현황 */}
+          <NowInfoDefault
+            rsvnInfo={rsvnInfo}
+            checkInDate={checkInDate}
+            checkOutDate={checkOutDate}
+            preURL={preURL}
+            nextURL={nextURL}
+          />
+        </div>
 
       </div>
     </div>

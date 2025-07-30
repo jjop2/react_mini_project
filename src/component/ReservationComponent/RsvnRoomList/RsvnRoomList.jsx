@@ -1,8 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import './RsvnRoomList.css'
+import { useState } from 'react';
 
-function RsvnRoomList({setRsvnInfo, totalGuestCount, roomData, packData, isRoom}) {
+function RsvnRoomList({setRsvnInfo, totalGuestCount, roomData, packData}) {
   const navigate = useNavigate();
+
+  // 패키지/객실 탭
+  const [isRoom, setIsRoom] = useState(false);
 
   // 예약 정보 업데이트용 함수
   function updateInfo(key, value) {
@@ -18,7 +22,7 @@ function RsvnRoomList({setRsvnInfo, totalGuestCount, roomData, packData, isRoom}
   // 패키지 목록 틀
   function packCard(pack) {
     return (
-      <div className="packCard">
+      <div className="cardBox">
         <img src={`https://raw.githubusercontent.com/jjop2/react_mini_project_data/main/image/${pack.title}.png`} alt="" />
         <div className="packInfo">
           <h2>{pack.title}</h2>
@@ -50,7 +54,7 @@ function RsvnRoomList({setRsvnInfo, totalGuestCount, roomData, packData, isRoom}
   // 객실 목록 틀
   function roomCard(room) {
     return (
-      <div className="roomCard">
+      <div className="cardBox">
         <img src={`https://raw.githubusercontent.com/jjop2/react_mini_project_data/main/image/${room.name}.png`} alt="" />
         <div className="roomInfo">
           <h2>{room.name}</h2>
@@ -73,6 +77,12 @@ function RsvnRoomList({setRsvnInfo, totalGuestCount, roomData, packData, isRoom}
   return (
     <div className="rsvnRoomInfo">
       <div className="roomListWrap">
+        {/* 패키지/객실 탭 메뉴 */}
+        <div className="tab">
+          <div className={`tabBtn ${isRoom ? '' : 'tabBtnSelected'}`} id='package' onClick={()=>setIsRoom(false)}>패키지</div>
+          <div className={`tabBtn ${isRoom ? 'tabBtnSelected' : ''}`} id='room' onClick={()=>{setIsRoom(true)}}>일반 객실</div>
+        </div>
+
         {/* 패키지 목록 */}
         <div className={`packSelect ${isRoom ? 'hide' : ''}`}>
           {
@@ -103,4 +113,4 @@ function RsvnRoomList({setRsvnInfo, totalGuestCount, roomData, packData, isRoom}
   )
 }
 
-export default RsvnRoomInfo
+export default RsvnRoomList
