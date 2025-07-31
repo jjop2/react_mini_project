@@ -1,25 +1,22 @@
-import { useState } from 'react';
-import './RsvnRoom.css'
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react'
+import './RsvnOptionPage.css'
 import NowInfoDefault from '../../component/ReservationComponent/RsvnNowInfo/NowInfoDefault';
-import RsvnRoomList from '../../component/ReservationComponent/RsvnRoomList/RsvnRoomList';
+import RsvnOption from '../../component/ReservationComponent/RsvnOption/RsvnOption';
 
-function ReservationRoom({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGuestCount, roomData, packData}) {
-  const preURL = '/reservation';
-  const nextURL = '/reservation/option';
-  
+function RsvnOptionPage({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGuestCount}) {
+  const preURL = '/reservation/room';
+  const nextURL = '/reservation/payment';
 
   return (
-    <div className="rsvnRoom">
+    <div className='rsvnOptionPage'>
       <div className="rsvnWrap2">
-
+        
         <div className="roomLayout-left">
-          {/* 패키지, 객실 목록 */}
-          <RsvnRoomList
+          {/* 옵션 선택 본문 */}
+          <RsvnOption
+            rsvnInfo={rsvnInfo}
             setRsvnInfo={setRsvnInfo}
             totalGuestCount={totalGuestCount}
-            roomData={roomData}
-            packData={packData}
           />
         </div>
 
@@ -39,4 +36,4 @@ function ReservationRoom({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, tota
   )
 }
 
-export default ReservationRoom
+export default RsvnOptionPage

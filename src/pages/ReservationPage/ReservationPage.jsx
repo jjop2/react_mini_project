@@ -1,5 +1,5 @@
 import DatePicker from 'react-datepicker';
-import './Reservation.css'
+import './ReservationPage.css'
 import "react-datepicker/dist/react-datepicker.css";
 import { ko } from 'date-fns/locale';
 import { registerLocale } from 'react-datepicker';
@@ -9,7 +9,7 @@ import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 registerLocale('ko', ko);
 
-function Reservation({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGuestCount}) {
+function ReservationPage({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGuestCount}) {
   // rsvnInfo 구조분해
   const {startDate, endDate, adultCount, childCount} = rsvnInfo;
 
@@ -26,7 +26,7 @@ function Reservation({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGue
   };
 
   return (
-    <div className="reservation">
+    <div className="reservationPage">
       <div className="rsvnWrap1">
         <div className="rsvnTitle">
           <h3>예약</h3>
@@ -128,4 +128,4 @@ function Reservation({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGue
   )
 }
 
-export default Reservation
+export default ReservationPage

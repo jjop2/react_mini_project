@@ -16,7 +16,6 @@ function NowInfoDefault({rsvnInfo, checkInDate, checkOutDate, preURL, nextURL}) 
           <p>{`성인 ${rsvnInfo.adultCount}, 어린이 ${rsvnInfo.childCount}`}</p>
         </div>
       </div>
-
       <div className="btnBox">
         <RsvnNextBtn
           rsvnInfo={rsvnInfo}
@@ -24,6 +23,7 @@ function NowInfoDefault({rsvnInfo, checkInDate, checkOutDate, preURL, nextURL}) 
           nextURL={nextURL}
         />
       </div>
+
     </div>
   </div>
   )

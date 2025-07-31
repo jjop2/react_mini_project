@@ -13,43 +13,86 @@
 }
 
 /* 사이즈 공통 */
-.hide {
-  display: none;
+.tab {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  border-bottom: 1px solid #DAD2C9;
 }
 
 .tabBtn {
   display: inline-block;
-  padding: 10px;
-  border: 1px solid black;
+  padding: 0.7rem;
+  width: 10rem;
+  text-align: center;
+  border: 1px solid #DAD2C9;
+  border-radius: 5px;
+  background: #F7F5F2;
+  color: #D8BCA3;
   cursor: pointer;
 }
 
 .tabBtnSelected { 
-  background: pink;
+  border: 1px solid #C7925D;
+  background: #C7925D;
+  color: white;
 }
 
 
 .cardBox {
   display: flex;
+  align-items: center;
   padding: 1rem;
+  justify-content: space-between;
   background: white;
   border-bottom: 1px solid #DAD2C9;
 }
 
+.cardBox > img {
+  max-height: 13rem;
+}
 
+.cardInfo {
+  padding: 0.6rem;
+  min-height: 13rem;
+  max-height: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 3;
+}
 
+.cardInfo-top > h2 {
+  padding-bottom: 0.5rem;
+}
 
-img {
-  width: 18rem;
+.summaryBenefit {
+  color: #6C8B74;
+}
+
+.cardInfo-bottom {
+  text-align: right;
+}
+
+.selectBtnBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0.6rem;
+  min-height: 13rem;
+  flex: 1;
+  text-align: center;
 }
 
 .selectBtn {
-  display: inline-block;
   padding: 10px;
-  border: 1px solid black;
+  border: 1px solid #DAD2C9;
+  border-radius: 5px;
+  background: #F7F5F2;
   cursor: pointer;
 }
 
 .selectBtn:hover {
-  background: skyblue;
+  background: #DAD2C9;
 }

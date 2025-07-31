@@ -2,24 +2,26 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  gap: 0.5rem;
 }
 
 .preBtn, .nextBtn {
   padding: 1rem;
   border-radius: 5px;
   text-align: center;
+  align-content: center;
   cursor: pointer;
 }
 
 .preBtn {
-  width: 25%;
+  flex: 1;
   color: rgba(0, 0, 0, 0.4);
   background: #eee;
-  border: 1px solid #DAD2C9;
+  border: 1px solid #ddd;
 }
 
 .nextBtn {
-  width: 73%;
+  flex: 3;
   font-weight: bold;
   color: #F7F5F2;
   background: #2B4F60;

@@ -24,29 +24,27 @@ function RsvnRoomList({setRsvnInfo, totalGuestCount, roomData, packData}) {
     return (
       <div className="cardBox">
         <img src={`https://raw.githubusercontent.com/jjop2/react_mini_project_data/main/image/${pack.title}.png`} alt="" />
-        <div className="packInfo">
-          <h2>{pack.title}</h2>
-          <p>{`객실 유형 : ${pack.roomType}`}</p>
-          {
-            pack.benefit.map((benefitContent, i)=>{
-              return (
-                <div key={i}>
-                  <p>- {benefitContent}</p>
-                </div>
-              )
-            })
-          }
-          <h3>{`${formatPrice(pack.price)}원`}</h3>
+        <div className="cardInfo">
+          <div className='cardInfo-top'>
+            <h2>{pack.title}</h2>
+            <p>{`객실 유형 : ${pack.roomType}`}</p>
+            <p className='summaryBenefit'>{pack.summaryBenefit}</p>
+          </div>
+          <div className='cardInfo-bottom'>
+            <h3>{`${formatPrice(pack.price)}원`}</h3>
+          </div>
         </div>
-        <div className="selectBtn" onClick={()=>{
-          updateInfo('selectedProduct', {
-            type: 'package',
-            name: pack.title,
-            max: pack.max,
-            price: pack.price
-          });
-          navigate('/reservation/option');
-        }}>선택하기 &gt;</div>
+        <div className="selectBtnBox">
+          <div className="selectBtn" onClick={()=>{
+            updateInfo('selectedProduct', {
+              type: 'package',
+              name: pack.title,
+              max: pack.max,
+              price: pack.price
+            });
+            navigate('/reservation/option');
+          }}>선택하기</div>
+        </div>
       </div>
     )
   }
@@ -56,20 +54,26 @@ function RsvnRoomList({setRsvnInfo, totalGuestCount, roomData, packData}) {
     return (
       <div className="cardBox">
         <img src={`https://raw.githubusercontent.com/jjop2/react_mini_project_data/main/image/${room.name}.png`} alt="" />
-        <div className="roomInfo">
-          <h2>{room.name}</h2>
-          <p>{`${room.bed} | ${room.size}`}</p>
-          <h3>{`${formatPrice(room.price)}원`}</h3>
+        <div className="cardInfo">
+          <div className="cardInfo-top">
+            <h2>{room.name}</h2>
+            <p>{`${room.bed} | ${room.size}`}</p>
+          </div>
+          <div className="cardInfo-bottom">
+            <h3>{`${formatPrice(room.price)}원`}</h3>
+          </div>
         </div>
-        <div className="selectBtn" onClick={()=>{
-          updateInfo('selectedProduct', {
-            type: 'room',
-            name: room.name,
-            max: room.max,
-            price:room.price
-          });
-          navigate('/reservation/option');
-        }}>선택하기 &gt;</div>
+        <div className="selectBtnBox">
+          <div className="selectBtn" onClick={()=>{
+            updateInfo('selectedProduct', {
+              type: 'room',
+              name: room.name,
+              max: room.max,
+              price:room.price
+            });
+            navigate('/reservation/option');
+          }}>선택하기</div>
+        </div>
       </div>
     )
   }

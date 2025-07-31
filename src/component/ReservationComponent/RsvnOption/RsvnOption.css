@@ -14,11 +14,87 @@
 
 
 /* 사이즈 공통 */
-.hide {
-  display: none;
+.selectedRoomName {
+  padding: 3rem 2rem;
+  border-bottom: 1px solid #DAD2C9;
 }
 
-.btnDisabled {
-  background: gray;
-  pointer-events: none;
+.optionBox {
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #DAD2C9;
+}
+
+h4 {
+  padding-bottom: 1rem;
+}
+
+.bedOption {
+  display: flex;
+  justify-content: space-evenly;
+  height: 3rem;
+  text-align: center;
+  line-height: 3rem;
+  cursor: pointer;
+  gap: 0.5rem;
+}
+
+.bedType {
+  flex: 1;
+  background: #F7F5F2;
+  border: 1px solid #DAD2C9;
+  border-radius: 5px;
+  color: #D8BCA3;
+}
+
+.bedTypeSelected {
+  background: #C7925D;
+  border: 1px solid #C7925D;
+  color: white;
+}
+
+.bkfOption {
+  padding: 1rem;
+  border-radius: 5px;
+  background: #F7F5F2;
+}
+
+.bkfItem {
+  display: flex;
+  padding: 0.5rem 1rem;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #DAD2C9;
+}
+
+.bkfChoiceText {
+  display: flex;
+  gap: 0.5rem;
+}
+
+
+.bkfChoiceBtn {
+  display: flex;
+  align-items: center;
+}
+
+.bkfChoiceBtn button {
+  margin: 0 1rem;
+  cursor: pointer;
+  font-size: small;
+  height: 2rem;
+  width: 2rem;
+  background: #DAD2C9;
+  border: 1px solid #DAD2C9;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.messageBox {
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 0.9rem;
+}
+
+.messageBox2 {
+  padding-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #6C8B74;
 }

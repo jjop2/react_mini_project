@@ -2,12 +2,12 @@ import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Header from './component/Header'
 import MainPage from './pages/MainPage'
-import Reservation from './pages/ReservationPage/Reservation'
-import RsvnRoom from './pages/ReservationPage/RsvnRoom'
+import ReservationPage from './pages/ReservationPage/ReservationPage'
+import RsvnRoomPage from './pages/ReservationPage/RsvnRoomPage'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import RsvnOption from './pages/ReservationPage/RsvnOption'
-import RsvnPay from './pages/ReservationPage/RsvnPay'
+import RsvnOptionPage from './pages/ReservationPage/RsvnOptionPage'
+import RsvnPayPage from './pages/ReservationPage/RsvnPayPage'
 
 function App() {
   // 예약 정보 오브젝트
@@ -22,8 +22,8 @@ function App() {
       selectedProduct: {},
       bedType: '더블',
       // 조식 인원, 추가 인원
-      bktAdult: 0,
-      bktChild: 0,
+      bkfAdult: 0,
+      bkfChild: 0,
       bkfAdultAdd: 0,
       bkfChildAdd: 0
     });
@@ -32,8 +32,8 @@ function App() {
       setRsvnInfo(obj => ({
         ...obj,
         bedType: '더블',
-        bktAdult: 0,
-        bktChild: 0,
+        bkfAdult: 0,
+        bkfChild: 0,
         bkfAdultAdd: 0,
         bkfChildAdd: 0
       }));
@@ -85,14 +85,14 @@ function App() {
 
       <Routes>
         <Route path='/' element={<MainPage />} />
-        <Route path='/reservation' element={<Reservation
+        <Route path='/reservation' element={<ReservationPage
           rsvnInfo={rsvnInfo}
           setRsvnInfo={setRsvnInfo}
           checkInDate={checkInDate}
           checkOutDate={checkOutDate}
           totalGuestCount={totalGuestCount}
         />} />
-        <Route path='/reservation/room' element={<RsvnRoom
+        <Route path='/reservation/room' element={<RsvnRoomPage
           rsvnInfo={rsvnInfo}
           setRsvnInfo={setRsvnInfo}
           checkInDate={checkInDate}
@@ -101,14 +101,14 @@ function App() {
           roomData={roomData}
           packData={packData}
         />} />
-        <Route path='/reservation/option' element={<RsvnOption 
+        <Route path='/reservation/option' element={<RsvnOptionPage 
           rsvnInfo={rsvnInfo}
           setRsvnInfo={setRsvnInfo}
           checkInDate={checkInDate}
           checkOutDate={checkOutDate}
           totalGuestCount={totalGuestCount}
         />} />
-        <Route path='/reservation/payment' element={<RsvnPay 
+        <Route path='/reservation/payment' element={<RsvnPayPage 
           rsvnInfo={rsvnInfo}
           setRsvnInfo={setRsvnInfo}
           checkInDate={checkInDate}

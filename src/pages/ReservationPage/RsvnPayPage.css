@@ -1,21 +1,26 @@
 /* pc 사이즈 : 네비게이션 바 */
 @media screen and (min-width:768px) {
-  :root {
-    font-size: 16px;
-  }
-
-  .rsvnOption {
+  .rsvnPayPage {
     padding-top: 110px;
   }
-  
+
 }
 
 /* 모바일 사이즈 : 햄버거 버튼 */
 @media screen and (max-width:767px) {
-  :root {
-    font-size: 10px;
-  }
-  .rsvnOption {
+  .rsvnPayPage {
     padding-top: 70px;
   }
+}
+
+
+/* 사이즈 공통 */
+.hide {
+  display: none;
+}
+
+.creditTab {
+  padding: 10px;
+  border: 1px solid black;
+  cursor: pointer;
 }

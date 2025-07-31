@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
-import './RsvnPay.css'
+import './RsvnPayPage.css'
 import { useEffect, useState } from 'react';
 import NowInfoPay from '../../component/ReservationComponent/RsvnNowInfo/NowInfoPay';
 
-function ReservationPay({rsvnInfo, checkInDate, checkOutDate, totalGuestCount}) {
+function RsvnPayPage({rsvnInfo, checkInDate, checkOutDate, totalGuestCount}) {
   const navigate = useNavigate();
 
   // 유효성 검사 시작용
@@ -121,7 +121,7 @@ function ReservationPay({rsvnInfo, checkInDate, checkOutDate, totalGuestCount}) 
 
 
   return (
-    <div className="rsvnPay">
+    <div className="rsvnPayPage">
       
       {/* 예약 선택 현황 */}
       <NowInfoPay
@@ -316,4 +316,4 @@ function ReservationPay({rsvnInfo, checkInDate, checkOutDate, totalGuestCount}) 
   )
 }
 
-export default ReservationPay
+export default RsvnPayPage
