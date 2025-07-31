@@ -24,7 +24,7 @@ function RsvnOption({rsvnInfo, setRsvnInfo, totalGuestCount, preURL, nextURL}) {
 
       {/* 침대 구성(스탠다드, 디럭스) */}
       <div className={`optionBox ${selectedProduct.max===3 ? 'hide' : ''}`}>
-        <h4>침대 구성</h4>
+        <h3>침대 구성</h3>
         <div className="bedOption">
           <div className={`bedType ${isDouble ? 'bedTypeSelected' : ''}`} onClick={(e)=>{
             setIsDouble(true);
@@ -45,12 +45,16 @@ function RsvnOption({rsvnInfo, setRsvnInfo, totalGuestCount, preURL, nextURL}) {
       {/* 조식 관련 */}
       <div className="optionBox">
         {/* 조식 여부 */}
-        <div className={`bkfOption ${selectedProduct.type==='package' ? 'hide' : ''}`}>
-          <h4>조식</h4>
+        <div className={`${selectedProduct.type==='package' ? 'hide' : ''}`}>
+          <h3>조식</h3>
           <div className='bkfItem'>
             <div className="bkfChoiceText">
-              <p>성인 |</p>
-              <p>28,000원</p>
+              <div className="bkfChoiceText-left">
+                <p>성인</p>
+              </div>
+              <div className="bkfChoiceText-right">
+                <p>28,000원</p>
+              </div>
             </div>
             <div className="bkfChoiceBtn">
               <button onClick={()=>{
@@ -69,8 +73,12 @@ function RsvnOption({rsvnInfo, setRsvnInfo, totalGuestCount, preURL, nextURL}) {
           
           <div className='bkfItem'>
             <div className='bkfChoiceText'>
-              <p>어린이(7세~12세)</p>
-              <p>18,000원</p>
+              <div className="bkfChoiceText-left">
+                <p>어린이(7세~12세)*</p>
+              </div>
+              <div className="bkfChoiceText-right">
+                <p>18,000원</p>
+              </div>
             </div>
             <div className="bkfChoiceBtn">
               <button onClick={()=>{
@@ -87,24 +95,31 @@ function RsvnOption({rsvnInfo, setRsvnInfo, totalGuestCount, preURL, nextURL}) {
             </div>
           </div>
           <div className="bkfItem">
-            <p className='messageBox'>*6세 이하는 무료입니다.</p>
+            <p className='messageBox'>*6세 이하 : 무료</p>
           </div>
         </div>
 
         {/* 패키지 선택 시 안내 & 추가 인원 */}
-        <div className={`bkfOption ${selectedProduct.type==='package' ? '' : 'hide'}`}>
-          <h4>조식</h4>
+        <div className={`${selectedProduct.type==='package' ? '' : 'hide'}`}>
+          <h3>조식</h3>
           <div className="messageBox2">
             <p>*조식 포함 패키지를 선택하셨습니다.</p>
-            <p>*패키지 혜택은 2인 기준으로 제공됩니다. 3인 예약 시, 1인 추가에 대한 식사 또는 서비스는 아래의 별도 옵션에서 선택해 주세요.</p>
           </div>
 
           <div className={`optionAddBox ${selectedProduct.max===3 ? '' : 'hide'}`}>
-            <h4>조식 인원 추가</h4>
+            <h3>조식 인원 추가</h3>
+            <div className="messageBox2">
+            <p>*패키지 혜택은 2인 기준으로 제공됩니다.</p>
+            <p>*3인 예약 시, 1인 추가에 대한 식사 또는 서비스는 아래의 별도 옵션에서 선택해 주세요.</p>
+          </div>
             <div className="bkfItem">
               <div className="bkfChoiceText">
-                <p>성인 추가</p>
-                <p>28,000원</p>
+                <div className="bkfChoiceText-left">
+                  <p>성인 추가</p>
+                </div>
+                <div className="bkfChoiceText-right">
+                  <p>28,000원</p>
+                </div>
               </div>
               <div className="bkfChoiceBtn">
                 <button onClick={()=>{
@@ -122,8 +137,12 @@ function RsvnOption({rsvnInfo, setRsvnInfo, totalGuestCount, preURL, nextURL}) {
             </div>
             <div className="bkfItem">
               <div className="bkfChoiceText">
-                <p>어린이(7세~12세) 추가</p>
-                <p>18,000원</p>
+                <div className="bkfChoiceText-left">
+                  <p>어린이(7세~12세)* 추가</p>
+                </div>
+                <div className="bkfChoiceText-right">
+                  <p>18,000원</p>
+                </div>
               </div>
               <div className="bkfChoiceBtn">
                 <button onClick={()=>{
@@ -140,7 +159,7 @@ function RsvnOption({rsvnInfo, setRsvnInfo, totalGuestCount, preURL, nextURL}) {
               </div>
             </div>
             <div className="bkfItem">
-              <p className='messageBox'>*6세 이하는 무료입니다.</p>
+              <p className='messageBox'>*6세 이하 : 무료</p>
             </div>
             
           </div>

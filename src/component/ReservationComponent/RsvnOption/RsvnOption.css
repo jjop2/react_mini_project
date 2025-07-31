@@ -24,8 +24,8 @@
   border-bottom: 1px solid #DAD2C9;
 }
 
-h4 {
-  padding-bottom: 1rem;
+h3 {
+  padding-bottom: 0.5rem;
 }
 
 .bedOption {
@@ -34,6 +34,7 @@ h4 {
   height: 3rem;
   text-align: center;
   line-height: 3rem;
+  margin-top: 1rem;
   cursor: pointer;
   gap: 0.5rem;
 }
@@ -52,12 +53,6 @@ h4 {
   color: white;
 }
 
-.bkfOption {
-  padding: 1rem;
-  border-radius: 5px;
-  background: #F7F5F2;
-}
-
 .bkfItem {
   display: flex;
   padding: 0.5rem 1rem;
@@ -68,13 +63,23 @@ h4 {
 
 .bkfChoiceText {
   display: flex;
-  gap: 0.5rem;
+  flex: 3;
+  /* gap: 0.5rem; */
 }
 
+.bkfChoiceText-left {
+  flex: 3;
+}
+
+.bkfChoiceText-right {
+  flex: 1;
+  font-weight: 500;
+}
 
 .bkfChoiceBtn {
   display: flex;
   align-items: center;
+  flex: 1;
 }
 
 .bkfChoiceBtn button {
@@ -83,9 +88,13 @@ h4 {
   font-size: small;
   height: 2rem;
   width: 2rem;
-  background: #DAD2C9;
+  background: #F7F5F2;
   border: 1px solid #DAD2C9;
   color: rgba(0, 0, 0, 0.8);
+}
+
+.optionAddBox {
+  padding-top: 1rem;
 }
 
 .messageBox {
@@ -96,5 +105,5 @@ h4 {
 .messageBox2 {
   padding-bottom: 1rem;
   font-size: 0.9rem;
-  color: #6C8B74;
+  color: rgba(255, 0, 0, 0.8);
 }
