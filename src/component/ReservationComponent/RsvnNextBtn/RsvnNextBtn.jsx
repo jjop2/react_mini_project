@@ -6,14 +6,14 @@ function RsvnNextBtn({rsvnInfo, preURL, nextURL}) {
 
   return (
     <div className="rsvnNextBtn">
-      <div className="preBtn" onClick={()=>navigate(`${preURL}`)}>&lt; 이전</div>
+      <div className="preBtn" onClick={()=>navigate(`${preURL}`)}>이전</div>
       <div className={
         `nextBtn
         ${rsvnInfo.selectedProduct.type===undefined
           ? 'hide'
           : ''
         }`
-      } onClick={()=>navigate(`${nextURL}`)}>다음 &gt;</div>
+      } onClick={()=>navigate(`${nextURL}`)}>다음</div>
     </div>
   )
 }

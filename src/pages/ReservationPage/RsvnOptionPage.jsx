@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import './RsvnOptionPage.css'
 import NowInfoDefault from '../../component/ReservationComponent/RsvnNowInfo/NowInfoDefault';
 import RsvnOption from '../../component/ReservationComponent/RsvnOption/RsvnOption';

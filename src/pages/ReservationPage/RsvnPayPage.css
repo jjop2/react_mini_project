@@ -18,9 +18,3 @@
 .hide {
   display: none;
 }
-
-.creditTab {
-  padding: 10px;
-  border: 1px solid black;
-  cursor: pointer;
-}

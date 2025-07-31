@@ -1,10 +1,7 @@
-import { useNavigate } from 'react-router-dom';
 import './RsvnOption.css'
 import { useState } from 'react';
 
-function RsvnOption({rsvnInfo, setRsvnInfo, totalGuestCount, preURL, nextURL}) {
-  const navigate = useNavigate();
-
+function RsvnOption({rsvnInfo, setRsvnInfo, totalGuestCount}) {
   // rsvnInfo 구조분해
   const {adultCount, selectedProduct, bkfAdult, bkfChild, bkfAdultAdd, bkfChildAdd} = rsvnInfo;
 

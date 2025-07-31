@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import './RsvnRoomPage.css'
-import { useNavigate } from 'react-router-dom';
 import NowInfoDefault from '../../component/ReservationComponent/RsvnNowInfo/NowInfoDefault';
 import RsvnRoomList from '../../component/ReservationComponent/RsvnRoomList/RsvnRoomList';
 

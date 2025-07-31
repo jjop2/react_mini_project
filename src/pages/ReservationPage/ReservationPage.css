@@ -78,7 +78,7 @@
   width: 23rem;
   padding: 0 2rem;
   margin: 0 1rem;
-  background: #DAD2C9;
+  background: #F7F5F2;
   border-radius: 1rem;
 }
 
@@ -86,10 +86,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.countSelect > p {
-  font-weight: bold;
 }
 
 .countSelectBtn {
@@ -101,10 +97,10 @@
   margin: 0 1rem;
   cursor: pointer;
   font-size: small;
-  height: 3rem;
+  height: 2rem;
   width: 2rem;
-  background: #F7F5F2;
-  border: 1px solid #F7F5F2;
+  background: white;
+  border: 1px solid #DAD2C9;
   color: rgba(0, 0, 0, 0.8);
 }
 

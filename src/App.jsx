@@ -110,7 +110,6 @@ function App() {
         />} />
         <Route path='/reservation/payment' element={<RsvnPayPage 
           rsvnInfo={rsvnInfo}
-          setRsvnInfo={setRsvnInfo}
           checkInDate={checkInDate}
           checkOutDate={checkOutDate}
           totalGuestCount={totalGuestCount}
