@@ -1,0 +1,48 @@
+.paymentMain {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding: 1rem 0 1.5rem;
+  gap: 1rem;
+  background: white;
+  border-top: 1px solid #DAD2C9;
+}
+
+.paymentText > h2 {
+  padding-top: 0.5rem;
+}
+
+.toPayDetail {
+  font-size: 0.8rem;
+  padding-right: 0.5rem;
+}
+
+.paymentDetail {
+  padding: 1rem;
+  border-radius: 5px;
+  background: #F7F5F2;
+  margin-bottom: 1.5rem;
+  font-size: 0.75rem;
+}
+
+.payDetailBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.payDetailBox-top-border {
+  margin: 1rem 0 0.5rem;
+  border-top: 1px solid #DAD2C9;
+}
+
+.payDetailItem-bottom, .payDetailPrice-bottom {
+  padding-top: 0.5rem;
+}
+
+.payDetailPrice {
+  font-weight: bold;
+}
+
+.hide {
+  display: none;
+}

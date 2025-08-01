@@ -1,0 +1,91 @@
+/* pc 사이즈 : 네비게이션 바 */
+@media screen and (min-width:768px) {
+  :root {
+    font-size: 16px;
+  }
+}
+
+/* 모바일 사이즈 : 햄버거 버튼 */
+@media screen and (max-width:767px) {
+  :root {
+    font-size: 10px;
+  }
+}
+
+
+/* 사이즈 공통 */
+.selectedRoomName {
+  padding: 3rem 2rem 2rem;
+  border-bottom: 1px solid #DAD2C9;
+}
+
+.optionBox {
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #DAD2C9;
+}
+
+h3 {
+  padding-bottom: 0.5rem;
+}
+
+.tab2 {
+  display: flex;
+  text-align: center;
+  padding-top: 1rem;
+  gap: 1rem;
+}
+
+.bkfItem {
+  display: flex;
+  padding: 0.5rem 1rem;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #DAD2C9;
+}
+
+.bkfChoiceText {
+  display: flex;
+  flex: 3;
+  /* gap: 0.5rem; */
+}
+
+.bkfChoiceText-left {
+  flex: 3;
+}
+
+.bkfChoiceText-right {
+  flex: 1;
+  font-weight: 500;
+}
+
+.bkfChoiceBtn {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.bkfChoiceBtn button {
+  margin: 0 1rem;
+  cursor: pointer;
+  font-size: small;
+  height: 2rem;
+  width: 2rem;
+  background: #F7F5F2;
+  border: 1px solid #DAD2C9;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.optionAddBox {
+  padding-top: 1rem;
+}
+
+.messageBox {
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 0.9rem;
+}
+
+.messageBox2 {
+  padding-bottom: 1rem;
+  font-size: 0.9rem;
+  color: rgba(255, 0, 0, 0.8);
+}
