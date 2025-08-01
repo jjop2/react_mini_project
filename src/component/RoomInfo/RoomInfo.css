@@ -1,0 +1,53 @@
+.roomInfoCard {
+  padding: 1rem;
+}
+
+.roomIntroBox {
+  text-align: center;
+}
+
+.roomInfoImg {
+  width: 40rem;
+}
+
+.roomIntroContent {
+  padding-top: 1rem;
+}
+
+.roomIntroContent > h1 {
+  letter-spacing: 1.5px;
+}
+
+.roomIntroContent > p {
+  padding: 2rem 0 1rem;
+  border-bottom: 1px solid #DAD2C9;
+}
+
+.roomBodyBox {
+  display: flex;
+  padding-top: 1rem;
+}
+
+.roomInfoItem-left {
+  flex: 3;
+  background: pink;
+}
+
+.roomInfoItem-right {
+  flex: 2;
+  background: skyblue;
+}
+
+.roomDetail {
+  padding: 1rem;
+  width: 70%;
+  background: moccasin;
+}
+
+
+
+
+.roomInfoContent {
+  padding: 1rem;
+  background: moccasin;
+}
