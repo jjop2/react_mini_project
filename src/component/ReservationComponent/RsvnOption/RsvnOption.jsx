@@ -22,14 +22,14 @@ function RsvnOption({rsvnInfo, setRsvnInfo, totalGuestCount}) {
       {/* 침대 구성(스탠다드, 디럭스) */}
       <div className={`optionBox ${selectedProduct.max===3 ? 'hide' : ''}`}>
         <h3>침대 구성</h3>
-        <div className="bedOption">
-          <div className={`bedType ${isDouble ? 'bedTypeSelected' : ''}`} onClick={(e)=>{
+        <div className="tab2">
+          <div className={`tabBtn ${isDouble ? 'tabBtnSelected' : ''}`} onClick={(e)=>{
             setIsDouble(true);
             updateInfo('bedType', '더블');
           }} >
             더블
           </div>
-          <div className={`bedType ${isDouble ? '' : 'bedTypeSelected'}`} onClick={(e)=>{
+          <div className={`tabBtn ${isDouble ? '' : 'tabBtnSelected'}`} onClick={(e)=>{
             setIsDouble(false);
             updateInfo('bedType', '트윈');
           }} >

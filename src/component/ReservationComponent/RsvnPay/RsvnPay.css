@@ -3,3 +3,80 @@
   border: 1px solid black;
   cursor: pointer;
 }
+
+.inputTitle {
+  padding: 3rem 2rem 2rem;
+  border-bottom: 1px solid #DAD2C9;
+}
+
+.inputNameBox {
+  display: flex;
+  padding-top: 1rem;
+}
+
+.inputBox {
+  padding: 1rem;
+}
+
+.inputBox-left, .inputBox-right {
+  flex: 1;
+}
+
+.inputBox span {
+  color: rgba(255, 0, 0, 0.8);
+  font-weight: normal;
+}
+
+.inputItem {
+  padding: 0.8rem;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #DAD2C9;
+}
+
+.checkMessage {
+  font-size: 0.9rem;
+  color: rgba(255, 0, 0, 0.8);
+  padding-top: 0.3rem;
+}
+
+.creditTabBox {
+  padding-top: 1rem;
+}
+
+.creditContentItem {
+  padding-top: 1rem;
+}
+
+.creditInputItem {
+  display: flex;
+  flex: 1;
+  gap: 1rem;
+  
+}
+
+.agreeBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.agreeBox > label {
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+  border-bottom: 1px solid #DAD2C9;
+}
+
+input[type="checkbox"] {
+    width: 1.2rem;
+    accent-color: #DAD2C9;
+}
+
+
+
+/* 카드 선택 탭 (임시) */
+.inputTemp {
+  background: #DAD2C9;
+  margin: 1rem;
+  text-align: center;
+}

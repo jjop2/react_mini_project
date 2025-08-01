@@ -16,20 +16,18 @@
 .tab {
   padding: 2rem;
   display: flex;
-  justify-content: center;
   gap: 1rem;
   border-bottom: 1px solid #DAD2C9;
+  text-align: center;
 }
 
 .tabBtn {
-  display: inline-block;
+  flex: 1;
   padding: 0.7rem;
-  width: 10rem;
-  text-align: center;
   border: 1px solid #DAD2C9;
   border-radius: 5px;
   background: #F7F5F2;
-  color: #D8BCA3;
+  color: #C7925D;
   cursor: pointer;
 }
 

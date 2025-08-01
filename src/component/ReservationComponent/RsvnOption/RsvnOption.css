@@ -15,7 +15,7 @@
 
 /* 사이즈 공통 */
 .selectedRoomName {
-  padding: 3rem 2rem;
+  padding: 3rem 2rem 2rem;
   border-bottom: 1px solid #DAD2C9;
 }
 
@@ -28,29 +28,11 @@ h3 {
   padding-bottom: 0.5rem;
 }
 
-.bedOption {
+.tab2 {
   display: flex;
-  justify-content: space-evenly;
-  height: 3rem;
   text-align: center;
-  line-height: 3rem;
-  margin-top: 1rem;
-  cursor: pointer;
-  gap: 0.5rem;
-}
-
-.bedType {
-  flex: 1;
-  background: #F7F5F2;
-  border: 1px solid #DAD2C9;
-  border-radius: 5px;
-  color: #D8BCA3;
-}
-
-.bedTypeSelected {
-  background: #C7925D;
-  border: 1px solid #C7925D;
-  color: white;
+  padding-top: 1rem;
+  gap: 1rem;
 }
 
 .bkfItem {

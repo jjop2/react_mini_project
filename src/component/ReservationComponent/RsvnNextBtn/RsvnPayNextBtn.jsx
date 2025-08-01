@@ -5,7 +5,7 @@ function RsvnPayNextBtn({setTestStart, isOnline, isAllInfo, isAllcredit, isAllVa
 
   return (
     <div className="rsvnPayNextBtn">
-      <div className="preBtn" onClick={()=>navigate('/reservation/option')}>이전 &gt;</div>
+      <div className="preBtn" onClick={()=>navigate('/reservation/option')}>이전</div>
       
       <div className="nextBtn" onClick={()=>{
         setTestStart({
@@ -26,7 +26,7 @@ function RsvnPayNextBtn({setTestStart, isOnline, isAllInfo, isAllcredit, isAllVa
             alert('결제 진행 화면 띄우기');
           else {
             alert('예약이 완료되었습니다.');
-            
+            navigate('/');
           }
         } else {
           if(!isAllInfo)
