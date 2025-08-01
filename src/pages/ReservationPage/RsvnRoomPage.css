@@ -1,0 +1,32 @@
+/* pc 사이즈 : 네비게이션 바 */
+@media screen and (min-width:768px) {
+  .rsvnRoomPage {
+    padding-top: 110px;
+  }
+  
+}
+
+/* 모바일 사이즈 : 햄버거 버튼 */
+@media screen and (max-width:767px) {
+  .rsvnRoomPage {
+    padding-top: 70px;
+  }
+}
+
+
+/* 사이즈 공통 */
+.rsvnWrap2 {
+  display: flex;
+  max-width: 80rem;
+  margin: 0 auto 10rem;
+  padding: 0 1rem;
+  gap: 1rem;
+}
+
+.roomLayout-left {
+  flex: 2.5;
+}
+
+.roomLayout-right {
+  flex: 1.1;
+}

@@ -33,8 +33,8 @@ function Header() {
         </div>
         <div className="rightMenu">
           <p className='rightMenuItem'>로그인</p>
-          <p className='rightMenuItem' onClick={()=>navigate('/reservation/form')}>예약하기</p>
-          <p className='reserve-small' onClick={()=>navigate('/reservation/form')}>예약</p>
+          <p className='rightMenuItem' onClick={()=>navigate('/reservation')}>예약하기</p>
+          <p className='reserve-small' onClick={()=>navigate('/reservation')}>예약</p>
         </div>
       </div>
 

@@ -186,7 +186,7 @@ body, .mainPage {
   display: flex;
   padding-top: 3vw;
   justify-content: center;
-  background: #F7F5F2;
+  background: white;
 }
 
 .carouselBtn {
@@ -229,7 +229,7 @@ body, .mainPage {
 .intro {
   justify-content: center;
   padding: 3vw 0;
-  background: #F7F5F2;
+  background: white;
 }
 
 .introImg {
@@ -250,7 +250,7 @@ body, .mainPage {
   display: inline-block;
   padding: 10px;
 
-  background: #F7F5F2;
+  background: white;
   border: 1px solid black;
   border-radius: 3px;
   cursor: pointer;
@@ -260,7 +260,7 @@ body, .mainPage {
 .moreInfo:hover {
   background: #C7925D;
   border: 1px solid #C7925D;
-  color: #F7F5F2;
+  color: white;
 }
 
 /* 객실, 다이닝 샘플 */
@@ -272,7 +272,7 @@ body, .mainPage {
 
 .hotelInfoCard {
   text-align: center;
-  background: #F7F5F2;
+  background: white;
 }
 
 .sampleImg {

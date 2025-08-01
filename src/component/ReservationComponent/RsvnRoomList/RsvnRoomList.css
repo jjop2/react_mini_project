@@ -1,0 +1,96 @@
+/* pc 사이즈 : 네비게이션 바 */
+@media screen and (min-width:768px) {
+  :root {
+    font-size: 16px;
+  }
+}
+
+/* 모바일 사이즈 : 햄버거 버튼 */
+@media screen and (max-width:767px) {
+  :root {
+    font-size: 10px;
+  }
+}
+
+/* 사이즈 공통 */
+.tab {
+  padding: 2rem;
+  display: flex;
+  gap: 1rem;
+  border-bottom: 1px solid #DAD2C9;
+  text-align: center;
+}
+
+.tabBtn {
+  flex: 1;
+  padding: 0.7rem;
+  border: 1px solid #DAD2C9;
+  border-radius: 5px;
+  background: #F7F5F2;
+  color: #C7925D;
+  cursor: pointer;
+}
+
+.tabBtnSelected { 
+  border: 1px solid #C7925D;
+  background: #C7925D;
+  color: white;
+}
+
+
+.cardBox {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  justify-content: space-between;
+  background: white;
+  border-bottom: 1px solid #DAD2C9;
+}
+
+.cardBox > img {
+  max-height: 13rem;
+}
+
+.cardInfo {
+  padding: 0.6rem;
+  min-height: 13rem;
+  max-height: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 3;
+}
+
+.cardInfo-top > h2 {
+  padding-bottom: 0.5rem;
+}
+
+.summaryBenefit {
+  color: rgba(255, 0, 0, 0.8);
+}
+
+.cardInfo-bottom {
+  text-align: right;
+}
+
+.selectBtnBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0.6rem;
+  min-height: 13rem;
+  flex: 1;
+  text-align: center;
+}
+
+.selectBtn {
+  padding: 10px;
+  border: 1px solid #DAD2C9;
+  border-radius: 5px;
+  background: #F7F5F2;
+  cursor: pointer;
+}
+
+.selectBtn:hover {
+  background: #DAD2C9;
+}
