@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import RsvnOptionPage from './pages/ReservationPage/RsvnOptionPage'
 import RsvnPayPage from './pages/ReservationPage/RsvnPayPage'
+import RoomInfoPage from './pages/RoomInfoPage/RoomInfoPage'
 
 function App() {
   // 예약 정보 오브젝트
@@ -113,6 +114,9 @@ function App() {
           checkInDate={checkInDate}
           checkOutDate={checkOutDate}
           totalGuestCount={totalGuestCount}
+        />} />
+        <Route path='/room' element={<RoomInfoPage
+          roomData={roomData}
         />} />
       </Routes>
     </>
