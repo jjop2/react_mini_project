@@ -84,7 +84,7 @@ function App() {
       <Header />
 
       <Routes>
-        <Route path='/' element={<MainPage />} />
+        <Route path='/' element={<MainPage packData={packData} />} />
         <Route path='/reservation' element={<ReservationPage
           rsvnInfo={rsvnInfo}
           setRsvnInfo={setRsvnInfo}
