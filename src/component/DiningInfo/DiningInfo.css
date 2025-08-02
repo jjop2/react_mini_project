@@ -1,0 +1,65 @@
+@media (max-width: 768px) {
+  .diningInfoCardBox {
+    flex-direction: column;
+  }
+
+  .diningInfoContent-left {
+    margin-bottom: 1rem;
+    padding-right: 0rem !important;
+  }
+}
+
+.diningInfoCardBox {
+  display: flex;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  background: #F7F5F2;
+}
+
+.diningInfoContent-left {
+  flex: 1;
+  padding-right: 2rem;
+}
+
+.diningImg {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.diningInfoContent-left > h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #2E3B2F;
+  padding: 1rem 0 0.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #DAD2C9;
+}
+
+.diningInfoContent-left > p {
+  padding: 1rem 0;
+  font-style: italic;
+  color: #6C8B74;
+  line-height: 1.8;
+}
+
+.diningInfoContentl-right {
+  flex: 1;
+}
+
+.diningInfoList {
+  padding-bottom: 1rem;
+}
+
+.diningInfoList > h3 {
+  padding: 1rem 0 0.5rem;
+  margin-bottom: 0.5rem;
+  width: 80%;
+  border-bottom: 1px solid #DAD2C9;
+}
+
+.diningInfoList p::before {
+  content: '▸';
+  color: #A2B29F;
+  width: 1em;
+  margin-right: 0.3em;
+}

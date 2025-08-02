@@ -10,6 +10,7 @@ import RsvnOptionPage from './pages/ReservationPage/RsvnOptionPage'
 import RsvnPayPage from './pages/ReservationPage/RsvnPayPage'
 import RoomInfoPage from './pages/RoomInfoPage/RoomInfoPage'
 import ScrollToTop from './component/ReservationComponent/ScrollToTop'
+import DiningInfoPage from './pages/DiningInfoPage/DiningInfoPage'
 
 function App() {
   // 예약 정보 오브젝트
@@ -106,6 +107,18 @@ function App() {
       })
   }, [])
 
+  // 다이닝 데이터
+  const [diningkData, setDiningData] = useState([]);
+  useEffect(()=>{
+    axios.get('https://raw.githubusercontent.com/jjop2/react_mini_project_data/main/dining.json')
+      .then((response)=>{
+        setDiningData([...response.data]);
+      })
+      .catch((error)=>{
+        console.log(error);
+      })
+  }, [])
+
   
   return (
     <>
@@ -146,6 +159,9 @@ function App() {
         />} />
         <Route path='/room' element={<RoomInfoPage
           roomData={roomData}
+        />} />
+        <Route path='/dining' element={<DiningInfoPage
+          diningkData={diningkData}
         />} />
       </Routes>
     </>

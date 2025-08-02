@@ -16,7 +16,9 @@ function RoomInfo({roomData, showStandard, showDeluxe, showSuite}) {
       <div className="roomInfoCard">
 
         <div className="roomIntroBox">
-          <img src={`https://raw.githubusercontent.com/jjop2/react_mini_project_data/main/image/${roomData[i].id}.png`} alt="" className="roomInfoImg" />
+          <div className="roomImgWrapper">
+            <img src={`https://raw.githubusercontent.com/jjop2/react_mini_project_data/main/image/${roomData[i].id}.png`} alt="" className="roomImg" />
+          </div>
           <div className="roomIntroContent">
             <h1>{roomData[i].name}</h1>
             <p>{roomData[i].catchphrase}</p>
@@ -51,7 +53,7 @@ function RoomInfo({roomData, showStandard, showDeluxe, showSuite}) {
                   roomData[i].service.map((data, index) => {
                     return (
                       <div key={index}>
-                        <p>• {data}</p>
+                        <p>{data}</p>
                       </div>
                     )
                   })
@@ -66,7 +68,6 @@ function RoomInfo({roomData, showStandard, showDeluxe, showSuite}) {
                 return (
                   <div className="roomDetail" key={index}>
                     <p>
-                      <span>✓ </span>
                       {data}
                     </p>
                   </div>
