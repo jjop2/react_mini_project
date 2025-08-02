@@ -9,6 +9,7 @@ import axios from 'axios'
 import RsvnOptionPage from './pages/ReservationPage/RsvnOptionPage'
 import RsvnPayPage from './pages/ReservationPage/RsvnPayPage'
 import RoomInfoPage from './pages/RoomInfoPage/RoomInfoPage'
+import ScrollToTop from './component/ReservationComponent/ScrollToTop'
 
 function App() {
   // 예약 정보 오브젝트
@@ -84,6 +85,7 @@ function App() {
     <>
       <Header />
 
+      <ScrollToTop />
       <Routes>
         <Route path='/' element={<MainPage packData={packData} />} />
         <Route path='/reservation' element={<ReservationPage
