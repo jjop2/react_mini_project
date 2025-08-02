@@ -9,10 +9,13 @@ import carouselImg3 from '../images/lake-suite-gourmet-package.png'
 // 객실, 다이닝 샘플 이미지
 import roomSample from '../images/mainPageRoom.png'
 import diningSample from '../images/mianPageDining.png'
+import { useNavigate } from 'react-router-dom';
 
 
 function MainPage({packData}) {
   const [currenIndex, setCurrentIndex] = useState(0);
+
+  const navigate = useNavigate();
 
   function preIndex() {
     if(currenIndex > 0)
@@ -111,7 +114,7 @@ function MainPage({packData}) {
           <div className="hotelInfoDetail">
             <p>호수 너머로 펼쳐지는 정적</p>
             <p>편안한 구조 속에 자연이 들어옵니다</p>
-            <div className='moreInfo'>Room &nbsp;&gt;</div>
+            <div className='moreInfo' onClick={()=>navigate('/room')}>Room &nbsp;&gt;</div>
           </div>
         </div>
         <div className="hotelInfoCard hotelInfoCard-right">

@@ -1,6 +1,6 @@
-import './PackInfo.css'
+import './PackInfoPage.css'
 
-function PackInfo() {
+function PackInfoPage() {
 
   // 패키지 목록 틀 (예약에서 썼던 거. 혜택 목록 쓴 거 재활용 하려고 복붙함)
   function packCard(pack) {
@@ -41,4 +41,4 @@ function PackInfo() {
   )
 }
 
-export default PackInfo
+export default PackInfoPage

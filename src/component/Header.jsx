@@ -43,7 +43,7 @@ function Header() {
         <ul className='subNavList'>
           <li>Hotel Miren</li>
           <li>이벤트</li>
-          <li>객실</li>
+          <li onClick={()=>navigate('/room')}>객실</li>
           <li>다이닝</li>
           <li>예약 조회</li>
         </ul>
@@ -61,7 +61,10 @@ function Header() {
         </div>
         <li>Hotel Miren</li>
         <li>이벤트</li>
-        <li>객실</li>
+        <li onClick={()=>{
+          setShowBurger(false);
+          navigate('/room');
+          }}>객실</li>
         <li>다이닝</li>
         <li>예약 조회</li>
       </ul>
