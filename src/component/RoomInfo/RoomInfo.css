@@ -15,7 +15,7 @@
 }
 
 .roomIntroContent > h1 {
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
 }
 
 .roomIntroContent > p {
@@ -30,24 +30,57 @@
 
 .roomInfoItem-left {
   flex: 3;
-  background: pink;
 }
 
 .roomInfoItem-right {
   flex: 2;
-  background: skyblue;
+}
+
+.roomInfoContent {
+  padding: 1rem 1rem 2rem 1rem;
+}
+
+.roomInfoListWrap {
+  display: flex;
+}
+
+.roomInfoList {
+  padding: 1rem 0;
+  flex: 1;
+  font-size: 1.05rem;
+}
+
+.roomInfoList >p:first-child {
+  padding: 0.5rem 0;
+  margin-bottom: 0.3rem;
+  width: 80%;
+  font-weight: 600;
+  border-bottom: 1px solid #DAD2C9;
+}
+
+.roomService {
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  width: 90%;
+  line-height: 2rem;
+  border-top: 1px solid #DAD2C9;
 }
 
 .roomDetail {
-  padding: 1rem;
-  width: 70%;
-  background: moccasin;
+  padding: 1.2rem 1.4rem;
+  margin: 1rem 0 0.5rem 0;
+  line-height: 1.8rem;
+  border-left: 4px solid #C7925D;
+  border-radius: 5px;
+  background: #F7F5F2;
 }
 
+.roomDetail span {
+  color: #6C8B74;
+  font-weight: bold;
+  margin-right: 0.4rem;
+}
 
-
-
-.roomInfoContent {
-  padding: 1rem;
-  background: moccasin;
+.toRsvnBtn {
+  margin-top: 2rem;
 }

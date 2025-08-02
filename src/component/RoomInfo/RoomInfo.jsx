@@ -1,9 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import './RoomInfo.css'
 
 function RoomInfo({roomData, showStandard, showDeluxe, showSuite}) {
   // 새로고침 했을 때 비동기 불러오는 거 처리
   if (!roomData || roomData.length === 0) return null;
 
+  const navigate = useNavigate();
 
   // 객실 리스트 배열
   const roomTypeList = [showStandard, showDeluxe, showSuite];
@@ -23,23 +25,55 @@ function RoomInfo({roomData, showStandard, showDeluxe, showSuite}) {
         
         <div className="roomBodyBox">
           <div className="roomInfoItem-left">
-            <div className="roomDetail">
-              <p>{roomData[i].detail}</p>
+            <div className="roomInfoContent">
+              <h3>객실 정보</h3>
+              <div className="roomInfoListWrap">
+                <div className="roomInfoList">
+                  <p>면적</p>
+                  <p>{roomData[i].size}</p>
+                </div>
+                <div className="roomInfoList">
+                  <p>침대 구성</p>
+                  <p>{roomData[i].bed}</p>
+
+                </div>
+                <div className="roomInfoList">
+                  <p>기준 인원</p>
+                  <p>{`${roomData[i].count}명 (최대: ${roomData[i].max}명)`}</p>
+                </div>
+              </div>
             </div>
-            <div className="roomService">
-              <h4>객실 서비스</h4>
-              {roomData[i].service}
+            
+            <div className="roomInfoContent">
+              <h3>객실 서비스</h3>
+              <div className="roomService">
+                {
+                  roomData[i].service.map((data, index) => {
+                    return (
+                      <div key={index}>
+                        <p>• {data}</p>
+                      </div>
+                    )
+                  })
+                }
+              </div>
             </div>
           </div>
 
           <div className="roomInfoItem-right">
-            <div className="roomInfoContent">
-              <p>{`면적 : ${roomData[i].size}`}</p>
-              <p>{`침대 구성 : ${roomData[i].bed}`}</p>
-              <p>{`기준 인원 : ${roomData[i].count} (최대 : ${roomData[i].max})`}</p>
-              <div>도면</div>
-            </div>
-            <div className="toRsvnBtn">
+            {
+              roomData[i].detail.map((data, index) => {
+                return (
+                  <div className="roomDetail">
+                    <p key={index}>
+                      <span>✓ </span>
+                      {data}
+                    </p>
+                  </div>
+                )
+              })
+            }
+            <div className="toRsvnBtn nextBtn" onClick={() => navigate('/reservation')}>
               예약하기
             </div>
           </div>
