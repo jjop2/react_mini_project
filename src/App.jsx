@@ -8,10 +8,28 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import RsvnOptionPage from './pages/ReservationPage/RsvnOptionPage'
 import RsvnPayPage from './pages/ReservationPage/RsvnPayPage'
+import RoomInfoPage from './pages/RoomInfoPage/RoomInfoPage'
+import ScrollToTop from './component/ReservationComponent/ScrollToTop'
+import DiningInfoPage from './pages/DiningInfoPage/DiningInfoPage'
 
 function App() {
   // 예약 정보 오브젝트
-    const [rsvnInfo, setRsvnInfo] = useState({
+  // 세션 스토리지 저장
+  let savedRsvnINfo = sessionStorage.getItem('rsvnInfo');
+  let getRsvnInfo;
+
+  if(savedRsvnINfo) {
+    // 세션 스토리지에 예약정보가 이미 있으면 불러오기
+    // 단, 날짜는 여전히 문자열이므로 Date() 안에 날짜+시간 문자열(=parsed.start/endDate) 전달하여 다시 날짜 형식으로 바꿔줘야 함
+    const parsed = JSON.parse(sessionStorage.getItem('rsvnInfo'));
+    getRsvnInfo = {
+      ...parsed,
+      startDate: new Date(parsed.startDate),
+      endDate: new Date(parsed.endDate),
+    }
+  } else {
+    // 세션 스토리지에 예약정보가 없으면 초기값 세팅
+    getRsvnInfo = {
       // 체크인아웃
       startDate: new Date(),
       endDate: new Date(),
@@ -26,65 +44,89 @@ function App() {
       bkfChild: 0,
       bkfAdultAdd: 0,
       bkfChildAdd: 0
-    });
-
-    useEffect(() => {
-      setRsvnInfo(obj => ({
-        ...obj,
-        bedType: '더블',
-        bkfAdult: 0,
-        bkfChild: 0,
-        bkfAdultAdd: 0,
-        bkfChildAdd: 0
-      }));
-    }, [rsvnInfo.selectedProduct]);
-
-    // 요일 표시용 배열
-    const dayList = ["일", "월", "화", "수", "목", "금", "토"];
-    // 예약 날짜 출력용
-    const checkInDate = rsvnInfo.startDate && `${rsvnInfo.startDate.getFullYear()}년 ${rsvnInfo.startDate.getMonth()+1}월 ${rsvnInfo.startDate.getDate()}일 (${dayList[rsvnInfo.startDate.getDay()]})`;
-    const checkOutDate = rsvnInfo.endDate
-      ? `${rsvnInfo.endDate.getFullYear()}년 ${rsvnInfo.endDate.getMonth()+1}월 ${rsvnInfo.endDate.getDate()}일 (${dayList[rsvnInfo.endDate.getDay()]})`
-      : '';
-    
-    // 투숙 총 인원
-    const [totalGuestCount, setTotalGuestCount] = useState(1);
+    }
+  }
   
-    useEffect(()=>{
-      setTotalGuestCount(rsvnInfo.adultCount+rsvnInfo.childCount);
-    }, [rsvnInfo.adultCount, rsvnInfo.childCount])
+  const [rsvnInfo, setRsvnInfo] = useState(getRsvnInfo);
 
-    // 객실 데이터
-    const [roomData, setRoomData] = useState([]);
-    useEffect(()=>{
-      axios.get('https://raw.githubusercontent.com/jjop2/react_mini_project_data/main/room.json')
-        .then((response)=>{
-          setRoomData([...response.data]);
-        })
-        .catch((error)=>{
-          console.log(error);
-        })
-    }, [])
+  useEffect(() => {
+    setRsvnInfo(obj => ({
+      ...obj,
+      bedType: '더블',
+      bkfAdult: 0,
+      bkfChild: 0,
+      bkfAdultAdd: 0,
+      bkfChildAdd: 0
+    }));
+  }, [rsvnInfo.selectedProduct]);
 
-    // 패키지 데이터
-    const [packData, setPackData] = useState([]);
-    useEffect(()=>{
-      axios.get('https://raw.githubusercontent.com/jjop2/react_mini_project_data/main/pack.json')
-        .then((response)=>{
-          setPackData([...response.data]);
-        })
-        .catch((error)=>{
-          console.log(error);
-        })
-    }, [])
+  useEffect(() => {
+    sessionStorage.setItem('rsvnInfo', JSON.stringify(rsvnInfo));
+  }, [rsvnInfo]);
+
+
+
+  // 요일 표시용 배열
+  const dayList = ["일", "월", "화", "수", "목", "금", "토"];
+  // 예약 날짜 출력용
+  const checkInDate = rsvnInfo.startDate && `${rsvnInfo.startDate.getFullYear()}년 ${rsvnInfo.startDate.getMonth()+1}월 ${rsvnInfo.startDate.getDate()}일 (${dayList[rsvnInfo.startDate.getDay()]})`;
+  const checkOutDate = rsvnInfo.endDate
+    ? `${rsvnInfo.endDate.getFullYear()}년 ${rsvnInfo.endDate.getMonth()+1}월 ${rsvnInfo.endDate.getDate()}일 (${dayList[rsvnInfo.endDate.getDay()]})`
+    : '';
+  
+  // 투숙 총 인원
+  const [totalGuestCount, setTotalGuestCount] = useState(1);
+
+  useEffect(()=>{
+    setTotalGuestCount(rsvnInfo.adultCount+rsvnInfo.childCount);
+  }, [rsvnInfo.adultCount, rsvnInfo.childCount])
+
+
+  // axios
+  // 객실 데이터
+  const [roomData, setRoomData] = useState([]);
+  useEffect(()=>{
+    axios.get('https://raw.githubusercontent.com/jjop2/react_mini_project_data/main/room.json')
+      .then((response)=>{
+        setRoomData([...response.data]);
+      })
+      .catch((error)=>{
+        console.log(error);
+      })
+  }, [])
+
+  // 패키지 데이터
+  const [packData, setPackData] = useState([]);
+  useEffect(()=>{
+    axios.get('https://raw.githubusercontent.com/jjop2/react_mini_project_data/main/pack.json')
+      .then((response)=>{
+        setPackData([...response.data]);
+      })
+      .catch((error)=>{
+        console.log(error);
+      })
+  }, [])
+
+  // 다이닝 데이터
+  const [diningkData, setDiningData] = useState([]);
+  useEffect(()=>{
+    axios.get('https://raw.githubusercontent.com/jjop2/react_mini_project_data/main/dining.json')
+      .then((response)=>{
+        setDiningData([...response.data]);
+      })
+      .catch((error)=>{
+        console.log(error);
+      })
+  }, [])
 
   
   return (
     <>
       <Header />
 
+      <ScrollToTop />
       <Routes>
-        <Route path='/' element={<MainPage />} />
+        <Route path='/' element={<MainPage packData={packData} />} />
         <Route path='/reservation' element={<ReservationPage
           rsvnInfo={rsvnInfo}
           setRsvnInfo={setRsvnInfo}
@@ -110,9 +152,16 @@ function App() {
         />} />
         <Route path='/reservation/payment' element={<RsvnPayPage 
           rsvnInfo={rsvnInfo}
+          setRsvnInfo={setRsvnInfo}
           checkInDate={checkInDate}
           checkOutDate={checkOutDate}
           totalGuestCount={totalGuestCount}
+        />} />
+        <Route path='/room' element={<RoomInfoPage
+          roomData={roomData}
+        />} />
+        <Route path='/dining' element={<DiningInfoPage
+          diningkData={diningkData}
         />} />
       </Routes>
     </>

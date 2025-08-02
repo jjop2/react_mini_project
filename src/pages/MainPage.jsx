@@ -1,13 +1,21 @@
 import { useEffect, useState } from 'react';
 import './MainPage.css'
 
+// 캐러셀 이미지
+import carouselImg1 from '../images/lake-standard-summer-escape.png'
+import carouselImg2 from '../images/deluxe-wellness-stay.png'
+import carouselImg3 from '../images/lake-suite-gourmet-package.png'
+
 // 객실, 다이닝 샘플 이미지
-import roomDeluxe from '../images/Lake Deluxe Room.png'
-import diningLIV from '../images/LIV.png'
+import roomSample from '../images/mainPageRoom.png'
+import diningSample from '../images/mianPageDining.png'
+import { useNavigate } from 'react-router-dom';
 
 
-function MainPage() {
+function MainPage({packData}) {
   const [currenIndex, setCurrentIndex] = useState(0);
+
+  const navigate = useNavigate();
 
   function preIndex() {
     if(currenIndex > 0)
@@ -47,13 +55,13 @@ function MainPage() {
         <div className="eventCarousel">
           <div className="eventWidth" style={{transform: `translateX(-${currenIndex * 100}%)`}}>
             <div className="eventInfo">
-              <div style={{backgroundImage: `url(https://placehold.co/1200x500/3D0080/FFF?text=CENTER+TEST)`}} className='eventImg'></div>
+              <div style={{backgroundImage: `url(${carouselImg1})`, backgroundPosition: 'center bottom'}} className='eventImg'></div>
             </div>
             <div className="eventInfo">
-              <div style={{backgroundImage: `url(https://placehold.co/1200x500/000000/FFF)`}} className='eventImg'></div>
+              <div style={{backgroundImage: `url(${carouselImg2})`, backgroundPosition: 'center bottom'}} className='eventImg'></div>
             </div>
             <div className="eventInfo">
-              <div style={{backgroundImage: `url(https://placehold.co/1200x500/3D0080/FFF)`}} className='eventImg'></div>
+              <div style={{backgroundImage: `url(${carouselImg3})`, backgroundPosition: 'center bottom'}} className='eventImg'></div>
             </div>
           </div>
         </div>
@@ -102,15 +110,15 @@ function MainPage() {
       {/* 객실, 다이닝 짧은 소개 */}
       <div className="hotelInfo">
         <div className="hotelInfoCard hotelInfoCard-left">
-          <div style={{backgroundImage: `url(https://placehold.co/300x300)`}} className='sampleImg'></div>
+          <div style={{backgroundImage: `url(${roomSample})`}} className='sampleImg'></div>
           <div className="hotelInfoDetail">
             <p>호수 너머로 펼쳐지는 정적</p>
             <p>편안한 구조 속에 자연이 들어옵니다</p>
-            <div className='moreInfo'>Room &nbsp;&gt;</div>
+            <div className='moreInfo' onClick={()=>navigate('/room')}>Room &nbsp;&gt;</div>
           </div>
         </div>
         <div className="hotelInfoCard hotelInfoCard-right">
-          <div style={{backgroundImage: `url(https://placehold.co/300x300)`}} className='sampleImg'></div>
+          <div style={{backgroundImage: `url(${diningSample})`}} className='sampleImg'></div>
           <div className="hotelInfoDetail">
             <p>산과 호수에서 온 재료, 정성스러운 조리</p>
             <p>지역의 계절이 한 접시에 담깁니다</p>

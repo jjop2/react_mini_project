@@ -23,7 +23,7 @@ function RsvnRoomList({setRsvnInfo, totalGuestCount, roomData, packData}) {
   function packCard(pack) {
     return (
       <div className="cardBox">
-        <img src={`https://raw.githubusercontent.com/jjop2/react_mini_project_data/main/image/${pack.title}.png`} alt="" />
+        <img src={`https://raw.githubusercontent.com/jjop2/react_mini_project_data/main/image/${pack.id}.png`} alt="" />
         <div className="cardInfo">
           <div className='cardInfo-top'>
             <h2>{pack.title}</h2>
@@ -53,7 +53,7 @@ function RsvnRoomList({setRsvnInfo, totalGuestCount, roomData, packData}) {
   function roomCard(room) {
     return (
       <div className="cardBox">
-        <img src={`https://raw.githubusercontent.com/jjop2/react_mini_project_data/main/image/${room.name}.png`} alt="" />
+        <img src={`https://raw.githubusercontent.com/jjop2/react_mini_project_data/main/image/${room.id}.png`} alt="" />
         <div className="cardInfo">
           <div className="cardInfo-top">
             <h2>{room.name}</h2>
