@@ -31,3 +31,9 @@
   padding: 2rem;
   text-align: center;
 }
+
+.pageTitle > h2 {
+  display: inline-block;
+  padding: 0 1rem 0.5rem;
+  border-bottom: 2px solid #C7925D;
+}
