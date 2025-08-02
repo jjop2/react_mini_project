@@ -4,7 +4,7 @@ import './NowInfoPay.css'
 import { useState } from 'react';
 import RsvnPayNextBtn from '../RsvnNextBtn/RsvnPayNextBtn';
 
-function NowInfoPay({rsvnInfo, checkInDate, checkOutDate, totalGuestCount, setTestStart, isOnline, isAllInfo, isAllcredit, isAllValid}) {
+function NowInfoPay({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGuestCount, setTestStart, isOnline, isAllInfo, isAllcredit, isAllValid}) {
   // rsvnInfo 구조 분해
   const {startDate, endDate, adultCount, childCount, selectedProduct, bedType, bkfAdult, bkfChild, bkfAdultAdd, bkfChildAdd} = rsvnInfo;
 
@@ -113,6 +113,7 @@ function NowInfoPay({rsvnInfo, checkInDate, checkOutDate, totalGuestCount, setTe
         <div className="btnBox">
           {/* 이동 버튼 */}
           <RsvnPayNextBtn
+            setRsvnInfo={setRsvnInfo}
             setTestStart={setTestStart}
             isOnline={isOnline}
             isAllInfo={isAllInfo}

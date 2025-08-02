@@ -4,7 +4,7 @@ import NowInfoPay from '../../component/ReservationComponent/RsvnNowInfo/NowInfo
 import RsvnPay from '../../component/ReservationComponent/RsvnPay/RsvnPay';
 import RsvnPayNextBtn from '../../component/ReservationComponent/RsvnNextBtn/RsvnPayNextBtn';
 
-function RsvnPayPage({rsvnInfo, checkInDate, checkOutDate, totalGuestCount}) {
+function RsvnPayPage({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGuestCount}) {
   // 유효성 검사 시작용
   const [testStart, setTestStart] = useState({
     lastName: false,
@@ -74,6 +74,7 @@ function RsvnPayPage({rsvnInfo, checkInDate, checkOutDate, totalGuestCount}) {
           {/* 예약 선택 현황 */}
           <NowInfoPay
             rsvnInfo={rsvnInfo}
+            setRsvnInfo={setRsvnInfo}
             checkInDate={checkInDate}
             checkOutDate={checkOutDate}
             totalGuestCount={totalGuestCount}
