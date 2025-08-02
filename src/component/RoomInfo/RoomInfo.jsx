@@ -64,8 +64,8 @@ function RoomInfo({roomData, showStandard, showDeluxe, showSuite}) {
             {
               roomData[i].detail.map((data, index) => {
                 return (
-                  <div className="roomDetail">
-                    <p key={index}>
+                  <div className="roomDetail" key={index}>
+                    <p>
                       <span>✓ </span>
                       {data}
                     </p>
