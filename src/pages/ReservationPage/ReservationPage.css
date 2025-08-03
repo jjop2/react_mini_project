@@ -11,6 +11,19 @@
   .reservationPage {
     padding-top: 4.5rem;
   }
+
+  .calendarBox {
+    margin: 0 auto;
+  }
+
+  .selectBox, .selectContent {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .selectContent {
+    gap: 1rem;
+  }
 }
 
 .rsvnWrap1 {
