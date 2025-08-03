@@ -13,6 +13,7 @@ import ScrollToTop from './component//ScrollToTop'
 import DiningInfoPage from './pages/DiningInfoPage/DiningInfoPage'
 import EventInfoPage from './pages/EventInfoPage/EventInfoPage'
 import EventDetailPage from './pages/EventInfoPage/EventDetailPage'
+import Footer from './component/Footer'
 
 function App() {
   // 예약 정보 오브젝트
@@ -172,6 +173,8 @@ function App() {
           packData={packData}
         />} />
       </Routes>
+
+      <Footer />
     </>
   )
 }
