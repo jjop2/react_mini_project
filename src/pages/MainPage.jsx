@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 import './MainPage.css'
 
+// 호텔 이미지
+import hotelImg1 from '../images/mainPage.png'
+import hotelImg2 from '../images/mainPage2.png'
+
 // 캐러셀 이미지
 import carouselImg1 from '../images/lake-standard-summer-escape.png'
 import carouselImg2 from '../images/deluxe-wellness-stay.png'
@@ -49,33 +53,33 @@ function MainPage({packData}) {
 
   return (
     <div className="mainPage">
-      <div className="hotelImage"></div>
+      <div className="hotelImage" style={{backgroundImage: `url(${hotelImg1})`}}></div>
 
       {/* 이벤트 정보 */}
       <div className="eventBox">
+
         <div className="eventCarousel">
+          
           <div className="eventWidth" style={{transform: `translateX(-${currenIndex * 100}%)`}}>
             {
               packData.map((data, i) => {
                 return (
                   <div className="eventInfo" onClick={()=>navigate(`/event/${data.id}`)} key={i}>
-                    <div style={{backgroundImage: `url(${carouselImgs[i]})`, backgroundPosition: 'center bottom'}} className='eventImg'></div>
+
+                    <div style={{backgroundImage: `url(${carouselImgs[i]})`}} className='eventImg'></div>
+
+                    <div className="eventTextOverlay">
+                      <h2 className="eventTitle">{data.title}</h2>
+                      <p className="eventBanner">{data.banner}</p>
+                      <p className="eventBannerBenefit">{data.bannerBenefit}</p>
+                    </div>
+
                   </div>
                 )
               })
             }
-
-            {/* <div className="eventInfo" onClick={()=>navigate(`/event/${packData[0].id}`)}>
-              <div style={{backgroundImage: `url(${carouselImg1})`, backgroundPosition: 'center bottom'}} className='eventImg'></div>
-            </div>
-            <div className="eventInfo" onClick={()=>navigate(`/event/${packData[1].id}`)}>
-              <div style={{backgroundImage: `url(${carouselImg2})`, backgroundPosition: 'center bottom'}} className='eventImg'></div>
-            </div>
-            <div className="eventInfo" onClick={()=>navigate(`/event/${packData[2].id}`)}>
-              <div style={{backgroundImage: `url(${carouselImg3})`, backgroundPosition: 'center bottom'}} className='eventImg'></div>
-            </div> */}
-
           </div>
+
         </div>
 
         <div className="carouselBtn">
@@ -83,32 +87,32 @@ function MainPage({packData}) {
             <i className="fa-solid fa-angle-left"></i>
           </div>
           <div className='carouselIndexBtn'>
-            <p className='carouselIndexBtn-0' onClick={()=>{
-              toIndexNum(0)
-            }}>
-              <i className="fa-solid fa-circle-dot"></i>
-            </p>
-            <p className='carouselIndexBtn-1' onClick={()=>{
-              toIndexNum(1)
-            }}>
-              <i className="fa-solid fa-circle-dot"></i>
-            </p>
-            <p className='carouselIndexBtn-2' onClick={()=>{
-              toIndexNum(2)
-            }}>
-              <i className="fa-solid fa-circle-dot"></i>
-            </p>
+            {
+              packData.map((data, i) => {
+                return (
+                  <div key={i}>
+                    <p
+                      onClick={() => toIndexNum(i)}
+                      className={currenIndex === i ? 'colorIndexBtn' : ''}
+                    >
+                      <i className="fa-solid fa-circle-dot"></i>
+                    </p>
+                  </div>
+                )
+              })
+            }
           </div>
           <div className="carouselBtn-next" onClick={nextIndex}>
             <i className="fa-solid fa-angle-right"></i>
           </div>
         </div>
+        
       </div>
      
   
       {/* 호텔 소개 */}
       <div className="intro">
-        <div className="introImg"></div>
+        <div className="introImg" style={{backgroundImage: `url(${hotelImg2})`}}></div>
         <div className="introBox">
           <div className="introText">
             <p>호수 너머로 펼쳐지는 깊은 고요</p>

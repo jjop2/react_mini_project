@@ -1,40 +1,15 @@
 /* pc 사이즈 : 네비게이션 바 */
 @media screen and (min-width:768px) {
-  :root {
-    font-size: 16px;
-  }
-
   .roomInfoPage {
-    padding-top: 110px;
+    padding-top: 7rem;
   }
   
 }
 
 /* 모바일 사이즈 : 햄버거 버튼 */
 @media screen and (max-width:767px) {
-  :root {
-    font-size: 10px;
-  }
   .roomInfoPage {
-    padding-top: 70px;
+    padding-top: 4.5rem;
   }
 }
 
-.pageWrap {
-  position: relative;
-  max-width: 80rem;
-  margin: 0 auto 100px;
-  overflow: hidden;
-}
-
-.pageTitle {
-  font-size: 1.1rem;
-  padding: 5rem;
-  text-align: center;
-}
-
-.pageTitle > h2 {
-  display: inline-block;
-  padding: 0 1rem 0.5rem;
-  border-bottom: 2px solid #C7925D;
-}

@@ -30,7 +30,7 @@ function EventDetail({packData}) {
           <h4>{event.desc}</h4>
           <p>{`객실 타입 : ${event.roomType}`}</p>
           <p>{`진행 기간 : ${event.period}`}</p>
-          <h3>{`\\ ${formatPrice(event.price)} ~`}</h3>
+          <h3>{`${formatPrice(event.price)}원 ~`}</h3>
         </div>
 
         <div className="eventBenefits">

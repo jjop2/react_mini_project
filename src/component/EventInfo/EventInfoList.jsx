@@ -25,7 +25,7 @@ function EventInfoList({packData}) {
               <p>{pack.period}</p>
             </div>
             <div className="eventCardContent-bottom">
-              <h3>{`\\ ${formatPrice(pack.price)} ~`}</h3>
+              <h3>{`${formatPrice(pack.price)}원 ~`}</h3>
             </div>
           </div>
         </div>

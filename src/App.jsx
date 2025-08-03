@@ -9,11 +9,10 @@ import axios from 'axios'
 import RsvnOptionPage from './pages/ReservationPage/RsvnOptionPage'
 import RsvnPayPage from './pages/ReservationPage/RsvnPayPage'
 import RoomInfoPage from './pages/RoomInfoPage/RoomInfoPage'
-import ScrollToTop from './component/ReservationComponent/ScrollToTop'
+import ScrollToTop from './component//ScrollToTop'
 import DiningInfoPage from './pages/DiningInfoPage/DiningInfoPage'
 import EventInfoPage from './pages/EventInfoPage/EventInfoPage'
 import EventDetailPage from './pages/EventInfoPage/EventDetailPage'
-import EventDetail from './component/EventInfo/EventDetail'
 
 function App() {
   // 예약 정보 오브젝트
