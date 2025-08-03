@@ -1,0 +1,141 @@
+@font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media screen and (max-width:767px) {
+  .eventBanner {
+    height: 16rem !important;
+  }
+
+  .eventBannerText {
+    font-size: 1rem !important;
+  }
+}
+
+.eventBanner {
+  position: relative;
+  width: 100%;
+  height: 20rem;
+  overflow: hidden;
+}
+
+.eventBannerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 85%;
+  display: block;
+  filter: brightness(0.8);
+}
+
+.eventBannerText {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.3rem;
+  font-family: 'GowunDodum-Regular';
+  font-style: italic;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.eventHeader {
+  padding: 2rem;
+  border-bottom: 1px solid #DAD2C9;
+}
+
+.eventHeader h2 {
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+  color: #2B4F60;
+}
+
+.eventHeader > p {
+  line-height: 1.8rem;
+}
+
+.eventHeader > h4 {
+  padding-bottom: 1rem;
+}
+
+.eventHeader > h3 {
+  padding-top: 1rem;
+}
+
+.eventBenefits {
+  padding: 2rem;
+}
+
+.eventBenefits > h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.eventBenefits > ul,
+.eventInfomation > ul {
+  list-style-type: none;
+}
+
+.eventBenefits li::before {
+  content: "✓";
+  color: #6C8B74;
+  font-weight: bold;
+  margin-right: 0.4rem;
+}
+
+.eventInfomation > ul {
+  padding: 1rem 0;
+}
+
+.eventInfomation li::before {
+  content: "•";
+  margin-right: 0.4rem;
+}
+
+.eventBenefits li {
+  padding-bottom: 0.5rem;
+}
+
+.eventInfomation li {
+  padding-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.eventInfomation {
+  padding: 2rem;
+  margin: 2rem;
+  border: 1px solid #DAD2C9;
+  background: #DAD2C9CC;
+}
+
+
+.eventBtnBox {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  width: 100%;
+  gap: 3rem;
+}
+
+.preEventBtn,
+.nextEventBtn {
+  padding: 0.8rem 0.8rem;
+  border-radius: 5px;
+  width: 12rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.preEventBtn {
+  background: #F7F5F2;
+  border: 1px solid #DAD2C9;
+}
+
+.nextEventBtn {
+  color: #F7F5F2;
+  background: #2B4F60;
+}

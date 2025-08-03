@@ -16,9 +16,6 @@
 
 .roomIntroBox {
   text-align: center;
-}
-
-.roomImgWrapper {
   justify-content: center;
   align-items: center;
 }
@@ -92,7 +89,7 @@
   padding: 1.2rem 1.4rem;
   margin: 1rem 0 0.5rem 0;
   line-height: 1.8rem;
-  border-left: 4px solid #C7925D;
+  border-left: 4px solid #A2B29F;
   border-radius: 5px;
   background: #F7F5F2;
 }
