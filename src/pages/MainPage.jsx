@@ -5,6 +5,7 @@ import './MainPage.css'
 import carouselImg1 from '../images/lake-standard-summer-escape.png'
 import carouselImg2 from '../images/deluxe-wellness-stay.png'
 import carouselImg3 from '../images/lake-suite-gourmet-package.png'
+const carouselImgs = [carouselImg1, carouselImg2, carouselImg3];
 
 // 객실, 다이닝 샘플 이미지
 import roomSample from '../images/mainPageRoom.png'
@@ -54,15 +55,26 @@ function MainPage({packData}) {
       <div className="eventBox">
         <div className="eventCarousel">
           <div className="eventWidth" style={{transform: `translateX(-${currenIndex * 100}%)`}}>
-            <div className="eventInfo">
+            {
+              packData.map((data, i) => {
+                return (
+                  <div className="eventInfo" onClick={()=>navigate(`/event/${data.id}`)} key={i}>
+                    <div style={{backgroundImage: `url(${carouselImgs[i]})`, backgroundPosition: 'center bottom'}} className='eventImg'></div>
+                  </div>
+                )
+              })
+            }
+
+            {/* <div className="eventInfo" onClick={()=>navigate(`/event/${packData[0].id}`)}>
               <div style={{backgroundImage: `url(${carouselImg1})`, backgroundPosition: 'center bottom'}} className='eventImg'></div>
             </div>
-            <div className="eventInfo">
+            <div className="eventInfo" onClick={()=>navigate(`/event/${packData[1].id}`)}>
               <div style={{backgroundImage: `url(${carouselImg2})`, backgroundPosition: 'center bottom'}} className='eventImg'></div>
             </div>
-            <div className="eventInfo">
+            <div className="eventInfo" onClick={()=>navigate(`/event/${packData[2].id}`)}>
               <div style={{backgroundImage: `url(${carouselImg3})`, backgroundPosition: 'center bottom'}} className='eventImg'></div>
-            </div>
+            </div> */}
+
           </div>
         </div>
 
@@ -122,7 +134,7 @@ function MainPage({packData}) {
           <div className="hotelInfoDetail">
             <p>산과 호수에서 온 재료, 정성스러운 조리</p>
             <p>지역의 계절이 한 접시에 담깁니다</p>
-            <div className='moreInfo'>Dining &nbsp;&gt;</div>
+            <div className='moreInfo' onClick={()=>navigate('/dining')}>Dining &nbsp;&gt;</div>
           </div>
         </div>
       </div>

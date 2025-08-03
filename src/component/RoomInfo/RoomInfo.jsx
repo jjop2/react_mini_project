@@ -16,9 +16,7 @@ function RoomInfo({roomData, showStandard, showDeluxe, showSuite}) {
       <div className="roomInfoCard">
 
         <div className="roomIntroBox">
-          <div className="roomImgWrapper">
-            <img src={`https://raw.githubusercontent.com/jjop2/react_mini_project_data/main/image/${roomData[i].id}.png`} alt="" className="roomImg" />
-          </div>
+          <img src={`https://raw.githubusercontent.com/jjop2/react_mini_project_data/main/image/${roomData[i].id}.png`} alt="" className="roomImg" />
           <div className="roomIntroContent">
             <h1>{roomData[i].name}</h1>
             <p>{roomData[i].catchphrase}</p>
