@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'Arita-buri-SemiBold';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Arita-buri-SemiBold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media (max-width: 767px) {
+  .footerLogo {
+    font-size: 1.3rem !important;
+  }
+
+  .footerInfo > p {
+    font-size: 0.85rem !important;
+  }
+
+  .footerCopy {
+    font-size: 0.7em !important;
+  }
+}
+
+.footer {
+  background-color: #2B4F60;
+  color: white;
+  padding: 2rem 1rem 1rem;
+}
+
+.footerWrap {
+  max-width: 80rem;
+  margin: auto;
+}
+
+.footerLogo {
+  font-family: 'Arita-buri-SemiBold';
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.footerCopy {
+  text-align: center;
+  font-size: 0.85rem;
+  margin-top: 2rem;
+  color: rgba(255, 255, 255, 0.6);
+}

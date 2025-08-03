@@ -1,11 +1,60 @@
+@font-face {
+    font-family: 'SpoqaHanSansNeo-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* pc 사이즈 : 네비게이션 바 */
+@media screen and (min-width:768px) {
+  body {
+    font-size: 18px;
+  }
+
+}
+
+/* 모바일 사이즈 : 햄버거 버튼 */
+@media screen and (max-width:767px) {
+  body {
+    font-size: 16px;
+  }
+
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
-  /* outline: 1px solid rgba(255, 0, 0, 0.2); */
 }
 
 html {
   font-size: 62.5%;
+  font-family: 'SpoqaHanSansNeo-Regular';
+}
+
+.hide {
+  display: none;
+}
+
+.pageWrap {
+  position: relative;
+  max-width: 80rem;
+  margin: 0 auto 100px;
+  overflow: hidden;
+}
+
+.pageTitle {
+  font-size: 1.1rem;
+  padding: 5rem;
+  text-align: center;
+}
+
+.pageTitle > h2 {
+  display: inline-block;
+  padding: 0 1rem 0.5rem;
+  border-bottom: 2px solid #C7925D;
+}
+
+body {
+  
 }

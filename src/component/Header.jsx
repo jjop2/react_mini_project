@@ -25,6 +25,7 @@ function Header() {
         <div className="leftMenu">
           <i className="fa-solid fa-bars burgerIcon" onClick={()=>setShowBurger(!showBurger)}></i>
         </div>
+
         <div className="logo" onClick={() => {
           setShowBurger(false);
           navigate('/');
@@ -32,6 +33,7 @@ function Header() {
           <h1>HOTEL MIREN</h1>
           <p>Stillness by the Waters</p>
         </div>
+        
         <div className="rightMenu">
           <p className='rightMenuItem'>로그인</p>
           <p className='rightMenuItem' onClick={()=>navigate('/reservation')}>예약하기</p>
@@ -43,12 +45,11 @@ function Header() {
       <div className="subNav">
         <ul className='subNavList'>
           <li>Hotel Miren</li>
-          <li>이벤트</li>
+          <li onClick={()=>navigate('/event')}>이벤트</li>
           <li onClick={()=>navigate('/room')}>객실</li>
           <li onClick={()=>navigate('/dining')}>다이닝</li>
           <li>예약 조회</li>
         </ul>
-
       </div>
 
       {/* 모바일 사이즈용 햄버거 버튼 */}
@@ -62,11 +63,11 @@ function Header() {
         </div>
         <li onClick={() => {
           setShowBurger(false);
-
+          
         }}>Hotel Miren</li>
         <li onClick={() => {
           setShowBurger(false);
-
+          navigate('/event');
         }}>이벤트</li>
         <li onClick={() => {
           setShowBurger(false);

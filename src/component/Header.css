@@ -1,99 +1,41 @@
 @font-face {
-    font-family: 'Arita-buri-SemiBold';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Arita-buri-SemiBold.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Arita-buri-SemiBold';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Arita-buri-SemiBold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
-/* pc 사이즈 : 네비게이션 바 % 로그인 및 예약하기 */
-@media screen and (min-width:768px) {
-  .logo > p {
-    font-size: 0.8em;
-  }
-
-  .subNav {
-    width: 100%;
-    height: 40px;
-    top: 70px;
-    left: 0;
-    
-    position: fixed;
-    z-index: 99;
-    display: flex;
-    align-items: center;
-    border-top: 1px solid white;
-
-    background: #2A4D5F;
-    color: white;
-  }
-
-  .subNavList {
-    display: flex;
-    list-style-type: none;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .subNavList > li {
-    padding: 5px 45px;
-    cursor: pointer;
-  }
-
-  .subNavList > li:hover {
-    color: #C7925D;
-  }
-
-  .burgerIcon {
-    visibility: hidden;
-  }
-
-  .rightMenu .reserve-small {
-    display: none;
-  }
-
-  .rightMenuItem {
-    font-size: 14px;
-    cursor: pointer;
-  }
-
-  .burgerMenu, .burgerMenuList {
-    display: none;
-  }
-}
-
-/* 모바일 사이즈 : 햄버거 버튼 & 예약 버튼 */
-@media screen and (max-width:767px) {
+@media screen and (max-width: 767px) {
   .logo > h1 {
-    font-size: 1.7em;
+    font-size: 1.5rem !important;
   }
 
   .logo > p {
-    font-size: 0.5em;
+    font-size: 0.5rem !important;
   }
 
   .subNav {
-    display: none;
+    display: none !important;
   }
 
   .burgerIcon {
-    font-size: 25px;
-    visibility: visible;
-    cursor: pointer;
+    visibility: visible !important;
   }
 
   .rightMenuItem {
-    display: none;
+    display: none !important;
   }
-  
+
   .rightMenu .reserve-small {
-    display: inline-block;
-    padding: 0.7vw 1.5vw;
-    border-radius: 1vw;
-    cursor: pointer;
+    display: inline-block !important;
+    padding: 0.3rem 0.5rem;
+    border-radius: 5px;
     border: 1px solid white;
     color: white;
-    font-size: 1em;
+    font-size: 0.8rem;
     font-weight: 500;
+    text-align: center;
+    cursor: pointer;
   }
 
   .rightMenu .reserve-small:hover {
@@ -101,42 +43,41 @@
     color: #2A4D5F;
   }
 
-  .burgerMenu.show {
-    background: rgba(0, 0, 0, 0.5);
-  }
-
   .burgerMenu {
-    display: block;
+    display: block !important;
     position: fixed;
-    margin-top: 70px;
+    margin-top: 4.5rem;
     width: 100%;
     height: 100vh;
     z-index: 100;
   }
 
-  .burgerMenuList.show {
-    transform: translateX(0);
+  .burgerMenu.show {
+    background: rgba(0, 0, 0, 0.5);
   }
-  
+
   .burgerMenuList {
-    width: 280px;
+    width: 17.5rem;
     height: 100%;
-    margin-top: 70px;
+    margin-top: 4.5rem;
     top: 0;
     left: 0;
     position: fixed;
     z-index: 1000;
-    
     transform: translateX(-100%);
     transition: transform 0.5s ease-in-out;
-    
     list-style-type: none;
     background: white;
+    display: block !important;
+  }
+
+  .burgerMenuList.show {
+    transform: translateX(0);
   }
 
   .burger-logIn {
-    width: 280px;
-    padding: 30px;
+    width: 17.5rem;
+    padding: 1.9rem;
     cursor: pointer;
     color: #C7925D;
     border-bottom: 1.5px solid #C7925D;
@@ -148,7 +89,7 @@
   }
 
   .burgerMenuList > li {
-    padding: 25px 40px;
+    padding: 1.6rem 2.5rem;
     cursor: pointer;
   }
 
@@ -157,28 +98,33 @@
     color: #2A4D5F;
     background: #DAD2C9;
   }
-
 }
 
-/* 사이즈 공통 */
 .nav {
   background-color: #2A4D5F;
   color: white;
-  
   width: 100%;
-  height: 70px;
-  left: 0;
+  height: 4.5rem;
   position: fixed;
+  left: 0;
   z-index: 99;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5px 20px;
+  padding: 0.3rem 1.3rem;
 }
 
 .logo {
   font-family: 'Arita-buri-SemiBold';
   text-align: center;
+}
+
+.logo > h1 {
+  font-size: 1.8rem;
+}
+
+.logo > p {
+  font-size: 0.8rem;
 }
 
 .leftMenu {
@@ -192,6 +138,60 @@
 }
 
 .rightMenu > p {
-  margin: 5px;
-  padding: 3px;
+  margin: 0.3rem;
+  padding: 0.2rem;
+}
+
+.rightMenuItem {
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.rightMenu .reserve-small {
+  display: none;
+}
+
+.burgerIcon {
+  font-size: 1.5rem;
+  visibility: hidden;
+  cursor: pointer;
+}
+
+.subNav {
+  width: 100%;
+  height: 2.5rem;
+  top: 4.5rem;
+  position: fixed;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  background: #2A4D5F;
+  color: white;
+  border-top: 1px solid white;
+  font-size: 1.1rem;
+}
+
+.subNavList {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.subNavList > li {
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+}
+
+.subNavList > li:hover {
+  color: #C7925D;
+}
+
+.burgerMenu,
+.burgerMenuList {
+  display: none;
 }

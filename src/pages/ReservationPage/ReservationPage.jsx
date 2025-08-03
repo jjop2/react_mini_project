@@ -6,6 +6,7 @@ import { registerLocale } from 'react-datepicker';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { useEffect, useState } from 'react';
 
 registerLocale('ko', ko);
 
@@ -25,6 +26,16 @@ function ReservationPage({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, tota
     updateInfo('endDate', end);
   };
 
+  // datepicker 반응형웹 달력 개수 1~2개 조정
+  const [resizeDate, setResizeDate] = useState(2);
+  useEffect(() => {
+    function handleResize () {
+      setResizeDate(window.innerWidth < 768 ? 1 : 2);
+    }
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [])
+
   return (
     <div className="reservationPage">
       <div className="rsvnWrap1">
@@ -43,7 +54,7 @@ function ReservationPage({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, tota
               startDate={startDate}
               endDate={endDate}
               minDate={new Date()}
-              monthsShown={2}
+              monthsShown={resizeDate}
               selectsRange
               inline
               locale="ko"
