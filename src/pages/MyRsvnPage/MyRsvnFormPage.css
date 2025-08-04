@@ -1,0 +1,20 @@
+/* pc 사이즈 : 네비게이션 바 */
+@media screen and (min-width:768px) {
+  .myRsvnPage {
+    padding-top: 7rem;
+  }
+  
+}
+
+/* 모바일 사이즈 : 햄버거 버튼 */
+@media screen and (max-width:767px) {
+  .myRsvnPage {
+    padding-top: 4.5rem;
+  }
+}
+
+.MyRsvnNextBtn {
+  padding-top: 3rem;
+  width: 20rem;
+  margin: 0 auto;
+}

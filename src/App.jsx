@@ -14,6 +14,7 @@ import DiningInfoPage from './pages/DiningInfoPage/DiningInfoPage'
 import EventInfoPage from './pages/EventInfoPage/EventInfoPage'
 import EventDetailPage from './pages/EventInfoPage/EventDetailPage'
 import Footer from './component/Footer'
+import MyRsvnFormPage from './pages/MyRsvnPage/MyRsvnFormPage'
 
 function App() {
   // 예약 정보 오브젝트
@@ -172,6 +173,7 @@ function App() {
         <Route path='/event/:id' element={<EventDetailPage
           packData={packData}
         />} />
+        <Route path='/my-reservation-form' element={<MyRsvnFormPage/>} />
       </Routes>
 
       <Footer />

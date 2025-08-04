@@ -48,7 +48,7 @@ function Header() {
           <li onClick={()=>navigate('/event')}>이벤트</li>
           <li onClick={()=>navigate('/room')}>객실</li>
           <li onClick={()=>navigate('/dining')}>다이닝</li>
-          <li>예약 조회</li>
+          <li onClick={()=>navigate('/my-reservation-form')}>예약 조회</li>
         </ul>
       </div>
 
@@ -79,7 +79,7 @@ function Header() {
         }}>다이닝</li>
         <li onClick={() => {
           setShowBurger(false);
-
+          navigate('/my-reservation-form');
         }}>예약 조회</li>
       </ul>
 
