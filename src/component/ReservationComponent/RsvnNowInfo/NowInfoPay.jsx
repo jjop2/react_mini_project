@@ -1,15 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import './NowInfoPay.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import RsvnPayNextBtn from '../RsvnNextBtn/RsvnPayNextBtn';
 
-function NowInfoPay({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGuestCount, setTestStart, isOnline, isAllInfo, isAllcredit, isAllValid}) {
+function NowInfoPay({rsvnInfo, setRsvnInfo, totalGuestCount, setTestStart, isOnline, isAllInfo, isAllcredit, isAllValid, rsvnPayInfo, setRsvnPayInfo}) {
   // rsvnInfo 구조 분해
-  const {startDate, endDate, adultCount, childCount, selectedProduct, bedType, bkfAdult, bkfChild, bkfAdultAdd, bkfChildAdd} = rsvnInfo;
-
-  // 투숙 기간 구하기
-  const stayNights = (endDate.getTime() - startDate.getTime()) / 1000 / 60 / 60 / 24;
+  const {adultCount, childCount, selectedProduct, bedType, bkfAdult, bkfChild, bkfAdultAdd, bkfChildAdd, checkInDate, checkOutDate, stayNights} = rsvnInfo;
 
   // 가격 세자리마다 콤마 함수
   function formatPrice(num) {
@@ -18,6 +15,11 @@ function NowInfoPay({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGues
 
   // 총 결제 금액
   const total = selectedProduct.price*stayNights + bkfAdult*28000 + bkfChild*18000 + bkfAdultAdd*28000 + bkfChildAdd*18000;
+
+  // rsvnInfo에 총 금액 저장
+  useEffect(() => {
+    setRsvnPayInfo(prev => ({...prev, totalPayment: total}));
+  }, [total]);
 
   // 결제 내역 상세보기 버튼
   const [isDetailOpen, setIsDetailOpen] = useState(false);
@@ -113,12 +115,16 @@ function NowInfoPay({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGues
         <div className="btnBox">
           {/* 이동 버튼 */}
           <RsvnPayNextBtn
+            rsvnInfo={rsvnInfo}
             setRsvnInfo={setRsvnInfo}
             setTestStart={setTestStart}
             isOnline={isOnline}
             isAllInfo={isAllInfo}
             isAllcredit={isAllcredit}
             isAllValid={isAllValid}
+
+            rsvnPayInfo={rsvnPayInfo}
+            setRsvnPayInfo={setRsvnPayInfo}
           />
         </div>
 

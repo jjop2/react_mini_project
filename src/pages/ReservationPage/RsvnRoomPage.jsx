@@ -2,7 +2,7 @@ import './RsvnRoomPage.css'
 import NowInfoDefault from '../../component/ReservationComponent/RsvnNowInfo/NowInfoDefault';
 import RsvnRoomList from '../../component/ReservationComponent/RsvnRoomList/RsvnRoomList';
 
-function RsvnRoomPage({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGuestCount, roomData, packData}) {
+function RsvnRoomPage({rsvnInfo, setRsvnInfo, totalGuestCount, roomData, packData}) {
   const preURL = '/reservation';
   const nextURL = '/reservation/option';
   
@@ -25,8 +25,6 @@ function RsvnRoomPage({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGu
           {/* 예약 선택 현황 */}
           <NowInfoDefault
             rsvnInfo={rsvnInfo}
-            checkInDate={checkInDate}
-            checkOutDate={checkOutDate}
             preURL={preURL}
             nextURL={nextURL}
           />

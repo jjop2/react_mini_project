@@ -1,7 +1,7 @@
 import RsvnNextBtn from '../RsvnNextBtn/RsvnNextBtn'
 import './NowInfoDefault.css'
 
-function NowInfoDefault({rsvnInfo, checkInDate, checkOutDate, preURL, nextURL}) {
+function NowInfoDefault({rsvnInfo, preURL, nextURL}) {
 
   return (
   <div className="rsvnInfoNow">
@@ -9,7 +9,7 @@ function NowInfoDefault({rsvnInfo, checkInDate, checkOutDate, preURL, nextURL}) 
       <div className="infoBox">
         <div className='infoItem'>
           <p>날짜</p>
-          <p>{`${checkInDate} ~ ${checkOutDate}`}</p>
+          <p>{`${rsvnInfo.checkInDate} ~ ${rsvnInfo.checkOutDate}`}</p>
         </div>
         <div className='infoItem'>
           <p>인원</p>

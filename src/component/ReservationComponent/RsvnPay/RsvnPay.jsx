@@ -1,7 +1,7 @@
 import './RsvnPay.css'
 import { useEffect } from 'react';
 
-function RsvnPay({testStart, isRight, setIsRight, setIsAllInfo, setIsAllcredit, setIsAllAgree, setIsAllValid, isOnline, setIsOnline, isAllInfo, isAllcredit, isAllAgree, isAllValid}) {
+function RsvnPay({testStart, isRight, setIsRight, setIsAllInfo, setIsAllcredit, setIsAllAgree, setIsAllValid, isOnline, setIsOnline, isAllInfo, isAllcredit, isAllAgree, setRsvnPayInfo}) {
   
   // 유효성 검사용 정규식
   const inputRegexs = {
@@ -79,6 +79,7 @@ function RsvnPay({testStart, isRight, setIsRight, setIsAllInfo, setIsAllcredit, 
     setIsAllValid(valid);
   }, [isAllInfo, isAllcredit, isAllAgree]);
 
+
   return (
     <div className="rsvnPay">
 
@@ -90,12 +91,18 @@ function RsvnPay({testStart, isRight, setIsRight, setIsAllInfo, setIsAllcredit, 
         <div className="inputNameBox">
           <div className="inputBox inputBox-left">
             <h3>성 <span>*</span></h3>
-            <input className='inputItem' type="text" id='last-name-txt' name='guestname' placeholder='성' onChange={(e)=>validateInput(e, 'lastName', inputRegexs.regexLastName)} required />
+            <input className='inputItem' type="text" id='last-name-txt' name='guestname' placeholder='성' onChange={(e)=>{
+                validateInput(e, 'lastName', inputRegexs.regexLastName);
+                setRsvnPayInfo(prev => ({...prev, lastName: e.target.value}));
+              }} required />
             <p className={`checkMessage ${testStart.lastName && !isRight.lastName ? '' : 'hide'}`}>성을 입력해주세요</p>
           </div>
           <div className="inputBox inputBox-right">
             <h3>이름 <span>*</span></h3>
-            <input className='inputItem' type="text" id='first-name-txt' name='guestname' placeholder='이름' onChange={(e)=>validateInput(e, 'firstName', inputRegexs.regexFirstName)} required />
+            <input className='inputItem' type="text" id='first-name-txt' name='guestname' placeholder='이름' onChange={(e)=> {
+                validateInput(e, 'firstName', inputRegexs.regexFirstName);
+                setRsvnPayInfo(prev => ({...prev, firstName: e.target.value}));
+              }} required />
             <p className={`checkMessage ${testStart.firstName && !isRight.firstName ? '' : 'hide'}`}>이름을 입력해주세요</p>
           </div>
         </div>
@@ -109,6 +116,7 @@ function RsvnPay({testStart, isRight, setIsRight, setIsAllInfo, setIsAllcredit, 
           <input className='inputItem' type="tel" id='phone-txt' name='phone' placeholder='예: 01012345678' onChange={(e)=>{
             e.target.value = e.target.value.replace(/[^0-9]/g, '');
             validateInput(e, 'phone', inputRegexs.regexTel);
+            setRsvnPayInfo(prev => ({...prev, phone: e.target.value}));
           }} required />
           <p className={`checkMessage ${testStart.phone && !isRight.phone ? '' : 'hide'}`}>휴대폰 번호를 다시 확인해주세요</p>
         </div>

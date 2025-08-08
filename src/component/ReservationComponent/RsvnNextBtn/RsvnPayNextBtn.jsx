@@ -1,6 +1,7 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-function RsvnPayNextBtn({setRsvnInfo, setTestStart, isOnline, isAllInfo, isAllcredit, isAllValid}) {
+function RsvnPayNextBtn({rsvnInfo, setRsvnInfo, setTestStart, isOnline, isAllInfo, isAllcredit, isAllValid, rsvnPayInfo}) {
   const navigate = useNavigate();
 
   // 예약 완료 후 초기화용
@@ -14,7 +15,10 @@ function RsvnPayNextBtn({setRsvnInfo, setTestStart, isOnline, isAllInfo, isAllcr
     bkfAdult: 0,
     bkfChild: 0,
     bkfAdultAdd: 0,
-    bkfChildAdd: 0
+    bkfChildAdd: 0,
+    checkInDate: '',
+    checkOutDate: '',
+    stayNights: 0
   }
 
   return (
@@ -38,16 +42,26 @@ function RsvnPayNextBtn({setRsvnInfo, setTestStart, isOnline, isAllInfo, isAllcr
         if(isAllValid) {
           if(isOnline) {
             alert('결제 진행 화면 띄우기');
-            alert('예약이 완료되었습니다.');
-              sessionStorage.setItem('rsvnInfo', JSON.stringify(resetRsvnInfo));
-              setRsvnInfo(resetRsvnInfo);
-              navigate('/');
-            } else {
-              alert('예약이 완료되었습니다.');
-              sessionStorage.setItem('rsvnInfo', JSON.stringify(resetRsvnInfo));
-              setRsvnInfo(resetRsvnInfo);
-              navigate('/');
           }
+          // 예약번호 생성
+          const rsvnDateNum = new Date(Date.now()).toISOString().slice(2, 10).replace(/-/g, "");
+          const rsvnRandomNum = String(Math.floor(Math.random()*10000)).padStart(4, '0');
+          const rsvnNum = rsvnDateNum + rsvnRandomNum;
+          
+          const mergedPayInfo = {...rsvnPayInfo, rsvnNum, isOnline};
+
+          // 예약 최종 결과 오브젝트 (예약옵션, 결제, 예약번호 등)
+          const rsvnResult = {...rsvnInfo, ...mergedPayInfo};
+
+          // 예약 최종 결과 로컬스토리지에 저장
+          localStorage.setItem('rsvnResult', JSON.stringify(rsvnResult));
+
+          // 사용자가 선택했던 예약 옵션(rsvnInfo) 초기화
+          sessionStorage.setItem('rsvnInfo', JSON.stringify(resetRsvnInfo));
+          setRsvnInfo(resetRsvnInfo);
+
+          alert('예약이 완료되었습니다.');
+          navigate('/reservation/result');
         } else {
           if(!isAllInfo)
             alert('예약자 정보를 다시 확인해주세요');

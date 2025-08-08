@@ -1,10 +1,10 @@
 import './RsvnPayPage.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import NowInfoPay from '../../component/ReservationComponent/RsvnNowInfo/NowInfoPay';
 import RsvnPay from '../../component/ReservationComponent/RsvnPay/RsvnPay';
 import RsvnPayNextBtn from '../../component/ReservationComponent/RsvnNextBtn/RsvnPayNextBtn';
 
-function RsvnPayPage({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGuestCount}) {
+function RsvnPayPage({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGuestCount, packData}) {
   // 유효성 검사 시작용
   const [testStart, setTestStart] = useState({
     lastName: false,
@@ -44,8 +44,31 @@ function RsvnPayPage({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGue
   const [isAllcredit, setIsAllcredit] = useState(false);
   const [isAllAgree, setIsAllAgree] = useState(false);
   const [isAllValid, setIsAllValid] = useState(false);
+  
+  // 입력한 예약자 정보 저장
+  const [rsvnPayInfo, setRsvnPayInfo] = useState({
+    lastName: '',
+    firstName: '',
+    phone: 0,
+    isOnline: true,
+    totalPayment: 0,
+    summaryBenefit: '',
+    roomType: ''
+  })
+  
+  // 패키지별 혜택 요약, 객실 정보 받아오기
+  const findPack = packData.find((event) => event.title === rsvnInfo.selectedProduct.name);
 
-
+  useEffect(() => {
+    if(findPack && rsvnInfo.selectedProduct.type === 'package') {
+      setRsvnPayInfo(prev => ({
+        ...prev,
+        summaryBenefit: findPack.summaryBenefit,
+        roomType: findPack.roomType
+      }))
+    }
+  }, [rsvnInfo.selectedProduct, packData])
+  
   return (
     <div className="rsvnPayPage">
       <div className="rsvnWrap2">
@@ -67,6 +90,8 @@ function RsvnPayPage({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGue
             isAllcredit={isAllcredit}
             isAllAgree={isAllAgree}
             isAllValid={isAllValid}
+
+            setRsvnPayInfo={setRsvnPayInfo}
           />
         </div>
       
@@ -83,6 +108,9 @@ function RsvnPayPage({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGue
             isAllInfo={isAllInfo}
             isAllcredit={isAllcredit}
             isAllValid={isAllValid}
+
+            rsvnPayInfo={rsvnPayInfo}
+            setRsvnPayInfo={setRsvnPayInfo}
           />
         </div>
         

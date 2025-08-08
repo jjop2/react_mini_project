@@ -15,6 +15,7 @@ import EventInfoPage from './pages/EventInfoPage/EventInfoPage'
 import EventDetailPage from './pages/EventInfoPage/EventDetailPage'
 import Footer from './component/Footer'
 import MyRsvnFormPage from './pages/MyRsvnPage/MyRsvnFormPage'
+import RsvnResultPage from './pages/ReservationPage/RsvnResultPage'
 
 function App() {
   // 예약 정보 오브젝트
@@ -47,7 +48,11 @@ function App() {
       bkfAdult: 0,
       bkfChild: 0,
       bkfAdultAdd: 0,
-      bkfChildAdd: 0
+      bkfChildAdd: 0,
+      // 체크인, 체크아웃, 숙박일 수
+      checkInDate: '',
+      checkOutDate: '',
+      stayNights: 0
     }
   }
   
@@ -67,7 +72,6 @@ function App() {
   useEffect(() => {
     sessionStorage.setItem('rsvnInfo', JSON.stringify(rsvnInfo));
   }, [rsvnInfo]);
-
 
 
   // 요일 표시용 배열
@@ -160,7 +164,9 @@ function App() {
           checkInDate={checkInDate}
           checkOutDate={checkOutDate}
           totalGuestCount={totalGuestCount}
+          packData={packData}
         />} />
+        <Route path='/reservation/result' element={<RsvnResultPage />} />
         <Route path='/room' element={<RoomInfoPage
           roomData={roomData}
         />} />

@@ -19,6 +19,15 @@ function ReservationPage({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, tota
     setRsvnInfo(obj => ({...obj, [key]: value}));
   };
 
+  // 체크인, 체크아웃, 숙박일 수 저장
+  useEffect(() => {
+    if(endDate) {
+      updateInfo('checkInDate', checkInDate);
+      updateInfo('checkOutDate', checkOutDate);
+      updateInfo('stayNights', (endDate.getTime() - startDate.getTime()) / 1000 / 60 / 60 / 24);
+    }
+  }, [startDate, endDate]);
+
   const navigate = useNavigate();
   const onChange = (dates) => {
     const [start, end] = dates;
