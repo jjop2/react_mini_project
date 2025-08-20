@@ -1,79 +1,118 @@
+import { formatPrice } from '../../../utils/format';
 import './RsvnResult.css'
 
 function RsvnResult() {
   const rsvnResult = JSON.parse(localStorage.getItem('rsvnResult'));
 
+  // 투숙 총 인원
+  const totalCount = rsvnResult.adultCount + rsvnResult.childCount;
+
   return (
     <div className="rsvnResult">
       
-      <div className="rsvnSummaryCard">
-        <h3>예약 정보</h3>
-        <div className="rsvnSummaryCardItem">
+      <div className="rsvnResultCard">
+        <div className="rsvnResultTitle">
+          <h3>예약 정보</h3>
+        </div>
+        <div className="rsvnResultCardItem">
           <h4>예약번호</h4>
-          {rsvnResult.rsvnNum}
+          <p>{rsvnResult.rsvnNum}</p>
         </div>
-        <div className="rsvnSummaryCardItem">
-          <div className="rsvnSummaryCardItemBox">
+        <div className="rsvnResultCardItem">
             <h4>예약자명</h4>
-            {rsvnResult.lastName}
-            {rsvnResult.firstName}
-          </div>
-          <div className="rsvnSummaryCardItemBox">
+            <p>{rsvnResult.lastName} {rsvnResult.firstName}</p>
             <h4>연락처</h4>
-            {rsvnResult.phone}
-          </div>
+            <p>{rsvnResult.phone}</p>
         </div>
-        <div className="rsvnSummaryCardItem">
-          <div className="rsvnSummaryCardItemBox">
+        <div className="rsvnResultCardItem">
             <h4>체크인</h4>
-            {rsvnResult.checkInDate}
-          </div>
-          <div className="rsvnSummaryCardItemBox">
+            <p>{rsvnResult.checkInDate}</p>
             <h4>체크아웃</h4>
-            {`${rsvnResult.checkOutDate} (${rsvnResult.stayNights}박)`}
-          </div>
+            <p>{`${rsvnResult.checkOutDate} (${rsvnResult.stayNights}박)`}</p>
         </div>
       </div>
 
       <div className="rsvnResultCard">
-        <h3>객실 정보</h3>
-        <div className="rsvnRoom_title">
-          <div className="rsvnSummaryCardItemBox">
-            <h4>객실 유형</h4>
+        <div className="rsvnResultTitle">
+          <h3>객실</h3>
+        </div>
+        <div className="rsvnResultCardItem">
+          <h4>객실 유형</h4>
+          <p>
             {rsvnResult.roomType}
+            <span>{totalCount <= 2 ? ` (${rsvnResult.bedType})` : ''}</span>
+          </p>
+        </div>
+        <div className='rsvnResultCardItem'>
+          <h4>투숙 인원</h4>
+          <p>{rsvnResult.adultCount > 0 ? `성인 : ${rsvnResult.adultCount}명` : ''}</p>
+          <p>{rsvnResult.childCount > 0 ? `어린이 : ${rsvnResult.childCount}명` : ''}</p>
+        </div>
+      </div>
+
+      <div className={`rsvnResultCard ${rsvnResult.selectedProduct.type == 'package' ? '' : 'hide'}`}>
+        <div className="rsvnResultTitle">
+          <h3>패키지</h3>
+        </div>
+        <div className="rsvnResultCardItem">
+          <h4>상품명</h4>
+          <p>{rsvnResult.selectedProduct.name}</p>
+        </div>
+        <div className="rsvnResultCardItem">
+          <h4>포함 혜택</h4>
+          <p>{rsvnResult.summaryBenefit}</p>
+          <p className="messageBox2">*패키지 혜택은 2인 기준입니다.</p>
+        </div>
+      </div>
+
+      <div className="rsvnResultCard">
+        <div className="rsvnResultTitle">
+          <h3>조식</h3>
+        </div>
+        <div className="rsvnResultCardItem">
+          <h4>조식 인원</h4>
+
+          <div className={rsvnResult.selectedProduct.type == 'room' ? '' : 'hide'}>
+            <p>
+              {`성인 : ${rsvnResult.bkfAdult + rsvnResult.bkfAdultAdd}명`}
+            </p>
+          </div>
+          <div className={rsvnResult.selectedProduct.type == 'package' ? '' : 'hide'}>
+            <p>
+              {`성인 : ${rsvnResult.adultCount}명 `}
+              <span>
+                ( 패키지 {rsvnResult.adultCount} {rsvnResult.bkfAdultAdd > 0 ? `+ 추가 ${rsvnResult.bkfAdultAdd}` : ''})
+              </span>
+            </p>
+          </div>
+
+          <div className={rsvnResult.selectedProduct.type == 'room' ? '' : 'hide'}>
+            <p>
+              {rsvnResult.bkfChild + rsvnResult.bkfChildAdd > 0 ? `어린이 : ${rsvnResult.bkfChild + rsvnResult.bkfChildAdd}명` : ''}
+            </p>
+          </div>
+          <div className={rsvnResult.selectedProduct.type == 'package' ? '' : 'hide'}>
+            <p>
+              {`어린이 : ${rsvnResult.childCount}명 `}
+              <span>
+                ( 패키지 {rsvnResult.childCount} {rsvnResult.bkfChildAdd > 0 ? `+ 추가 ${rsvnResult.bkfChildAdd}` : ''})
+              </span>
+            </p>
           </div>
         </div>
-        <div className="rsvnRoom_details">
-          {rsvnResult.bedType}
-          성인 {rsvnResult.adultCount}
-          어린이 {rsvnResult.childCount}
-        </div>
       </div>
 
       <div className="rsvnResultCard">
-        <div className="rsvnPackInfo_name">
-          {rsvnResult.selectedProduct.name}
+        <div className="rsvnResultTitle">
+          <h3>결제</h3>
         </div>
-        <div className="rsvnPackInfo_benefits">
-          {rsvnResult.summaryBenefit}
+        <div className="rsvnResultCardItem">
+          <h4>총 결제 금액</h4>
+          <p>{formatPrice(rsvnResult.totalPayment)}원</p>
         </div>
-      </div>
-
-      <div className="rsvnResultCard">
-        <div className="rsvnBftInfo_list">
-          성인 {rsvnResult.bkfAdult}
-          성인 추가 {rsvnResult.bkfAdultAdd}
-          어린이 {rsvnResult.bkfChild}
-          어린이 추가 {rsvnResult.bkfChildAdd}
-        </div>
-      </div>
-
-      <div className="rsvnResultCard">
-        <div className="rsvnPaymentInfo_method">
-          {rsvnResult.isOnline}
-        </div>
-        <div className="rsvnPaymentInfo_total">
-          {rsvnResult.totalPayment}
+        <div className="rsvnResultCardItem">
+          <h4>결제 수단</h4>
+          <p>{rsvnResult.isOnline ? '온라인 사전 결제(완료)' : '현장 결제(예정)'}</p>
         </div>
       </div>
     </div>

@@ -3,15 +3,11 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import './NowInfoPay.css'
 import { useEffect, useState } from 'react';
 import RsvnPayNextBtn from '../RsvnNextBtn/RsvnPayNextBtn';
+import { formatPrice } from '../../../utils/format';
 
 function NowInfoPay({rsvnInfo, setRsvnInfo, totalGuestCount, setTestStart, isOnline, isAllInfo, isAllcredit, isAllValid, rsvnPayInfo, setRsvnPayInfo}) {
   // rsvnInfo 구조 분해
   const {adultCount, childCount, selectedProduct, bedType, bkfAdult, bkfChild, bkfAdultAdd, bkfChildAdd, checkInDate, checkOutDate, stayNights} = rsvnInfo;
-
-  // 가격 세자리마다 콤마 함수
-  function formatPrice(num) {
-    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
 
   // 총 결제 금액
   const total = selectedProduct.price*stayNights + bkfAdult*28000 + bkfChild*18000 + bkfAdultAdd*28000 + bkfChildAdd*18000;

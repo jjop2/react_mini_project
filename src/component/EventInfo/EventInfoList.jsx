@@ -1,13 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import './EventInfoList.css'
+import { formatPrice } from '../../utils/format';
 
 function EventInfoList({packData}) {
   const navigate = useNavigate();
-
-  // 가격 세자리마다 콤마 함수
-  function formatPrice(num) {
-    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
 
   // 이벤트 목록용 카드
   function eventCard(pack) {

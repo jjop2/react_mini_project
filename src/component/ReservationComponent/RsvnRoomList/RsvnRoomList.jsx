@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import './RsvnRoomList.css'
 import { useState } from 'react';
+import { formatPrice } from '../../../utils/format';
 
 function RsvnRoomList({setRsvnInfo, totalGuestCount, roomData, packData}) {
   const navigate = useNavigate();
@@ -12,12 +13,6 @@ function RsvnRoomList({setRsvnInfo, totalGuestCount, roomData, packData}) {
   function updateInfo(key, value) {
     setRsvnInfo(obj => ({...obj, [key]: value}));
   }
-
-  // 가격 세자리마다 콤마 함수
-  function formatPrice(num) {
-    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
-  
   
   // 패키지 목록 틀
   function packCard(pack) {

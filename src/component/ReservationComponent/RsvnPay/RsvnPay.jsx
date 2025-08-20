@@ -1,35 +1,9 @@
 import './RsvnPay.css'
-import { useEffect } from 'react';
 
-function RsvnPay({testStart, isRight, setIsRight, setIsAllInfo, setIsAllcredit, setIsAllAgree, setIsAllValid, isOnline, setIsOnline, isAllInfo, isAllcredit, isAllAgree, setRsvnPayInfo}) {
-  
-  // 유효성 검사용 정규식
-  const inputRegexs = {
-    regexLastName: /^[a-zA-Z가-힣]+$/,
-    regexFirstName: /^[a-zA-Z가-힣]+$/,
-    regexEmail: /^([a-z]+\d*)+(\.?\w+)+@\w+(\.\w{2,3})+$/,
-    regexTel: /^\d{9,15}$/,
-    creditNum1: /^\d{4}$/,
-    creditNum2: /^\d{4}$/,
-    creditNum3: /^\d{4}$/,
-    creditNum4: /^\d{4}$/,
-  };
+function RsvnPay({setIsAllcredit, isOnline, setIsOnline, setRsvnPayInfo}) {
 
-  // 유효성 검사
-  function validateInput(e, name, regex) {
-    let value = e.target.value;
-
-    if(value) {
-      if(regex.test(value)) {
-        setIsRight(obj => ({...obj, [name]: true}));
-      } else {
-        setIsRight(obj => ({...obj, [name]: false}));
-      }
-    } else {
-      setIsRight(obj => ({...obj, [name]: false}));
-    }
-  };
-
+  // 유효성 검사 그룹
+  const creditFields = ["creditNum1", "creditNum2", "creditNum3", "creditNum4", ,"expirationMonth", "expirationYear"];
 
   // 유효기간용 배열
   const monthList = [1,2,3,4,5,6,7,8,9,10,11,12];
@@ -38,47 +12,6 @@ function RsvnPay({testStart, isRight, setIsRight, setIsAllInfo, setIsAllcredit, 
   for(let i=nowTime.getFullYear(); i<=nowTime.getFullYear()+10; i++) {
     yearList.push(i);
   }
-  
-
-  useEffect(() => {
-    const valid =
-      isRight.lastName &&
-      isRight.firstName &&
-      isRight.email &&
-      isRight.phone;
-      
-    setIsAllInfo(valid);
-  }, [isRight.lastName, isRight.firstName, isRight.email, isRight.phone]);
-
-  useEffect(() => {
-    const valid =
-      isRight.creditNum1 &&
-      isRight.creditNum2 &&
-      isRight.creditNum3 &&
-      isRight.creditNum4 &&
-      isRight.expirationMonth &&
-      isRight.expirationYear;
-      
-    setIsAllcredit(valid);
-  }, [isRight.creditNum1, isRight.creditNum2, isRight.creditNum3, isRight.creditNum4, isRight.expirationMonth, isRight.expirationYear]);
-
-  useEffect(() => {
-    const valid =
-      isRight.agreeInfo &&
-      isRight.agreeAge;
-      
-    setIsAllAgree(valid);
-  }, [isRight.agreeInfo, isRight.agreeAge]);
-
-  useEffect(() => {
-    const valid =
-      isAllInfo &&
-      isAllcredit &&
-      isAllAgree;
-    
-    setIsAllValid(valid);
-  }, [isAllInfo, isAllcredit, isAllAgree]);
-
 
   return (
     <div className="rsvnPay">
@@ -92,7 +25,7 @@ function RsvnPay({testStart, isRight, setIsRight, setIsAllInfo, setIsAllcredit, 
           <div className="inputBox inputBox-left">
             <h3>성 <span>*</span></h3>
             <input className='inputItem' type="text" id='last-name-txt' name='guestname' placeholder='성' onChange={(e)=>{
-                validateInput(e, 'lastName', inputRegexs.regexLastName);
+                validate('lastName', e.target.value);
                 setRsvnPayInfo(prev => ({...prev, lastName: e.target.value}));
               }} required />
             <p className={`checkMessage ${testStart.lastName && !isRight.lastName ? '' : 'hide'}`}>성을 입력해주세요</p>
@@ -100,7 +33,7 @@ function RsvnPay({testStart, isRight, setIsRight, setIsAllInfo, setIsAllcredit, 
           <div className="inputBox inputBox-right">
             <h3>이름 <span>*</span></h3>
             <input className='inputItem' type="text" id='first-name-txt' name='guestname' placeholder='이름' onChange={(e)=> {
-                validateInput(e, 'firstName', inputRegexs.regexFirstName);
+                validate('firstName', e.target.value);
                 setRsvnPayInfo(prev => ({...prev, firstName: e.target.value}));
               }} required />
             <p className={`checkMessage ${testStart.firstName && !isRight.firstName ? '' : 'hide'}`}>이름을 입력해주세요</p>
@@ -108,14 +41,14 @@ function RsvnPay({testStart, isRight, setIsRight, setIsAllInfo, setIsAllcredit, 
         </div>
         <div className="inputBox">
           <h3>이메일 <span>*</span></h3>
-          <input className='inputItem' type="email" id='email-txt' name='email' onChange={(e)=>validateInput(e, 'email', inputRegexs.regexEmail)} required />
+          <input className='inputItem' type="email" id='email-txt' name='email' onChange={(e)=>validate('email', e.target.value)} required />
           <p className={`checkMessage ${testStart.email && !isRight.email ? '' : 'hide'}`}>이메일 주소를 다시 확인해주세요</p>
         </div>
         <div className="inputBox">
           <h3>휴대폰 번호 <span>*</span></h3>
           <input className='inputItem' type="tel" id='phone-txt' name='phone' placeholder='예: 01012345678' onChange={(e)=>{
             e.target.value = e.target.value.replace(/[^0-9]/g, '');
-            validateInput(e, 'phone', inputRegexs.regexTel);
+            validate('phone', e.target.value);
             setRsvnPayInfo(prev => ({...prev, phone: e.target.value}));
           }} required />
           <p className={`checkMessage ${testStart.phone && !isRight.phone ? '' : 'hide'}`}>휴대폰 번호를 다시 확인해주세요</p>
@@ -140,11 +73,7 @@ function RsvnPay({testStart, isRight, setIsRight, setIsAllInfo, setIsAllcredit, 
               </div>
               <div className={`tabBtn ${isOnline ? '' : 'tabBtnSelected'}`} onClick={()=>{
                 setIsOnline(false);
-                if(isRight.creditNum1 && isRight.creditNum2 && isRight.creditNum3 && isRight.creditNum4 && isRight.expirationMonth && isRight.expirationYear)
-                  setIsAllcredit(true);
-                else
-                  setIsAllcredit(false);
-                    
+                setIsAllcredit(creditFields.every(field => isRight[field]));
                 }}>
                 <p>현장 결제</p>
               </div>
@@ -160,19 +89,19 @@ function RsvnPay({testStart, isRight, setIsRight, setIsAllInfo, setIsAllcredit, 
                   <div className="creditInputItem">
                     <input className='inputItem' type="text" id='creditNum1' name='creditNum' inputMode="numeric" maxLength={4} onInput={(e)=>{
                       e.target.value = e.target.value.replace(/[^0-9]/g, '');
-                      validateInput(e, 'creditNum1', inputRegexs.creditNum1);
+                      validate('creditNum1', e.target.value);
                     }} required />
                     <input className='inputItem' type="text" id='creditNum2' name='creditNum' maxLength={4} onInput={(e)=>{
                       e.target.value = e.target.value.replace(/[^0-9]/g, '');
-                      validateInput(e, 'creditNum2', inputRegexs.creditNum2)
+                      validate('creditNum2', e.target.value)
                     }} required />
                     <input className='inputItem' type="text" id='creditNum3' name='creditNum' maxLength={4} onInput={(e)=>{
                       e.target.value = e.target.value.replace(/[^0-9]/g, '');
-                      validateInput(e, 'creditNum3', inputRegexs.creditNum3)
+                      validate('creditNum3', e.target.value)
                     }} required />
                     <input className='inputItem' type="text" id='creditNum4' name='creditNum' maxLength={4} onInput={(e)=>{
                       e.target.value = e.target.value.replace(/[^0-9]/g, '');
-                      validateInput(e, 'creditNum4', inputRegexs.creditNum4)
+                      validate('creditNum4', e.target.value)
                     }} required />
                   </div>
                   <p className={`checkMessage ${(testStart.creditNum1 || testStart.creditNum2 || testStart.creditNum3 || testStart.creditNum4) && (!isRight.creditNum1 || !isRight.creditNum2 || !isRight.creditNum3 || !isRight.creditNum4) ? '' : 'hide'}`}>카드번호를 다시 확인해주세요</p>
@@ -182,11 +111,11 @@ function RsvnPay({testStart, isRight, setIsRight, setIsAllInfo, setIsAllcredit, 
                   <h3>유효기간</h3>
                   <div className="creditInputItem">
 
-                    <select className='inputItem' name="expirationDate" id="expirationMonth" onChange={(e)=>{
+                    <select className='inputItem' name="expirationMonth" id="expirationMonth" onChange={(e)=>{
                       if(e.target.value !== 'none') {
-                        setIsRight(obj => ({...obj, expirationMonth: true}));
+                        validate("expirationMonth", true);
                       } else {
-                        setIsRight(obj => ({...obj, expirationMonth: false}));
+                        validate("expirationMonth", false);
                       }
                     }} required>
                       <option value="none">월</option>
@@ -198,11 +127,11 @@ function RsvnPay({testStart, isRight, setIsRight, setIsAllInfo, setIsAllcredit, 
                         })
                       }
                     </select>
-                    <select className='inputItem' name="expirationDate" id="expirationYear" onChange={(e)=>{
+                    <select className='inputItem' name="expirationYear" id="expirationYear" onChange={(e)=>{
                       if(e.target.value !== 'none') {
-                        setIsRight(obj => ({...obj, expirationYear: true}));
+                        validate("expirationYear", true);
                       } else {
-                        setIsRight(obj => ({...obj, expirationYear: false}));
+                        validate("expirationYear", false);
                       }
                     }} required>
                       <option value="none">년</option>
@@ -232,20 +161,20 @@ function RsvnPay({testStart, isRight, setIsRight, setIsAllInfo, setIsAllcredit, 
         </div>
         <div className="agreeBox">
           <label>
-            <input type="checkbox" id='checkAgreeInfo' name='checkAgree' onChange={(e)=>{
+            <input type="checkbox" id='checkAgreeInfo' name='checkAgreeInfo' onChange={(e)=>{
               if(e.target.checked)
-                setIsRight(obj => ({...obj, agreeInfo: true}));
+                validate("checkAgreeInfo", true);
               else
-                setIsRight(obj => ({...obj, agreeInfo: false}));
+                validate("checkAgreeInfo", false);
             }} required/>
             <p>[필수] 개인정보 수집 및 이용 동의</p>
           </label>
           <label>
-            <input type="checkbox" id='checkAgreeAge' name='checkAgree' onChange={(e)=>{
+            <input type="checkbox" id='checkAgreeAge' name='checkAgreeAge' onChange={(e)=>{
               if(e.target.checked)
-                setIsRight(obj => ({...obj, agreeAge: true}));
+                validate("checkAgreeAge", true);
               else
-                setIsRight(obj => ({...obj, agreeAge: false}));
+                validate("checkAgreeAge", false);
             }} required/>
             <p>[필수] 만 14세 이상 이용 동의</p>
           </label>

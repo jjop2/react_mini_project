@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import './EventDetail.css'
+import { formatPrice } from '../../utils/format';
 
 function EventDetail({packData}) {
   const navigate = useNavigate();
@@ -10,11 +11,6 @@ function EventDetail({packData}) {
   if (!selectEvent) {
     return <div>존재하지 않는 이벤트입니다.</div>
   }
-
-  // 가격 세자리마다 콤마 함수
-  function formatPrice(num) {
-    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
 
   function eventDetailCard(event) {
     return (

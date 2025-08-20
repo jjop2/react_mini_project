@@ -1,0 +1,30 @@
+.rsvnResultCard {
+  border: 1px solid #DAD2C9;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.rsvnResultTitle {
+  border-bottom: 1px solid #DAD2C9;
+  color: #C7925D;
+}
+
+.rsvnResultCardItem {
+  padding: 1rem;
+  margin-top: 1rem;
+  background: #F7F5F2;
+  border-radius: 5px;
+}
+
+.rsvnResultCardItem p {
+  padding-top: 0.5rem;
+}
+
+.rsvnResultCardItem h4:nth-child(3) {
+  padding-top: 1rem;
+}
+
+.rsvnBkfAdd-notOnly {
+  padding-top: 1rem;
+}
