@@ -1,9 +1,9 @@
 import './RsvnPay.css'
 
-function RsvnPay({setIsAllcredit, isOnline, setIsOnline, setRsvnPayInfo}) {
+function RsvnPay({testStart, isRight, validate, isOnline, setIsOnline, setRsvnPayInfo}) {
 
   // 유효성 검사 그룹
-  const creditFields = ["creditNum1", "creditNum2", "creditNum3", "creditNum4", ,"expirationMonth", "expirationYear"];
+  
 
   // 유효기간용 배열
   const monthList = [1,2,3,4,5,6,7,8,9,10,11,12];
@@ -65,16 +65,20 @@ function RsvnPay({setIsAllcredit, isOnline, setIsOnline, setRsvnPayInfo}) {
           <div className="creditTabBox">
 
             <div className="tab2">
-              <div className={`tabBtn ${isOnline ? 'tabBtnSelected' : ''}`} onClick={()=>{
-                setIsOnline(true);
-                setIsAllcredit(true);
+              <div className={`tabBtn ${isOnline ? 'tabBtnSelected' : ''}`} onClick={()=> {
+                  setIsOnline(true);
+
+                  // 임시 코드 : 카드 결제 기능이 없으므로
+                  validate('creditNum1', '1234');
+                  validate('creditNum2', '1234');
+                  validate('creditNum3', '1234');
+                  validate('creditNum4', '1234');
+                  validate('expirationMonth', '1');
+                  validate('expirationYear', '2035');
                 }}>
                 <p>온라인 결제</p>
               </div>
-              <div className={`tabBtn ${isOnline ? '' : 'tabBtnSelected'}`} onClick={()=>{
-                setIsOnline(false);
-                setIsAllcredit(creditFields.every(field => isRight[field]));
-                }}>
+              <div className={`tabBtn ${isOnline ? '' : 'tabBtnSelected'}`} onClick={()=>setIsOnline(false)}>
                 <p>현장 결제</p>
               </div>
             </div>

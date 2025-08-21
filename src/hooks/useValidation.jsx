@@ -14,6 +14,7 @@ const regexs ={
 };
 
 export function useValidation(initialFields) {
+
   // 유효성 검사 결과 상태
   const [isRight, setIsRight] = useState(
     Object.fromEntries(initialFields.map(f => [f, false]))

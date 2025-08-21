@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import RsvnPayNextBtn from '../RsvnNextBtn/RsvnPayNextBtn';
 import { formatPrice } from '../../../utils/format';
 
-function NowInfoPay({rsvnInfo, setRsvnInfo, totalGuestCount, setTestStart, isOnline, isAllInfo, isAllcredit, isAllValid, rsvnPayInfo, setRsvnPayInfo}) {
+function NowInfoPay({rsvnInfo, setRsvnInfo, totalGuestCount, startTest, isOnline, isAllInfo, isAllCredit, isAllValid, rsvnPayInfo, setRsvnPayInfo}) {
   // rsvnInfo 구조 분해
   const {adultCount, childCount, selectedProduct, bedType, bkfAdult, bkfChild, bkfAdultAdd, bkfChildAdd, checkInDate, checkOutDate, stayNights} = rsvnInfo;
 
@@ -113,10 +113,10 @@ function NowInfoPay({rsvnInfo, setRsvnInfo, totalGuestCount, setTestStart, isOnl
           <RsvnPayNextBtn
             rsvnInfo={rsvnInfo}
             setRsvnInfo={setRsvnInfo}
-            setTestStart={setTestStart}
+            startTest={startTest}
             isOnline={isOnline}
             isAllInfo={isAllInfo}
-            isAllcredit={isAllcredit}
+            isAllCredit={isAllCredit}
             isAllValid={isAllValid}
 
             rsvnPayInfo={rsvnPayInfo}

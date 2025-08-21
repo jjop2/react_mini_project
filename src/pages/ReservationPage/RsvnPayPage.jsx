@@ -2,17 +2,19 @@ import './RsvnPayPage.css'
 import { useEffect, useState } from 'react';
 import NowInfoPay from '../../component/ReservationComponent/RsvnNowInfo/NowInfoPay';
 import RsvnPay from '../../component/ReservationComponent/RsvnPay/RsvnPay';
+import { useValidation } from '../../hooks/useValidation';
 
 function RsvnPayPage({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGuestCount, packData}) {
   // 유효성 검사
   const { isRight, testStart, validate, startTest, isAllValid } = new useValidation([
-    "lastName", "firstName", "email", "phone", "creditNum1", "creditNum2", "creditNum3", "creditNum4", ,"expirationMonth", "expirationYear", "checkAgreeInfo", "checkAgreeAge"
+    "lastName", "firstName", "email", "phone", "creditNum1", "creditNum2", "creditNum3", "creditNum4", "expirationMonth", "expirationYear", "checkAgreeInfo", "checkAgreeAge"
   ]);
   
   // 유효성 검사 그룹
   const infoFields = ["lastName", "firstName", "email", "phone"];
+  const creditFields = ["creditNum1", "creditNum2", "creditNum3", "creditNum4", "expirationMonth", "expirationYear"];
   const isAllInfo = infoFields.every(field => isRight[field]);
-  const [isAllcredit, setIsAllcredit] = useState(false);
+  const isAllCredit = creditFields.every(field => isRight[field]);
  
   // 결제 방식 탭
   const [isOnline, setIsOnline] = useState(true);
@@ -52,7 +54,7 @@ function RsvnPayPage({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGue
           <RsvnPay
             testStart={testStart}
             isRight={isRight}
-            setIsAllcredit={setIsAllcredit}
+            validate={validate}
             isOnline={isOnline}
             setIsOnline={setIsOnline}
             setRsvnPayInfo={setRsvnPayInfo}
@@ -67,10 +69,10 @@ function RsvnPayPage({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGue
             checkInDate={checkInDate}
             checkOutDate={checkOutDate}
             totalGuestCount={totalGuestCount}
-            setTestStart={setTestStart}
+            startTest={startTest}
             isOnline={isOnline}
             isAllInfo={isAllInfo}
-            isAllcredit={isAllcredit}
+            isAllCredit={isAllCredit}
             isAllValid={isAllValid}
 
             rsvnPayInfo={rsvnPayInfo}
