@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 const regexs ={
-  lastName: /^[a-zA-Z가-힣]+$/,
-  firstName: /^[a-zA-Z가-힣]+$/,
+  familyName: /^[a-zA-Z가-힣]+$/,
+  givenName: /^[a-zA-Z가-힣]+$/,
   email: /^([a-z]+\d*)+(\.?\w+)+@\w+(\.\w{2,3})+$/,
   phone: /^\d{9,15}$/,
   creditNum1: /^\d{4}$/,

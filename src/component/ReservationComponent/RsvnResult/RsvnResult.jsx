@@ -21,7 +21,7 @@ function RsvnResult() {
         </div>
         <div className="rsvnResultCardItem">
             <h4>예약자명</h4>
-            <p>{rsvnResult.lastName} {rsvnResult.firstName}</p>
+            <p>{rsvnResult.familyName} {rsvnResult.givenName}</p>
             <h4>연락처</h4>
             <p>{rsvnResult.phone}</p>
         </div>

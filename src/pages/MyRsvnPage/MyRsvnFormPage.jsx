@@ -8,7 +8,7 @@ import { useValidation } from '../../hooks/useValidation';
 
   // 유효성 검사
   const { isRight, testStart, validate, startTest, isAllValid } = new useValidation([
-    "lastName", "firstName", "rsvnNum"
+    "familyName", "givenName", "rsvnNum"
   ]);
 
   return (
@@ -23,13 +23,13 @@ import { useValidation } from '../../hooks/useValidation';
           <div className="inputNameBox">
             <div className="inputBox inputBox-left">
               <h3>성 <span>*</span></h3>
-              <input className='inputItem' type="text" id='last-name-txt' name='guestname' placeholder='성' onChange={(e)=>validate('lastName', e.target.value)} required />
-              <p className={`checkMessage ${testStart.lastName && !isRight.lastName ? '' : 'hide'}`}>성을 입력해주세요</p>
+              <input className='inputItem' type="text" id='family-name-txt' name='guestname' placeholder='성' onChange={(e)=>validate('familyName', e.target.value)} required />
+              <p className={`checkMessage ${testStart.familyName && !isRight.familyName ? '' : 'hide'}`}>성을 입력해주세요</p>
             </div>
             <div className="inputBox inputBox-right">
               <h3>이름 <span>*</span></h3>
-              <input className='inputItem' type="text" id='first-name-txt' name='guestname' placeholder='이름' onChange={(e)=>validate('firstName', e.target.value)} required />
-              <p className={`checkMessage ${testStart.firstName && !isRight.firstName ? '' : 'hide'}`}>이름을 입력해주세요</p>
+              <input className='inputItem' type="text" id='given-name-txt' name='guestname' placeholder='이름' onChange={(e)=>validate('givenName', e.target.value)} required />
+              <p className={`checkMessage ${testStart.givenName && !isRight.givenName ? '' : 'hide'}`}>이름을 입력해주세요</p>
             </div>
           </div>
           <div className="inputBox">

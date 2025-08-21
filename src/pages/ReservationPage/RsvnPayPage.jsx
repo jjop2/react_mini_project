@@ -7,11 +7,11 @@ import { useValidation } from '../../hooks/useValidation';
 function RsvnPayPage({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGuestCount, packData}) {
   // 유효성 검사
   const { isRight, testStart, validate, startTest, isAllValid } = new useValidation([
-    "lastName", "firstName", "email", "phone", "creditNum1", "creditNum2", "creditNum3", "creditNum4", "expirationMonth", "expirationYear", "checkAgreeInfo", "checkAgreeAge"
+    "familyName", "givenName", "email", "phone", "creditNum1", "creditNum2", "creditNum3", "creditNum4", "expirationMonth", "expirationYear", "checkAgreeInfo", "checkAgreeAge"
   ]);
   
   // 유효성 검사 그룹
-  const infoFields = ["lastName", "firstName", "email", "phone"];
+  const infoFields = ["familyName", "givenName", "email", "phone"];
   const creditFields = ["creditNum1", "creditNum2", "creditNum3", "creditNum4", "expirationMonth", "expirationYear"];
   const isAllInfo = infoFields.every(field => isRight[field]);
   const isAllCredit = creditFields.every(field => isRight[field]);
@@ -21,8 +21,8 @@ function RsvnPayPage({rsvnInfo, setRsvnInfo, checkInDate, checkOutDate, totalGue
   
   // 입력한 예약자 정보 저장
   const [rsvnPayInfo, setRsvnPayInfo] = useState({
-    lastName: '',
-    firstName: '',
+    familyName: '',
+    givenName: '',
     phone: 0,
     isOnline: true,
     totalPayment: 0,
