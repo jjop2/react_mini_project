@@ -1,13 +1,13 @@
 .rsvnResultCard {
-  border: 1px solid #DAD2C9;
+  border: 1px solid #A7BCC5;
   border-radius: 5px;
   padding: 1rem;
   margin-top: 1rem;
 }
 
 .rsvnResultTitle {
-  border-bottom: 1px solid #DAD2C9;
-  color: #C7925D;
+  border-bottom: 1px solid #A7BCC5;
+  color: #2B4F60;
 }
 
 .rsvnResultCardItem {
@@ -15,6 +15,10 @@
   margin-top: 1rem;
   background: #F7F5F2;
   border-radius: 5px;
+}
+
+.rsvnResultCardItem h4 {
+  color: #5B6D74;
 }
 
 .rsvnResultCardItem p {

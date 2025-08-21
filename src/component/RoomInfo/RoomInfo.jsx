@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import './RoomInfo.css'
+import RsvnInfoBox from '../RsvnInfoBox/RsvnInfoBox';
 
 function RoomInfo({roomData, showStandard, showDeluxe, showSuite}) {
   // 새로고침 했을 때 비동기 불러오는 거 처리
@@ -97,6 +98,8 @@ function RoomInfo({roomData, showStandard, showDeluxe, showSuite}) {
 
         }
       </div>
+
+      <RsvnInfoBox />
 
     </div>
   )

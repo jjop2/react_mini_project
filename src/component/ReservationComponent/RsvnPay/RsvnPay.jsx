@@ -1,3 +1,4 @@
+import RsvnInfoBox from '../../RsvnInfoBox/RsvnInfoBox';
 import './RsvnPay.css'
 
 function RsvnPay({testStart, isRight, validate, isOnline, setIsOnline, setRsvnPayInfo}) {
@@ -184,6 +185,9 @@ function RsvnPay({testStart, isRight, validate, isOnline, setIsOnline, setRsvnPa
           </label>
         </div>
       </div>
+
+      <RsvnInfoBox />
+
     </div>
   )
 }

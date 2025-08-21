@@ -1,4 +1,5 @@
 import { formatPrice } from '../../../utils/format';
+import RsvnInfoBox from '../../RsvnInfoBox/RsvnInfoBox';
 import './RsvnResult.css'
 
 function RsvnResult() {
@@ -115,6 +116,9 @@ function RsvnResult() {
           <p>{rsvnResult.isOnline ? '온라인 사전 결제(완료)' : '현장 결제(예정)'}</p>
         </div>
       </div>
+
+      <RsvnInfoBox />
+
     </div>
   )
 }

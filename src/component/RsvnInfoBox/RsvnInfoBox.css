@@ -1,0 +1,20 @@
+.rsvnNotice {
+  padding: 2rem;
+  margin-top: 2rem;
+  background: #E8EEF0;
+}
+
+.rsvnNoticeList {
+  padding-top: 1rem;
+  list-style-type: none;
+}
+
+.rsvnNoticeList li::before {
+  content: "•";
+  margin-right: 0.4rem;
+}
+
+.rsvnNoticeList li {
+  padding-bottom: 0.5rem;
+  font-size: 1rem;
+}
