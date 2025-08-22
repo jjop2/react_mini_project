@@ -1,0 +1,106 @@
+@font-face {
+  font-family: 'GowunDodum-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.hotelStory {
+  padding-bottom: 2rem;
+}
+
+.hotelStoryImg {
+  height: 30rem;
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.hotelStoryText {
+  padding: 2rem;
+  text-align: center;
+  background: white;
+}
+
+.hotelStoryText > h4 {
+  font-family: 'GowunDodum-Regular';
+  font-style: italic;
+  font-size: 2rem;
+  color: #2B4F60;
+  width: 100%;
+}
+
+.hotelStoryText p {
+  font-family: 'GowunDodum-Regular';
+  padding-top: 2rem;
+  font-size: 1rem;
+}
+
+.keyValues {
+  background: #F7F5F2;
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.keyValuesTitle {
+  font-family: 'GowunDodum-Regular';
+  padding: 3rem;
+  text-decoration: underline;
+  text-underline-position: under;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+  font-size: 1.8rem;
+}
+
+.keyValuesItem {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: center;
+  gap: 5rem 10rem;
+  padding: 1rem;
+}
+
+.keyValueCard {
+  width: 300px;
+}
+
+.keyValueImg {
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.keyValueTitle {
+  font-family: 'GowunDodum-Regular';
+  margin: 1rem 0;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  background:#6C8B74;
+  color: #F7F5F2;
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+  .hotelStoryImg {
+    height: 16rem;
+  }
+
+  /* .hotelStoryText > h4 {
+    font-size: 1.5rem;
+  }
+
+  .hotelStoryText p {
+    font-size: 0.9rem;
+  } */
+
+  .keyValuesTitle {
+    /* font-size: 1.5rem; */
+  }
+
+  .keyValuesItem {
+    grid-template-columns: repeat(1, auto);
+  }
+}

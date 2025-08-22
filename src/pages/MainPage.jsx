@@ -119,12 +119,12 @@ function MainPage({packData}) {
             <p>그리고 숲이 전하는 치유의 숨결</p>
             <p>미식과 웰니스, 자연 속 안식을 전합니다</p>
           </div>
-          <div className='moreInfo'>MORE &nbsp;&gt;</div>
+          <div className='moreInfo' onClick={()=>navigate('/about')}>MORE &nbsp;&gt;</div>
         </div>
       </div>
 
       {/* 객실, 다이닝 짧은 소개 */}
-      <div className="hotelInfo">
+      <div className="hotelInfo-main">
         <div className="hotelInfoCard hotelInfoCard-left">
           <div style={{backgroundImage: `url(${roomSample})`}} className='sampleImg'></div>
           <div className="hotelInfoDetail">

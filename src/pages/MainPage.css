@@ -315,7 +315,7 @@ body, .mainPage {
   color: white;
 }
 
-.hotelInfo {
+.hotelInfo-main {
   display: flex;
   justify-content: center;
   background: #DAD2C9;

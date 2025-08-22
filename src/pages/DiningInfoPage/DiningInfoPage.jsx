@@ -10,7 +10,7 @@ function DiningInfoPage({diningkData}) {
           <h2>다이닝</h2>
         </div>
 
-        <div className="diningbody">
+        <div className="pageBody">
           <DiningInfo
             diningkData={diningkData}
           />

@@ -44,7 +44,7 @@ function Header() {
       {/* pc 사이즈용 네비게이션바 */}
       <div className="subNav">
         <ul className='subNavList'>
-          <li>Hotel Miren</li>
+          <li onClick={()=>navigate('/about')}>Hotel Miren</li>
           <li onClick={()=>navigate('/event')}>이벤트</li>
           <li onClick={()=>navigate('/room')}>객실</li>
           <li onClick={()=>navigate('/dining')}>다이닝</li>
@@ -63,7 +63,7 @@ function Header() {
         </div>
         <li onClick={() => {
           setShowBurger(false);
-          
+          navigate('/about');
         }}>Hotel Miren</li>
         <li onClick={() => {
           setShowBurger(false);

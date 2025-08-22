@@ -16,6 +16,7 @@ import EventDetailPage from './pages/EventInfoPage/EventDetailPage'
 import Footer from './component/Footer'
 import MyRsvnFormPage from './pages/MyRsvnPage/MyRsvnFormPage'
 import RsvnResultPage from './pages/ReservationPage/RsvnResultPage'
+import HotelInfoPage from './pages/HotelInfoPage/HotelInfoPage'
 
 function App() {
   // 예약 정보 오브젝트
@@ -167,6 +168,7 @@ function App() {
           packData={packData}
         />} />
         <Route path='/reservation/result' element={<RsvnResultPage />} />
+        <Route path='/about' element={<HotelInfoPage />} />
         <Route path='/room' element={<RoomInfoPage
           roomData={roomData}
         />} />

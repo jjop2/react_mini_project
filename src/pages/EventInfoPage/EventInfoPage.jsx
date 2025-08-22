@@ -10,7 +10,7 @@ function EventInfoPage({packData}) {
           <h2>이벤트</h2>
         </div>
 
-        <div className="eventLIst">
+        <div className="pageBody">
           <EventInfoList
             packData={packData}
           />

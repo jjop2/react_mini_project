@@ -16,32 +16,34 @@ function RoomInfoPage({roomData}) {
           <h2>객실</h2>
         </div>
 
-        {/* 객실 유형 탭 메뉴 */}
-        <div className="tab">
-          <div className={`tabBtn ${showStandard ? 'tabBtnSelected' : ''}`} id='room' onClick={()=>{
-            setShowStandard(true);
-            setShowDeluxe(false);
-            setShowSuite(false);
-            }}>스탠다드</div>
-          <div className={`tabBtn ${showDeluxe ? 'tabBtnSelected' : ''}`} id='package' onClick={()=>{
-            setShowStandard(false);
-            setShowDeluxe(true);
-            setShowSuite(false);
-            }}>디럭스</div>
-          <div className={`tabBtn ${showSuite ? 'tabBtnSelected' : ''}`} id='package' onClick={()=>{
-            setShowStandard(false);
-            setShowDeluxe(false);
-            setShowSuite(true);
-            }}>스위트</div>
-        </div>
+        <div className="pageBody">
+          {/* 객실 유형 탭 메뉴 */}
+          <div className="tab">
+            <div className={`tabBtn ${showStandard ? 'tabBtnSelected' : ''}`} id='room' onClick={()=>{
+              setShowStandard(true);
+              setShowDeluxe(false);
+              setShowSuite(false);
+              }}>스탠다드</div>
+            <div className={`tabBtn ${showDeluxe ? 'tabBtnSelected' : ''}`} id='package' onClick={()=>{
+              setShowStandard(false);
+              setShowDeluxe(true);
+              setShowSuite(false);
+              }}>디럭스</div>
+            <div className={`tabBtn ${showSuite ? 'tabBtnSelected' : ''}`} id='package' onClick={()=>{
+              setShowStandard(false);
+              setShowDeluxe(false);
+              setShowSuite(true);
+              }}>스위트</div>
+          </div>
 
-        {/* 객실 정보 본문 */}
-        <RoomInfo
-          roomData={roomData}
-          showStandard={showStandard}
-          showDeluxe={showDeluxe}
-          showSuite={showSuite}
-        />
+          {/* 객실 정보 본문 */}
+          <RoomInfo
+            roomData={roomData}
+            showStandard={showStandard}
+            showDeluxe={showDeluxe}
+            showSuite={showSuite}
+          />
+        </div>
         
       </div>
     </div>
