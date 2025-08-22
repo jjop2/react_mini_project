@@ -82,22 +82,23 @@
   color: #F7F5F2;
 }
 
+
 /* 모바일 */
 @media (max-width: 768px) {
   .hotelStoryImg {
     height: 16rem;
   }
 
-  /* .hotelStoryText > h4 {
+  .hotelStoryText > h4 {
     font-size: 1.5rem;
   }
 
   .hotelStoryText p {
     font-size: 0.9rem;
-  } */
+  }
 
   .keyValuesTitle {
-    /* font-size: 1.5rem; */
+    font-size: 1.5rem;
   }
 
   .keyValuesItem {

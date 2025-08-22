@@ -16,10 +16,6 @@ html {
   font-family: 'SpoqaHanSansNeo-Regular';
 }
 
-body {
-  font-size: 1.6rem;
-}
-
 .hide {
   display: none;
 }
@@ -45,16 +41,16 @@ body {
 
 /* 태블릿 */
 @media screen and (max-width:768px) {
-  body {
-    font-size: 1.2rem;
+  html {
+    font-size: 14px;
   }
 
 }
 
 /* 스마트폰 */
 @media screen and (max-width:480px) {
-  body {
-    font-size: 1rem;
+  html {
+    font-size: 12px;
   }
 
   .pageTitle {
